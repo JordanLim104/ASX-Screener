@@ -15,6 +15,8 @@ pip install -r requirements.txt
 python screen.py                 # uses criteria.yaml + universe.txt
 ```
 Writes `output/results.json` and `output/email.html`, and prints a summary.
+The email lists each match with its company name, sector, and a 12-month price
+sparkline (built from pure HTML/CSS bars so it renders in Gmail — no images or SVG).
 
 ## Data provider
 Default is **yfinance** (free, no key, unofficial — fine for a personal weekly

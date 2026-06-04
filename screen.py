@@ -122,6 +122,13 @@ def get_metrics_yfinance(base: str) -> dict:
     name = info.get("shortName") or info.get("longName") or base
     sector = info.get("sector") or None
 
+    # Weekly closing prices over the last year, for the 12-month sparkline.
+    try:
+        hist = t.history(period="1y", interval="1wk")
+        price_series = [float(c) for c in hist["Close"].dropna().tolist()]
+    except Exception:
+        price_series = []
+
     # Annual income statement for revenue + EBITDA history.
     try:
         stmt = t.income_stmt
@@ -152,6 +159,7 @@ def get_metrics_yfinance(base: str) -> dict:
         "market_cap": _f(mcap),
         "price": _f(price),
         "high_52w": _f(high),
+        "price_series": price_series,
         "revenue_history": row_history("Total Revenue", "TotalRevenue", "Operating Revenue"),
         "ebitda_history": row_history("EBITDA", "Normalized EBITDA"),
     }
@@ -183,6 +191,29 @@ def get_metrics_eodhd(base: str, api_key: str) -> dict:
     ).json()
     price = rt.get("close")
 
+    # Weekly closing prices over the last ~year, for the 12-month sparkline.
+    from datetime import date, timedelta
+    price_series = []
+    try:
+        eod = requests.get(
+            f"https://eodhd.com/api/eod/{display}",
+            params={
+                "api_token": api_key,
+                "fmt": "json",
+                "period": "w",
+                "from": (date.today() - timedelta(days=370)).isoformat(),
+            },
+            timeout=30,
+        ).json()
+        for row in eod or []:
+            c = _f(row.get("adjusted_close"))
+            if c is None:
+                c = _f(row.get("close"))
+            if c is not None:
+                price_series.append(c)
+    except Exception:
+        price_series = []
+
     yearly = (fund.get("Financials", {}) or {}).get("Income_Statement", {}).get("yearly", {}) or {}
     rev, ebitda = [], []
     for date, rowdata in yearly.items():
@@ -205,6 +236,7 @@ def get_metrics_eodhd(base: str, api_key: str) -> dict:
         "market_cap": _f(mcap),
         "price": _f(price),
         "high_52w": _f(high),
+        "price_series": price_series,
         "revenue_history": _sorted_history(rev),
         "ebitda_history": _sorted_history(ebitda),
     }
@@ -348,6 +380,50 @@ def _ebitda_label(cfg: dict) -> str:
     return f"EBITDA &gt; {fmt_money(thr)} (latest yr)"
 
 
+def _downsample(series: list[float], n: int = 28) -> list[float]:
+    """Reduce a series to at most n points by even sampling (keeps first & last)."""
+    if len(series) <= n:
+        return series
+    step = (len(series) - 1) / (n - 1)
+    return [series[round(i * step)] for i in range(n)]
+
+
+def build_sparkline(series: list[float]) -> str:
+    """A 12-month price sparkline built from thin, touching HTML/CSS bars.
+
+    Uses only table cells + colored divs (no SVG, no images) so it renders in
+    Gmail. Bars touch to read as a filled line/area; green if the period closed
+    up, red if down. Returns a small placeholder when there's no usable series.
+    """
+    series = [v for v in (series or []) if v is not None]
+    if len(series) < 2:
+        return '<span style="color:#999;font-size:11px">no price data</span>'
+
+    pts = _downsample(series)
+    lo, hi = min(pts), max(pts)
+    rng = (hi - lo) or 1.0
+    maxh = 34  # px
+    color = "#2e7d32" if series[-1] >= series[0] else "#b00020"
+
+    bars = []
+    for v in pts:
+        h = int(round((v - lo) / rng * (maxh - 3))) + 3
+        bars.append(
+            f'<td style="vertical-align:bottom;height:{maxh}px;padding:0">'
+            f'<div style="width:3px;height:{h}px;background:{color};'
+            f'font-size:0;line-height:0">&nbsp;</div></td>'
+        )
+
+    chg = (series[-1] - series[0]) / series[0] * 100.0 if series[0] else None
+    chg_str = fmt_pct(chg, signed=True) if chg is not None else ""
+    return (
+        '<table role="presentation" cellpadding="0" cellspacing="0" '
+        f'style="border-collapse:collapse;height:{maxh}px"><tr>{"".join(bars)}</tr></table>'
+        f'<div style="font-size:10px;color:#888;margin-top:2px">'
+        f'12mo {chg_str} &middot; {fmt_money(lo)}&ndash;{fmt_money(hi)}</div>'
+    )
+
+
 def build_html(passers: list[dict], cfg: dict, run_date: str, loosened: bool) -> str:
     rows = []
     for r in passers:
@@ -363,9 +439,10 @@ def build_html(passers: list[dict], cfg: dict, run_date: str, loosened: bool) ->
           <td style="text-align:right;color:#b00020">{fmt_pct(d.get('drawdown_pct'))}</td>
           <td style="text-align:right">{yoy_str}</td>
           <td style="text-align:right">{fmt_money(d.get('ebitda_latest'))}</td>
+          <td style="padding:8px 8px 8px 14px">{build_sparkline(r.get('price_series'))}</td>
         </tr>""")
     body = "".join(rows) if rows else (
-        '<tr><td colspan="7" style="padding:16px;color:#666">'
+        '<tr><td colspan="8" style="padding:16px;color:#666">'
         'No stocks matched, even after loosening.</td></tr>'
     )
 
@@ -400,6 +477,7 @@ def build_html(passers: list[dict], cfg: dict, run_date: str, loosened: bool) ->
       <th style="padding:8px;text-align:right">Below High</th>
       <th style="padding:8px;text-align:right">Rev YoY (oldest&rarr;newest)</th>
       <th style="padding:8px;text-align:right">EBITDA (latest)</th>
+      <th style="padding:8px;text-align:left">12-mo price</th>
     </tr></thead>
     <tbody>{body}</tbody>
   </table>
@@ -453,6 +531,7 @@ def main():
                     "display": m["display"],
                     "name": m["name"],
                     "sector": m.get("sector"),
+                    "price_series": m.get("price_series") or [],
                     "derived": derived,
                 })
         return out
