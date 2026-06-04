@@ -1,0 +1,47 @@
+# ASX turnaround screener — criteria
+# All currency values are AUD. yfinance returns AUD market cap/financials for .AX tickers.
+
+market_cap:
+  min: 2000000000      # A$2bn
+  max: 20000000000     # A$20bn
+
+drawdown:
+  min_pct_below_high: 50   # price at least 50% below its 52-week high
+
+revenue_growth:
+  # "each_year" = revenue grew YoY in EVERY one of the last `years` comparisons (strict).
+  # "net"       = revenue is net higher across the whole period (tolerates a single down year).
+  mode: each_year
+  years: 3                 # 3 YoY comparisons -> needs 4 years of revenue data
+  min_yoy_pct: 0           # 0 = any positive growth; raise to e.g. 5 to demand >5% growth
+
+ebitda:
+  # "Break-even to profitable" interpreted as a turnaround into positive EBITDA.
+  require_latest_positive: true   # most recent fiscal year EBITDA must be > breakeven_threshold
+  require_turnaround: false       # only require current EBITDA positivity (no turnaround condition)
+  turnaround_lookback: 2          # how many prior years to check for the break-even/loss point
+  breakeven_threshold: 0          # AUD; <= this counts as "break-even or loss"
+  # Set require_turnaround: false to simply require current EBITDA positivity (drops the
+  # "was recently break-even" condition).
+
+ranking:
+  by: drawdown_pct        # drawdown_pct | revenue_cagr | market_cap
+  descending: true        # most beaten-down first
+
+data:
+  provider: yfinance      # yfinance (free, no key) | eodhd (needs EODHD_API_KEY env var)
+  request_delay_sec: 0.5  # pause between tickers to avoid rate limiting
+
+fallback:
+  # If the base pass returns ZERO matches, the screen re-runs once with these
+  # deltas applied (negative = looser). Re-uses already-fetched data, so no extra
+  # API calls. The email states the actual values used and flags that it loosened.
+  enabled: true
+  drawdown_delta_pct: -2            # 50% -> 48% below the 52-week high
+  breakeven_threshold_delta: -50000000   # 0 -> -A$50M; allows near-break-even EBITDA
+
+universe_file: universe.txt
+
+output:
+  top_n: 15
+  dir: output
