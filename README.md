@@ -36,7 +36,7 @@ The routine prompt should run the script and send the result, e.g.:
 
 > Run `pip install -r requirements.txt` then `python screen.py`. Read
 > `output/email.html` and send it as an email titled "Weekly ASX Screen — {date}"
-> to me@example.com via Gmail. If `output/results.json` shows a fetch error for
+> to jordanlim104@gmail.com via Gmail. If `output/results.json` shows a fetch error for
 > most tickers, email a short failure notice instead.
 
 The script handles the empty-result case itself: if nothing matches the base

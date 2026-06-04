@@ -106,18 +106,21 @@ def get_metrics_yfinance(base: str) -> dict:
     high = fast("yearHigh", "year_high", "fiftyTwoWeekHigh")
     mcap = fast("marketCap", "market_cap")
     name = base
+    sector = None
 
-    # Fall back to the slower .info endpoint only for anything still missing.
-    if price is None or high is None or mcap is None:
+    # The .info endpoint is the only source of company name + sector (and a
+    # fallback for any price/cap fields fast_info couldn't supply), so always
+    # fetch it. It's slower, but a weekly personal screen can afford it.
+    info = {}
+    try:
+        info = t.info or {}
+    except Exception:
         info = {}
-        try:
-            info = t.info or {}
-        except Exception:
-            info = {}
-        price = price or info.get("currentPrice") or info.get("regularMarketPrice") or info.get("previousClose")
-        high = high or info.get("fiftyTwoWeekHigh")
-        mcap = mcap or info.get("marketCap")
-        name = info.get("shortName") or info.get("longName") or base
+    price = price or info.get("currentPrice") or info.get("regularMarketPrice") or info.get("previousClose")
+    high = high or info.get("fiftyTwoWeekHigh")
+    mcap = mcap or info.get("marketCap")
+    name = info.get("shortName") or info.get("longName") or base
+    sector = info.get("sector") or None
 
     # Annual income statement for revenue + EBITDA history.
     try:
@@ -145,6 +148,7 @@ def get_metrics_yfinance(base: str) -> dict:
         "base": base,
         "display": display,
         "name": name,
+        "sector": sector,
         "market_cap": _f(mcap),
         "price": _f(price),
         "high_52w": _f(high),
@@ -170,6 +174,7 @@ def get_metrics_eodhd(base: str, api_key: str) -> dict:
     mcap = highlights.get("MarketCapitalization")
     high = technicals.get("52WeekHigh")
     name = general.get("Name", base)
+    sector = general.get("Sector") or None
 
     rt = requests.get(
         f"https://eodhd.com/api/real-time/{display}",
@@ -196,6 +201,7 @@ def get_metrics_eodhd(base: str, api_key: str) -> dict:
         "base": base,
         "display": display,
         "name": name,
+        "sector": sector,
         "market_cap": _f(mcap),
         "price": _f(price),
         "high_52w": _f(high),
@@ -352,13 +358,14 @@ def build_html(passers: list[dict], cfg: dict, run_date: str, loosened: bool) ->
         <tr>
           <td style="font-weight:600">{r['display']}</td>
           <td>{r['name']}</td>
+          <td>{r.get('sector') or '-'}</td>
           <td style="text-align:right">{fmt_money(d.get('market_cap'))}</td>
           <td style="text-align:right;color:#b00020">{fmt_pct(d.get('drawdown_pct'))}</td>
           <td style="text-align:right">{yoy_str}</td>
           <td style="text-align:right">{fmt_money(d.get('ebitda_latest'))}</td>
         </tr>""")
     body = "".join(rows) if rows else (
-        '<tr><td colspan="6" style="padding:16px;color:#666">'
+        '<tr><td colspan="7" style="padding:16px;color:#666">'
         'No stocks matched, even after loosening.</td></tr>'
     )
 
@@ -388,6 +395,7 @@ def build_html(passers: list[dict], cfg: dict, run_date: str, loosened: bool) ->
   <table style="border-collapse:collapse;width:100%;font-size:13px">
     <thead><tr style="background:#f4f4f5;text-align:left">
       <th style="padding:8px">Ticker</th><th style="padding:8px">Name</th>
+      <th style="padding:8px">Sector</th>
       <th style="padding:8px;text-align:right">Mkt Cap</th>
       <th style="padding:8px;text-align:right">Below High</th>
       <th style="padding:8px;text-align:right">Rev YoY (oldest&rarr;newest)</th>
@@ -441,7 +449,12 @@ def main():
         for m in fetched:
             passed, _reasons, derived = evaluate(m, active_cfg)
             if passed:
-                out.append({"display": m["display"], "name": m["name"], "derived": derived})
+                out.append({
+                    "display": m["display"],
+                    "name": m["name"],
+                    "sector": m.get("sector"),
+                    "derived": derived,
+                })
         return out
 
     # --- Base pass ---
