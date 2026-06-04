@@ -388,37 +388,37 @@ def _downsample(series: list[float], n: int = 28) -> list[float]:
     return [series[round(i * step)] for i in range(n)]
 
 
-def build_sparkline(series: list[float]) -> str:
-    """A 12-month price sparkline built from thin, touching HTML/CSS bars.
+# Eighth-block characters, ascending height. A run of these reads as a
+# bottom-anchored sparkline and is plain TEXT, so no email client can strip it
+# the way Gmail strips sized <div>/<svg> bars.
+_SPARK_BLOCKS = "▁▂▃▄▅▆▇█"
 
-    Uses only table cells + colored divs (no SVG, no images) so it renders in
-    Gmail. Bars touch to read as a filled line/area; green if the period closed
-    up, red if down. Returns a small placeholder when there's no usable series.
+
+def build_sparkline(series: list[float]) -> str:
+    """A 12-month price sparkline drawn with Unicode block characters.
+
+    Pure text (wrapped in a colored <span>), so it survives Gmail's HTML
+    sanitiser where sized-bar tables do not. Green if the period closed up, red
+    if down. Returns a small placeholder when there's no usable series.
     """
     series = [v for v in (series or []) if v is not None]
     if len(series) < 2:
         return '<span style="color:#999;font-size:11px">no price data</span>'
 
-    pts = _downsample(series)
+    pts = _downsample(series, 40)
     lo, hi = min(pts), max(pts)
     rng = (hi - lo) or 1.0
-    maxh = 34  # px
+    spark = "".join(
+        _SPARK_BLOCKS[min(len(_SPARK_BLOCKS) - 1, int((v - lo) / rng * 7 + 0.5))]
+        for v in pts
+    )
     color = "#2e7d32" if series[-1] >= series[0] else "#b00020"
-
-    bars = []
-    for v in pts:
-        h = int(round((v - lo) / rng * (maxh - 3))) + 3
-        bars.append(
-            f'<td style="vertical-align:bottom;height:{maxh}px;padding:0">'
-            f'<div style="width:3px;height:{h}px;background:{color};'
-            f'font-size:0;line-height:0">&nbsp;</div></td>'
-        )
 
     chg = (series[-1] - series[0]) / series[0] * 100.0 if series[0] else None
     chg_str = fmt_pct(chg, signed=True) if chg is not None else ""
     return (
-        '<table role="presentation" cellpadding="0" cellspacing="0" '
-        f'style="border-collapse:collapse;height:{maxh}px"><tr>{"".join(bars)}</tr></table>'
+        f'<span style="font-family:Consolas,Menlo,monospace;font-size:15px;'
+        f'line-height:1;letter-spacing:0;color:{color};white-space:nowrap">{spark}</span>'
         f'<div style="font-size:10px;color:#888;margin-top:2px">'
         f'12mo {chg_str} &middot; {fmt_money(lo)}&ndash;{fmt_money(hi)}</div>'
     )
@@ -459,7 +459,8 @@ def build_html(passers: list[dict], cfg: dict, run_date: str, loosened: bool) ->
         )
 
     return f"""<!DOCTYPE html>
-<html><body style="font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1a1a1a;max-width:760px;margin:0 auto">
+<html><head><meta charset="utf-8"></head>
+<body style="font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1a1a1a;max-width:760px;margin:0 auto">
   <h2 style="margin-bottom:4px">Weekly ASX Screen &mdash; {run_date}</h2>
   {loosened_banner}
   <p style="color:#666;margin-top:0;font-size:13px">
@@ -570,7 +571,9 @@ def main():
         "skipped_count": len(skipped),
     }, indent=2, default=str))
 
-    (out_dir / "email.html").write_text(build_html(passers, effective, run_date, loosened))
+    (out_dir / "email.html").write_text(
+        build_html(passers, effective, run_date, loosened), encoding="utf-8"
+    )
 
     tag = " (LOOSENED)" if loosened else ""
     print(f"\n{'='*52}\n{len(passers)} match(es){tag} of {len(tickers)} screened.")
