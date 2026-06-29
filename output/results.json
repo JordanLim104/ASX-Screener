@@ -1,0 +1,46 @@
+{
+  "run_date": "29 Jun 2026",
+  "loosened": true,
+  "criteria_used": {
+    "market_cap": {
+      "min": 2000000000,
+      "max": 20000000000
+    },
+    "drawdown": {
+      "min_pct_below_high": 48
+    },
+    "revenue_growth": {
+      "mode": "each_year",
+      "years": 3,
+      "min_yoy_pct": 0
+    },
+    "ebitda": {
+      "require_latest_positive": true,
+      "require_turnaround": false,
+      "turnaround_lookback": 2,
+      "breakeven_threshold": -50000000
+    },
+    "ranking": {
+      "by": "drawdown_pct",
+      "descending": true
+    },
+    "data": {
+      "provider": "yfinance",
+      "request_delay_sec": 0.5
+    },
+    "fallback": {
+      "enabled": true,
+      "drawdown_delta_pct": -2,
+      "breakeven_threshold_delta": -50000000
+    },
+    "universe_file": "universe.txt",
+    "output": {
+      "top_n": 15,
+      "dir": "output"
+    }
+  },
+  "matches": [],
+  "screened": 190,
+  "fetched": 190,
+  "skipped_count": 0
+}
