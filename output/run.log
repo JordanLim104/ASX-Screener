@@ -1,0 +1,28 @@
+HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: BKW.AX"}}}
+$BKW.AX: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$BKW.AX: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+$BKW.AX: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$CTD.AX: possibly delisted; no price data found  (period=5d)
+$IFL.AX: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$IFL.AX: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: IFL.AX"}}}
+$IFL.AX: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$JLG.AX: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$JLG.AX: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: JLG.AX"}}}
+$JLG.AX: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$NSR.AX: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$NSR.AX: possibly delisted; no price data found  (period=5d) (Yahoo error = "No data found, symbol may be delisted")
+HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: NSR.AX"}}}
+$NSR.AX: possibly delisted; no price data found  (period=1y) (Yahoo error = "No data found, symbol may be delisted")
+$QUB.AX: possibly delisted; no price data found  (period=5d)
+Screening 190 ASX tickers via yfinance ...
+
+
+====================================================
+3 match(es) of 190 screened.
+  COH.AX     61.8% below high | mcap $7.87B | EBITDA $619.9M
+  XRO.AX     60.5% below high | mcap $12.31B | EBITDA $741.0M
+  360.AX     54.8% below high | mcap $6.14B | EBITDA $32.7M
+
+Wrote output\results.json and output\email.html

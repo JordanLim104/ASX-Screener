@@ -31,6 +31,12 @@ ranking:
 data:
   provider: yfinance      # yfinance (free, no key) | eodhd (needs EODHD_API_KEY env var)
   request_delay_sec: 0.5  # pause between tickers to avoid rate limiting
+  impersonate: true       # yfinance's default backend (curl_cffi) impersonates a browser's
+                          # TLS fingerprint to get past Yahoo's anti-bot checks. A
+                          # TLS-terminating / MITM proxy resets those connections (every
+                          # request fails with "Connection reset by peer"). Set this to
+                          # false in such an environment: yfinance then uses plain requests,
+                          # which the proxy passes through (Yahoo may rate-limit harder).
 
 fallback:
   # If the base pass returns ZERO matches, the screen re-runs once with these

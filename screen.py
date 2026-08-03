@@ -504,6 +504,16 @@ def main():
 
     provider = cfg["data"]["provider"]
     delay = cfg["data"].get("request_delay_sec", 0.5)
+
+    # yfinance's default backend (curl_cffi) impersonates a browser's TLS
+    # fingerprint. A TLS-terminating / MITM proxy resets those connections, so
+    # every fetch fails with "Connection reset by peer". data.impersonate: false
+    # routes yfinance through its plain-requests fallback, which such proxies
+    # pass through. yfinance reads YF_DISABLE_CURL_CFFI once, at its first import
+    # (done lazily inside get_metrics_yfinance below), so it must be set here first.
+    if provider == "yfinance" and not cfg["data"].get("impersonate", True):
+        os.environ["YF_DISABLE_CURL_CFFI"] = "1"
+
     eodhd_key = os.environ.get("EODHD_API_KEY")
     if provider == "eodhd" and not eodhd_key:
         sys.exit("ERROR: data.provider is 'eodhd' but EODHD_API_KEY is not set.")
