@@ -68,6 +68,13 @@ svg{display:block;max-width:100%}
 .foot p{margin:0 0 6px;max-width:70ch}
 .install{margin-top:10px;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:500;color:var(--fg)}
 .install:hover{border-color:var(--muted)}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.btns .install{margin-top:0}
+.alerts{margin-top:12px;padding:14px;border:1px solid var(--line);border-radius:12px;font-size:12.5px;line-height:1.5;color:var(--muted)}
+.alerts b{color:var(--fg);font-weight:500}
+.alerts ol{margin:8px 0;padding-left:18px}
+.alerts textarea{width:100%;height:84px;margin:8px 0;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--fg);font:11px/1.4 ui-monospace,Menlo,monospace;resize:none}
+.alerts .row2{display:flex;gap:8px;align-items:center}
 
 /* detail sheet */
 dialog.sheet{border:0;padding:0;margin:auto auto 0;width:100%;max-width:640px;max-height:92vh;border-radius:18px 18px 0 0;background:var(--bg);color:var(--fg);overflow:auto;overscroll-behavior:contain}
@@ -358,6 +365,46 @@ function wireInstall() {
   b.onclick = async () => { if (!installEvt) return; installEvt.prompt(); await installEvt.userChoice.catch(() => {}); installEvt = null; b.hidden = true; };
 }
 
+/* ---------------- alerts for newly added stocks ---------------- */
+/* Public half of the push key; the private half is the VAPID_PRIVATE_KEY secret used by tv_notify.py. */
+const VAPID_PUBLIC = "BOIdHoJjbJUpWxiHjgKuoN5TDmiatYS8FulESEfLr1Tr_jfPk99Y3oGkJdptDr1nmo2WER0QlbpSx_uTao6mG38";
+const pushOK = () => "serviceWorker" in navigator && "PushManager" in window && "Notification" in window && location.protocol === "https:";
+const urlB64 = s => Uint8Array.from(atob((s + "=".repeat((4 - s.length % 4) % 4)).replace(/-/g, "+").replace(/_/g, "/")), c => c.charCodeAt(0));
+async function currentSub() { try { const r = await navigator.serviceWorker.ready; return await r.pushManager.getSubscription(); } catch (e) { return null; } }
+async function wireAlerts() {
+  const b = document.getElementById("alertBtn"); if (!b || !pushOK()) return;
+  const sub = Notification.permission === "granted" ? await currentSub() : null;
+  b.hidden = Notification.permission === "denied";
+  b.textContent = sub ? "Alerts on · setup code" : "Get alerts for new stocks";
+  b.onclick = enableAlerts;
+}
+async function enableAlerts() {
+  const panel = document.getElementById("alertPanel");
+  if (await Notification.requestPermission() !== "granted") {
+    panel.hidden = false; panel.innerHTML = "Notifications are blocked for this app. Allow them in your phone's app settings, then try again."; return;
+  }
+  const reg = await navigator.serviceWorker.ready;
+  // Background check: Chrome wakes the installed app now and then to look for a new refresh.
+  let periodic = false;
+  try { if ("periodicSync" in reg) { await reg.periodicSync.register("screen-check", { minInterval: 6 * 3600 * 1000 }); periodic = true; } } catch (e) {}
+  // Push: lets the daily refresh notify this device straight away.
+  let sub = null;
+  try { sub = (await reg.pushManager.getSubscription()) || await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: urlB64(VAPID_PUBLIC) }); } catch (e) {}
+  panel.hidden = false;
+  panel.innerHTML = `<b>Alerts are on for this device.</b> You'll be notified when a refresh adds a stock to the screen.
+    ${periodic ? "" : " Background checks aren't available here, so instant alerts need the step below."}
+    ${sub ? `<ol><li>Copy this device code.</li><li>In GitHub, open the repo's Settings → Secrets and variables → Actions.</li><li>Add it as a secret named <b>PUSH_SUBSCRIPTIONS</b> (or replace the old value).</li></ol>
+    <textarea id="subCode" readonly aria-label="Device code">${esc(JSON.stringify([sub.toJSON()]))}</textarea>
+    <div class="row2"><button class="install" id="copySub" type="button">Copy code</button><span id="copyMsg"></span></div>` : "Instant alerts couldn't be set up on this device."}`;
+  const copy = document.getElementById("copySub");
+  if (copy) copy.onclick = async () => {
+    const ta = document.getElementById("subCode");
+    try { await navigator.clipboard.writeText(ta.value); document.getElementById("copyMsg").textContent = "Copied"; }
+    catch (e) { ta.focus(); ta.select(); document.getElementById("copyMsg").textContent = "Selected, copy it from the menu"; }
+  };
+  wireAlerts();
+}
+
 /* ---------------- page ---------------- */
 let D, BY = {};
 function render() {
@@ -384,8 +431,10 @@ function render() {
   <div class="foot">
     <p>Data from TradingView, delayed and end-of-day. Revenue and EBITDA are TradingView's standardised fiscal-year figures in AUD and can differ from company reports.</p>
     <p>A mechanical screen of ${D.universe_count} ASX stocks, refreshed each weekday evening. Not financial advice.</p>
-    <button class="install" id="installBtn" type="button" hidden>Install app</button></div>`;
+    <div class="btns"><button class="install" id="installBtn" type="button" hidden>Install app</button><button class="install" id="alertBtn" type="button" hidden>Get alerts for new stocks</button></div>
+    <div class="alerts" id="alertPanel" hidden></div></div>`;
   wireInstall();
+  wireAlerts();
   $("#app").querySelectorAll("[data-t]").forEach(el => el.addEventListener("click", () => openSheet(BY[el.dataset.t])));
   entrance();
 }
@@ -423,7 +472,12 @@ function entrance() {
   [...D.matches, ...D.borderline].forEach(m => BY[m.ticker] = m);
   render();
   // Offline support and installability (ignored where service workers aren't allowed).
-  if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js").catch(() => {});
+  if ("serviceWorker" in navigator && location.protocol === "https:") {
+    navigator.serviceWorker.register("sw.js").catch(() => {});
+    // Tell the service worker which refresh is on screen, so the background check doesn't re-announce it.
+    navigator.serviceWorker.ready.then(r => r.active && r.active.postMessage({ type: "seen", run_at: D.run_at })).catch(() => {});
+    wireAlerts();
+  }
   let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { if (openTicker) loadBars(openTicker).then(b => b && openTicker && drawChart(BY[openTicker], b, currentRange)); }, 150); });
 })();
 </script>

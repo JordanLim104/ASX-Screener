@@ -31,7 +31,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pyyaml requests websocket-client
+      - run: pip install pyyaml requests websocket-client cryptography
 
       - name: Run screen (one TradingView screener request)
         run: python tv_screen.py --config criteria.yaml --out docs/data
@@ -43,6 +43,13 @@ jobs:
       - name: Fetch company descriptions and headlines
         continue-on-error: true
         run: python tv_details.py docs/data
+
+      - name: Notify installed apps if stocks were added
+        continue-on-error: true
+        env:
+          VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+          PUSH_SUBSCRIPTIONS: ${{ secrets.PUSH_SUBSCRIPTIONS }}
+        run: python tv_notify.py docs/data
 
       - name: Commit screen results (price history is deployed, not committed)
         continue-on-error: true   # never block the deploy over a git race
