@@ -226,36 +226,60 @@ function setHeader(m, s, key) {
   $("#px").textContent = `A$${px(s.last)}`;
   $("#rc").innerHTML = `<b class="${ch>=0?"pos":"neg"}" style="font-weight:500">${ch>=0?"+":"−"}${px(Math.abs(ch))} (${spct(p,2)})</b> <span>${s.at ? fmtT(s.at, key) : LABEL[key]}</span>`;
 }
+/* "Nice" axis ticks (steps of 1, 2, 2.5 or 5 x 10^n) covering lo..hi. */
+function niceTicks(lo, hi, target = 4) {
+  const raw = (hi - lo) / target || Math.abs(hi) * 0.1 || 1, mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const step = [1, 2, 2.5, 5, 10].map(f => f * mag).find(s => s >= raw);
+  const dp = Math.max(0, Math.min(3, -Math.floor(Math.log10(step)) + (step / mag === 2.5 ? 1 : 0)));
+  const out = []; for (let v = Math.ceil(lo / step) * step; v <= hi + step * 1e-6; v += step) out.push(+v.toFixed(6));
+  return { ticks: out, dp };
+}
 function drawChart(m, bars, key) {
   const box = $("#chart"), rows = rangeRows(bars, key);
   if (rows.length < 2) { box.innerHTML = `<div class="msg">No ${key} price history available.</div>`; $("#axis").innerHTML = ""; setHeader(m, null, key); return; }
-  const W = Math.max(280, box.clientWidth), H = box.clientHeight, padT = 16, padB = 8;
+  const W = Math.max(280, box.clientWidth), H = box.clientHeight, padT = 18, padB = 10;
   const vals = rows.map(r => r[1]);
   const showHigh = key === "1Y" && m.high_52w;
   const base = key === "1D" && bars.prev_close ? [bars.prev_close] : [];
-  const lo = Math.min(...vals, ...base), hi = Math.max(...vals, ...base, showHigh ? m.high_52w : -Infinity), rg = (hi-lo)||1;
-  const X = i => i*W/(rows.length-1), Y = v => padT + (1-(v-lo)/rg)*(H-padT-padB);
+  let lo = Math.min(...vals, ...base), hi = Math.max(...vals, ...base, showHigh ? m.high_52w : -Infinity);
+  const padV = (hi - lo) * 0.04 || hi * 0.01; lo -= padV; hi += padV;
+  const rg = (hi - lo) || 1;
+  // Price axis on the right: gutter sized to the widest label.
+  const { ticks, dp } = niceTicks(lo, hi);
+  const fmtTick = v => v.toFixed(dp);
+  const gutter = Math.ceil(Math.max(...ticks.map(t => fmtTick(t).length)) * 6.4) + 10;
+  const Wp = W - gutter;
+  const X = i => i * Wp / (rows.length - 1), Y = v => padT + (1 - (v - lo) / rg) * (H - padT - padB);
   const first = key === "1D" && bars.prev_close ? bars.prev_close : vals[0], last = vals.at(-1), col = last >= first ? "var(--up)" : "var(--down)";
   const d = rows.map((r,i)=>`${i?"L":"M"}${X(i).toFixed(1)},${Y(r[1]).toFixed(1)}`).join("");
   const id = "g" + key;
-  box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="${esc(m.ticker)} price, ${LABEL[key]}">
+  // Peak of the visible range, labelled beside the point (whichever side has room).
+  const iMax = vals.indexOf(Math.max(...vals)), pxp = X(iMax), pyp = Y(vals[iMax]);
+  const peakRight = pxp < Wp * 0.62;
+  const peakText = `Peak ${px(vals[iMax])} · ${fmtT(rows[iMax][0], key)}`;
+  const T = (x, y, anchor, fill, txt, weight = 400) => `<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" text-anchor="${anchor}" font-size="10.5" font-weight="${weight}" fill="${fill}" font-family="inherit" paint-order="stroke" stroke="var(--bg)" stroke-width="3" stroke-linejoin="round">${txt}</text>`;
+  box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="${esc(m.ticker)} price, ${LABEL[key]}. ${esc(peakText)}">
     <defs><linearGradient id="${id}" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="${col}" stop-opacity=".16"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></linearGradient></defs>
-    ${[0.25,0.5,0.75].map(f=>`<line x1="0" x2="${W}" y1="${padT+f*(H-padT-padB)}" y2="${padT+f*(H-padT-padB)}" stroke="var(--line)" stroke-width="1"/>`).join("")}
-    <line x1="0" x2="${W}" y1="${Y(first)}" y2="${Y(first)}" stroke="var(--muted)" stroke-opacity=".6" stroke-dasharray="1 4"/>
-    ${key === "1D" && bars.prev_close ? `<text x="${W-4}" y="${Y(first)-4}" text-anchor="end" font-size="10.5" fill="var(--muted)" font-family="inherit">Prev close ${px(first)}</text>` : ""}
-    ${showHigh ? `<line x1="0" x2="${W}" y1="${Y(m.high_52w)}" y2="${Y(m.high_52w)}" stroke="var(--down)" stroke-opacity=".6" stroke-dasharray="4 4"/><text x="4" y="${Y(m.high_52w)-4}" font-size="10.5" fill="var(--down)" font-family="inherit">52-week high ${px(m.high_52w)}</text>` : ""}
-    <path d="${d}L${W},${H}L0,${H}Z" fill="url(#${id})"/>
+    ${ticks.map(t => { const y = Y(t); return y < padT - 6 || y > H - 2 ? "" :
+      `<line x1="0" x2="${Wp}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}" stroke="var(--line)" stroke-width="1"/><text x="${W - 2}" y="${(y + 3.5).toFixed(1)}" text-anchor="end" font-size="10.5" fill="var(--muted)" font-family="inherit">${fmtTick(t)}</text>`; }).join("")}
+    <line x1="0" x2="${Wp}" y1="${Y(first)}" y2="${Y(first)}" stroke="var(--muted)" stroke-opacity=".6" stroke-dasharray="1 4"/>
+    ${key === "1D" && bars.prev_close ? T(Wp - 4, Y(first) - 5, "end", "var(--muted)", `Prev close ${px(first)}`) : ""}
+    ${showHigh ? `<line x1="0" x2="${Wp}" y1="${Y(m.high_52w)}" y2="${Y(m.high_52w)}" stroke="var(--down)" stroke-opacity=".6" stroke-dasharray="4 4"/>${T(peakRight ? Wp - 4 : 4, Y(m.high_52w) - 5, peakRight ? "end" : "start", "var(--down)", `52-week high ${px(m.high_52w)}`)}` : ""}
+    <path d="${d}L${Wp},${H}L0,${H}Z" fill="url(#${id})"/>
     <path d="${d}" fill="none" stroke="${col}" stroke-width="1.6" stroke-linejoin="round"/>
+    <line x1="${pxp}" x2="${pxp}" y1="${pyp}" y2="${H}" stroke="var(--fg)" stroke-opacity=".18" stroke-dasharray="1 3"/>
+    <circle cx="${pxp}" cy="${pyp}" r="3.5" fill="var(--bg)" stroke="var(--fg)" stroke-width="1.5"/>
+    ${T(peakRight ? pxp + 8 : pxp - 8, pyp + 3.5, peakRight ? "start" : "end", "var(--fg)", esc(peakText), 500)}
     <g id="cur" style="display:none"><line id="cx" y1="0" y2="${H}" stroke="var(--muted)" stroke-width="1"/><circle id="cd" r="4" fill="${col}" stroke="var(--bg)" stroke-width="2"/></g>
     <circle cx="${X(rows.length-1)}" cy="${Y(last)}" r="3" fill="${col}"/>
   </svg>`;
-  $("#axis").innerHTML = `<span>${fmtT(rows[0][0], key)}</span><span>Low ${px(Math.min(...vals))} · High ${px(Math.max(...vals))}</span><span>${fmtT(rows.at(-1)[0], key)}</span>`;
+  $("#axis").innerHTML = `<span>${fmtT(rows[0][0], key)}</span><span>Low ${px(Math.min(...vals))} · High ${px(Math.max(...vals))}</span><span style="margin-right:${gutter}px">${fmtT(rows.at(-1)[0], key)}</span>`;
   setHeader(m, {first, last}, key);
 
   const svg = box.querySelector("svg"), cur = svg.querySelector("#cur"), cx = svg.querySelector("#cx"), cd = svg.querySelector("#cd");
   const move = e => {
-    const rect = svg.getBoundingClientRect(), x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
-    const i = Math.max(0, Math.min(rows.length-1, Math.round(x / rect.width * (rows.length-1))));
+    const rect = svg.getBoundingClientRect(), x = ((e.touches ? e.touches[0].clientX : e.clientX) - rect.left) * W / rect.width;
+    const i = Math.max(0, Math.min(rows.length-1, Math.round(x / Wp * (rows.length-1))));
     cur.style.display = ""; cx.setAttribute("x1", X(i)); cx.setAttribute("x2", X(i));
     cd.setAttribute("cx", X(i)); cd.setAttribute("cy", Y(rows[i][1]));
     setHeader(m, {first, last: rows[i][1], at: rows[i][0]}, key);
