@@ -1,5 +1,5 @@
 {
- "run_at": "2026-11-27T15:16:18+00:00",
+ "run_at": "2026-11-27T15:26:09+00:00",
  "source": "TradingView screener (scanner.tradingview.com), delayed/end-of-day",
  "criteria": {
   "market_cap_min": 500000000,
@@ -2867,10 +2867,10 @@
      "url": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:4316407:0-slx-trl-7-targets-end-cy2027-paducah-fid-is-targeted-for-late-2027-or-h1-2028/"
     },
     {
-     "title": "SLX: DOE tails could underpin 5m lb/year uranium output, with first production targeted before end-2030",
-     "source": "Quartr",
-     "published": 1790630302,
-     "url": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:4221394:0-slx-doe-tails-could-underpin-5m-lb-year-uranium-output-with-first-production-targeted-before-end-2030/"
+     "title": "Silex Systems Says GLE And Cameco Execute Exclusive Offtake Agreement",
+     "source": "Reuters",
+     "published": 1789357196,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_TUE8F08FB:0-silex-systems-says-gle-and-cameco-execute-exclusive-offtake-agreement/"
     }
    ]
   },
@@ -5284,7 +5284,7 @@
   }
  ],
  "changes": {
-  "since": "2026-11-27T15:02:51+00:00",
+  "since": "2026-11-27T15:16:18+00:00",
   "added": [],
   "removed": []
  }
