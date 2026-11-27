@@ -1,5 +1,5 @@
 {
- "run_at": "2026-11-27T14:44:12+00:00",
+ "run_at": "2026-11-27T14:50:32+00:00",
  "source": "TradingView screener (scanner.tradingview.com), delayed/end-of-day",
  "criteria": {
   "market_cap_min": 500000000,
@@ -5284,7 +5284,7 @@
   }
  ],
  "changes": {
-  "since": "2026-11-27T14:40:16+00:00",
+  "since": "2026-11-27T14:44:12+00:00",
   "added": [],
   "removed": []
  }
