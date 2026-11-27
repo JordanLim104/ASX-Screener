@@ -7,8 +7,10 @@ EBITDA-positive. Two ways to run it:
   pulls the whole ASX from TradingView's screener in one request, applies the
   rules, and writes `docs/data/latest.json`. `tv_bars.py` then fetches price
   history (5-minute, hourly, daily) for the ~30 stocks on the dashboard over one
-  TradingView chart connection, for the 1D–5Y chart views. A GitHub Action runs
-  both every weekday evening and deploys `docs/` to GitHub Pages.
+  TradingView chart connection, for the 1D–5Y chart views. `tv_details.py` adds
+  each stock's one-line company description and its latest TradingView
+  headlines. A GitHub Action runs all three every weekday evening and deploys
+  `docs/` to GitHub Pages.
 - **`screen.py`** (original). Ticker-by-ticker via yfinance/EODHD over
   `universe.txt`, emails an HTML table.
 
@@ -24,12 +26,13 @@ whose 52-week high was set in the first two weeks of the window is flagged fragi
 
 ## Dashboard
 `docs/index.html` is a static mobile page. Stocks are grouped by sector; tap one
-for a detail sheet with a price chart (1D, 1W, 1M, 3M, 6M, 1Y, 5Y; drag across
-the chart to read prices), fundamentals and flags.
+for a detail sheet with what the company does, a price chart (1D, 1W, 1M, 3M,
+6M, 1Y, 5Y; drag across the chart to read prices), fundamentals, flags and
+recent headlines.
 
 Local preview:
 ```bash
-python tv_screen.py && python tv_bars.py && python -m http.server -d docs 8000
+python tv_screen.py && python tv_bars.py && python tv_details.py && python -m http.server -d docs 8000
 ```
 
 ### Deploy (one-time)

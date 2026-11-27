@@ -7,7 +7,7 @@ on:
     - cron: "30 7 * * 1-5"
   push:
     branches: [main]
-    paths: ["docs/index.html", "tv_screen.py", "tv_bars.py", "criteria.yaml"]
+    paths: ["docs/index.html", "tv_screen.py", "tv_bars.py", "tv_details.py", "criteria.yaml"]
   workflow_dispatch: {}
 
 permissions:
@@ -39,6 +39,10 @@ jobs:
       - name: Fetch price history for the charts (one TradingView chart connection)
         continue-on-error: true   # the dashboard still works without charts
         run: python tv_bars.py docs/data
+
+      - name: Fetch company descriptions and headlines
+        continue-on-error: true
+        run: python tv_details.py docs/data
 
       - name: Commit screen results (price history is deployed, not committed)
         run: |
