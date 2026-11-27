@@ -45,14 +45,24 @@ jobs:
         run: python tv_details.py docs/data
 
       - name: Commit screen results (price history is deployed, not committed)
+        continue-on-error: true   # never block the deploy over a git race
         run: |
           git config user.name "screener-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data
-          git diff --cached --quiet && echo "No change" && exit 0
-          git commit -m "Refresh screener data $(date -u +%F)"
-          git pull --rebase --autostash
-          git push
+          # This run's output is the newest data, so rebuild the commit on top of
+          # whatever main is now instead of merging (avoids data-file conflicts).
+          cp -r docs/data "$RUNNER_TEMP/data"
+          for attempt in 1 2 3; do
+            git fetch -q origin main
+            git reset -q --hard origin/main
+            rm -rf docs/data && cp -r "$RUNNER_TEMP/data" docs/data
+            git add docs/data
+            git diff --cached --quiet && echo "No change" && exit 0
+            git commit -q -m "Refresh screener data $(date -u +%F)"
+            git push origin HEAD:main && exit 0
+            sleep $((attempt * 10))
+          done
+          exit 1
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
