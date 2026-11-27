@@ -69,6 +69,7 @@ dialog.sheet::backdrop{background:rgba(10,12,16,.5)}
 .s-top h3{margin:0;font-size:20px;font-weight:600;letter-spacing:-.01em}
 .s-top .sub{font-size:13px;font-weight:300;color:var(--muted)}
 .x{width:32px;height:32px;border-radius:50%;background:var(--panel);font-size:18px;line-height:32px;text-align:center;flex:none}
+.about{margin:12px 0 0;font-size:14px;font-weight:300;line-height:1.5;color:var(--fg);max-width:60ch}
 .px{font-size:40px;font-weight:300;letter-spacing:-.03em;line-height:1;margin-top:16px}
 .rc{font-size:13.5px;margin-top:6px;min-height:1.3em}
 .rc span{color:var(--muted)}
@@ -90,6 +91,13 @@ dialog.sheet::backdrop{background:rgba(10,12,16,.5)}
 .sheet th{font-weight:500;color:var(--muted);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
 .note{font-size:13px;line-height:1.5;padding:10px 12px;border-radius:10px;background:var(--panel);margin:8px 0}
 .tv{display:block;text-align:center;padding:13px;border-radius:12px;border:1px solid var(--line);font-weight:500;text-decoration:none;margin-top:14px}
+.news{margin-top:26px}
+.news h4{margin:0 0 2px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.news a{display:block;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.news a:hover b{text-decoration:underline}
+.news b{display:block;font-size:14.5px;font-weight:500;line-height:1.35}
+.news span{display:block;font-size:12px;color:var(--muted);margin-top:4px}
+.news p{font-size:13px;color:var(--muted);margin:10px 0 0}
 .neg{color:var(--down)} .pos{color:var(--up)}
 </style>
 
@@ -194,6 +202,19 @@ function drawChart(m, bars, key) {
   svg.addEventListener("pointerleave", leave); svg.addEventListener("touchend", leave);
 }
 
+/* ---------------- headlines ---------------- */
+const ago = t => { const d = (Date.now()/1000 - t)/86400;
+  return d < 1/24 ? "Just now" : d < 1 ? `${Math.round(d*24)}h ago` : d < 7 ? `${Math.round(d)}d ago`
+    : new Date(t*1000).toLocaleDateString("en-AU",{timeZone:TZ,day:"numeric",month:"short",year: d > 300 ? "numeric" : undefined}); };
+const cleanTitle = t => (t||"").replace(/\s*>[A-Z0-9.]+$/, "").replace(/\s+—\s+Market Talk$/, "");
+function newsBlock(m) {
+  if (!m.news) return "";
+  const items = m.news.filter(n => n.title);
+  return `<section class="news"><h4>Headlines</h4>${items.length ? items.map(n =>
+    `<a href="${esc(n.url || m.tv_url)}" target="_blank" rel="noopener"><b>${esc(cleanTitle(n.title))}</b><span>${esc(n.source||"")}${n.published?` · ${ago(n.published)}`:""}</span></a>`).join("")
+    : `<p>No recent headlines on TradingView.</p>`}</section>`;
+}
+
 /* ---------------- detail sheet ---------------- */
 let currentRange = "1Y", openTicker = null;
 async function openSheet(m) {
@@ -206,6 +227,7 @@ async function openSheet(m) {
   if (m.sector === "Finance") notes.push(`<div class="note">Financial company. TradingView's standardised EBITDA can differ a lot from the company's reported figure; check the results release.</div>`);
   $("#sheetBody").innerHTML = `<div class="grab"></div>
     <div class="s-top"><div><h3>${esc(m.ticker)}</h3><div class="sub">${esc(short(m.name))} · ${esc(m.industry||m.sector||"")}</div></div><button class="x" id="closeSheet" aria-label="Close">×</button></div>
+    ${m.about ? `<p class="about">${esc(m.about)}</p>` : ""}
     <div class="px" id="px">A$${px(m.price)}</div><div class="rc" id="rc"></div>
     <div class="ranges" role="group" aria-label="Time range">${RANGES.map(([k])=>`<button data-r="${k}" aria-pressed="${k===currentRange}">${k}</button>`).join("")}</div>
     <div class="chart" id="chart"><div class="msg">Loading chart…</div></div>
@@ -220,7 +242,8 @@ async function openSheet(m) {
     </div>
     <table><thead><tr><th>Fiscal year</th><th>Revenue</th><th>YoY</th><th>EBITDA</th></tr></thead><tbody>${rows}</tbody></table>
     ${notes.join("")}
-    <a class="tv" href="${m.tv_url}" target="_blank" rel="noopener">Open ${esc(m.ticker)} in TradingView ↗</a>`;
+    <a class="tv" href="${m.tv_url}" target="_blank" rel="noopener">Open ${esc(m.ticker)} in TradingView ↗</a>
+    ${newsBlock(m)}`;
   const dlg = $("#sheet"); if (!dlg.open) dlg.showModal();
   $("#closeSheet").onclick = () => dlg.close();
   const bars = await loadBars(m.ticker);
