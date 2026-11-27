@@ -90,7 +90,9 @@ def fetch_headlines(symbol: str) -> list[dict]:
             "title": i.get("title"),
             "source": i.get("source") or i.get("provider"),
             "published": i.get("published"),
-            "url": f"https://www.tradingview.com{path}" if path else None,
+            # Original article where the provider gives one (e.g. Market Index,
+            # Smallcaps); otherwise TradingView's copy of the story (Reuters, Dow Jones).
+            "url": i.get("link") or (f"https://www.tradingview.com{path}" if path else None),
         })
     return out
 
