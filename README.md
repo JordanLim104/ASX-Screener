@@ -1,13 +1,60 @@
-# Weekly ASX turnaround screener
+# ASX wounded mid-cap screener
 
-Screens an ASX universe for beaten-down mid/large caps that are still growing
-revenue and have just crossed into EBITDA profitability, then emails the matches.
+Finds ASX mid-caps that have sold off hard but are still growing revenue and
+EBITDA-positive. Two ways to run it:
 
-## Criteria (set in `criteria.yaml`)
-1. Market cap A$2bn–A$20bn
+- **`tv_screen.py` + `tv_bars.py` + dashboard (recommended).** `tv_screen.py`
+  pulls the whole ASX from TradingView's screener in one request, applies the
+  rules, and writes `docs/data/latest.json`. `tv_bars.py` then fetches price
+  history (5-minute, hourly, daily) for the ~30 stocks on the dashboard over one
+  TradingView chart connection, for the 1D–5Y chart views. A GitHub Action runs
+  both every weekday evening and deploys `docs/` to GitHub Pages.
+- **`screen.py`** (original). Ticker-by-ticker via yfinance/EODHD over
+  `universe.txt`, emails an HTML table.
+
+## Criteria (`criteria.yaml`)
+1. Market cap A$500m–A$50bn
 2. Price ≥ 50% below its 52-week high
-3. Positive YoY revenue growth over the last 3 years
-4. EBITDA "break-even → profitable" (a turnaround into positive EBITDA)
+3. Revenue grew YoY in each of the last 3 fiscal years
+4. Latest-FY EBITDA > 0
+
+If nothing passes, the run loosens to 48% drawdown and EBITDA > −A$50m and says so.
+Names that miss exactly one rule by a small margin are listed as borderline. A pass
+whose 52-week high was set in the first two weeks of the window is flagged fragile.
+
+## Dashboard
+`docs/index.html` is a static mobile page. Stocks are grouped by sector; tap one
+for a detail sheet with a price chart (1D, 1W, 1M, 3M, 6M, 1Y, 5Y; drag across
+the chart to read prices), fundamentals and flags.
+
+Local preview:
+```bash
+python tv_screen.py && python tv_bars.py && python -m http.server -d docs 8000
+```
+
+### Deploy (one-time)
+1. Merge this branch into `main`.
+2. Repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+3. **Actions → Refresh screener and deploy dashboard → Run workflow** for the first run.
+
+Screen results (`latest.json`, `runs.json`, `history/`) are committed each run so
+changes can be tracked; price history is only deployed, so the repo stays small.
+
+The site is then at `https://jordanlim104.github.io/ASX-Screener/`.
+
+### Refresh cadence and rate limits
+TradingView has no official free API; `scanner.tradingview.com` and its chart
+websocket are the endpoints its public pages use. Each run makes **one screener
+POST** for ~400 rows and **one chart connection** with three series per
+dashboard stock, pausing between stocks. The screener retries with backoff on 429/5xx, and refuses to overwrite data on a short
+response. One run per weekday (07:30 UTC, after the ASX close) is a tiny load.
+Fundamentals only move at reporting season (Feb/Aug), so the daily run is really
+refreshing prices and drawdowns. Weekly is also reasonable; edit the cron.
+
+---
+
+# Original yfinance screener (`screen.py`)
+Same rules as above, fetched per ticker.
 
 ## Run locally
 ```bash

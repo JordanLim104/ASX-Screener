@@ -2,8 +2,8 @@
 # All currency values are AUD. yfinance returns AUD market cap/financials for .AX tickers.
 
 market_cap:
-  min: 2000000000      # A$2bn
-  max: 20000000000     # A$20bn
+  min: 500000000       # A$500m (lowered from A$2bn, 24 Aug 2026)
+  max: 50000000000     # A$50bn (raised from A$20bn, 27 Nov 2026)
 
 drawdown:
   min_pct_below_high: 50   # price at least 50% below its 52-week high

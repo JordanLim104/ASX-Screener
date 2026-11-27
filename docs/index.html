@@ -1,0 +1,275 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><!--STRIP-FOR-ARTIFACT-->
+<title>Wounded Mid-Caps</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><!--STRIP-FOR-ARTIFACT-->
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121317" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap">
+<style>
+/* Index: quiet, light-weight grotesk; ruled list grouped by sector; red only for losses. */
+:root{
+  --bg:#ffffff; --fg:#16181d; --muted:#7c808a; --line:#e7e8eb; --panel:#f5f6f8; --soft:#b9bcc4;
+  --down:#c8102e; --up:#0f8a4f; --warn:#b7791f;
+  --sans:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121317; --fg:#eceef2; --muted:#8b909b; --line:#262830; --panel:#1b1d23; --soft:#4a4e58;
+  --down:#ff5468; --up:#3ccf8e; --warn:#e5a93a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121317; --fg:#eceef2; --muted:#8b909b; --line:#262830; --panel:#1b1d23; --soft:#4a4e58;
+  --down:#ff5468; --up:#3ccf8e; --warn:#e5a93a; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:14px;font-variant-numeric:tabular-nums;-webkit-text-size-adjust:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+svg{display:block;max-width:100%}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:8px 48px}
+
+.head{padding:22px 0 18px}
+.ey{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.head h1{margin:6px 0 0;font-size:40px;font-weight:300;letter-spacing:-.025em;line-height:1.02;text-wrap:balance}
+.head h1 b{font-weight:600}
+.head p{margin:10px 0 0;color:var(--muted);font-size:13.5px;line-height:1.5;max-width:60ch}
+.figs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--fg);border-bottom:1px solid var(--line)}
+.figs div{padding:12px 0 14px;font-size:11.5px;color:var(--muted)}
+.figs b{display:block;font-size:30px;font-weight:300;color:var(--fg);letter-spacing:-.02em;line-height:1.1}
+.chg{font-size:12.5px;color:var(--muted);padding:10px 0;border-bottom:1px solid var(--line)}
+.chg b{color:var(--fg);font-weight:500}
+
+.grp{margin-top:26px}
+.grp h2{margin:0 0 2px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;gap:12px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 14px;padding:14px 0;border-bottom:1px solid var(--line);width:100%;text-align:left;align-items:baseline}
+.grp h2+.row{border-top:1px solid var(--line)}
+.row:hover{background:linear-gradient(90deg,transparent,var(--panel) 20%,var(--panel) 80%,transparent)}
+.row .tk{font-size:17px;font-weight:600;letter-spacing:-.01em}
+.row .tk em{font-style:normal;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--down);margin-left:8px;vertical-align:2px}
+.row .tk em.f{color:var(--warn)}
+.row .nm{font-size:13px;font-weight:300;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .dd{font-size:30px;font-weight:300;letter-spacing:-.03em;line-height:1;text-align:right}
+.row .dd small{font-size:14px;color:var(--down);margin-right:3px}
+.row .meta{font-size:12px;color:var(--muted);text-align:right;white-space:nowrap}
+.row .sp{grid-column:1/-1;margin-top:8px;color:var(--soft)}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.pills button{border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:13px;display:flex;gap:8px;align-items:baseline}
+.pills button:hover{border-color:var(--muted)}
+.pills b{font-weight:600}
+.pills span{color:var(--muted);font-weight:300;font-size:12px}
+.foot{font-size:11.5px;line-height:1.55;color:var(--muted);margin-top:32px;border-top:1px solid var(--line);padding-top:14px}
+.foot p{margin:0 0 6px;max-width:70ch}
+
+/* detail sheet */
+dialog.sheet{border:0;padding:0;margin:auto auto 0;width:100%;max-width:640px;max-height:92vh;border-radius:18px 18px 0 0;background:var(--bg);color:var(--fg);overflow:auto;overscroll-behavior:contain}
+dialog.sheet::backdrop{background:rgba(10,12,16,.5)}
+@media (min-width:700px){dialog.sheet{margin:auto;border-radius:18px}}
+.sheet .in{padding:14px max(20px,env(safe-area-inset-left,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-right,0px))}
+.grab{width:38px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 16px}
+.s-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.s-top h3{margin:0;font-size:20px;font-weight:600;letter-spacing:-.01em}
+.s-top .sub{font-size:13px;font-weight:300;color:var(--muted)}
+.x{width:32px;height:32px;border-radius:50%;background:var(--panel);font-size:18px;line-height:32px;text-align:center;flex:none}
+.px{font-size:40px;font-weight:300;letter-spacing:-.03em;line-height:1;margin-top:16px}
+.rc{font-size:13.5px;margin-top:6px;min-height:1.3em}
+.rc span{color:var(--muted)}
+.ranges{display:flex;gap:2px;margin:16px 0 6px;border-bottom:1px solid var(--line)}
+.ranges button{flex:1;padding:8px 0 9px;font-size:13px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.ranges button[aria-pressed="true"]{color:var(--fg);border-bottom-color:var(--fg)}
+.ranges button:disabled{opacity:.35;cursor:default}
+.chart{position:relative;height:200px;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.chart svg{width:100%;height:100%}
+.chart .msg{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-size:13px}
+.axis{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:var(--muted);margin-top:4px}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;margin:20px 0 6px;padding-top:16px;border-top:1px solid var(--line)}
+.kv span{display:block;font-size:11px;color:var(--muted);letter-spacing:.04em}
+.kv b{font-size:17px;font-weight:400}
+.kv b small{font-size:12px;color:var(--muted);font-weight:300}
+.sheet table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0}
+.sheet th,.sheet td{text-align:right;padding:7px 4px;border-bottom:1px solid var(--line)}
+.sheet th:first-child,.sheet td:first-child{text-align:left}
+.sheet th{font-weight:500;color:var(--muted);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.note{font-size:13px;line-height:1.5;padding:10px 12px;border-radius:10px;background:var(--panel);margin:8px 0}
+.tv{display:block;text-align:center;padding:13px;border-radius:12px;border:1px solid var(--line);font-weight:500;text-decoration:none;margin-top:14px}
+.neg{color:var(--down)} .pos{color:var(--up)}
+</style>
+
+<div class="wrap" id="app" aria-live="polite"><p style="color:#888">Loading screen…</p></div>
+<dialog class="sheet" id="sheet" aria-label="Stock detail"><div class="in" id="sheetBody"></div></dialog>
+
+<script>
+/* ---------------- helpers ---------------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cap = v => v == null ? "–" : v >= 1e9 ? `A$${(v/1e9).toFixed(v>=1e10?0:2)}bn` : `A$${Math.round(v/1e6)}m`;
+const money = v => v == null ? "–" : (v<0?"−":"") + (Math.abs(v)>=1e9 ? `A$${(Math.abs(v)/1e9).toFixed(2)}bn` : `A$${Math.round(Math.abs(v)/1e6)}m`);
+const px = v => v == null ? "–" : v < 1 ? v.toFixed(3) : v.toFixed(2);
+const pct = (v, d=1) => v == null ? "–" : `${v.toFixed(d)}%`;
+const spct = (v, d=1) => v == null ? "–" : `${v>0?"+":v<0?"−":""}${Math.abs(v).toFixed(d)}%`;
+const short = s => (s||"").replace(/\b(Limited|Ltd\.?|Group|Holdings|Inc\.?|Corporation|Shs Chess.*|Chess Depository.*)\b/gi,"").replace(/\s+/g," ").replace(/[ ,.]+$/,"").trim();
+const TZ = "Australia/Sydney";
+const sydDate = iso => new Date(iso).toLocaleDateString("en-AU",{timeZone:TZ,day:"numeric",month:"short",year:"numeric"});
+const sydStamp = iso => new Date(iso).toLocaleString("en-AU",{timeZone:TZ,weekday:"short",day:"numeric",month:"short",hour:"numeric",minute:"2-digit"});
+const dShort = s => s ? new Date(s+"T00:00:00Z").toLocaleDateString("en-AU",{day:"numeric",month:"short",year:"2-digit",timeZone:"UTC"}) : "–";
+const fyLabel = (m, i, n) => { const y = m.fy_end ? +m.fy_end.slice(0,4) : null; return y ? `FY${String(y-(n-1-i)).slice(2)}` : `Y${i+1}`; };
+const RULE = {mcap:"Market cap", drawdown:"Drawdown", revenue:"Revenue", ebitda:"EBITDA"};
+
+/* Row sparkline: 1Y weekly closes when available, else performance-point ladder. */
+function spark(m, w=700, h=26) {
+  let vals = m.spark && m.spark.length > 2 ? m.spark : (m.ladder||[]).map(p=>p.p);
+  if (vals.length < 2) return "";
+  const lo = Math.min(...vals), hi = Math.max(...vals), r = (hi-lo)||1, pad = 3;
+  const pts = vals.map((v,i)=>[pad+i*(w-2*pad)/(vals.length-1), h-pad-((v-lo)/r)*(h-2*pad)]);
+  const d = pts.map((p,i)=>`${i?"L":"M"}${p[0].toFixed(1)},${p[1].toFixed(1)}`).join("");
+  const e = pts.at(-1);
+  return `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" preserveAspectRatio="none" aria-hidden="true"><path d="${d}" fill="none" stroke="currentColor" stroke-width="1.2" vector-effect="non-scaling-stroke"/><circle cx="${e[0]}" cy="${e[1]}" r="2.6" fill="var(--down)"/></svg>`;
+}
+
+/* ---------------- chart with time ranges ---------------- */
+const RANGES = [
+  ["1D","intraday",null], ["1W","hourly",7], ["1M","hourly",31], ["3M","daily",92],
+  ["6M","daily",183], ["1Y","daily",366], ["5Y","weekly",1830],
+];
+const barCache = {};
+function loadBars(t) {
+  if (!(t in barCache)) barCache[t] = fetch(`data/bars/${t}.json`, {cache:"no-cache"}).then(r => r.ok ? r.json() : null).catch(() => null);
+  return barCache[t];
+}
+function sliceRange(bars, src, days) {
+  const rows = bars && bars[src] || [];
+  if (!rows.length || !days) return rows;
+  const cut = rows.at(-1)[0] - days*86400;
+  return rows.filter(r => r[0] >= cut);
+}
+const rangeRows = (bars, key) => { const [, src, days] = RANGES.find(r => r[0] === key); return sliceRange(bars, src, days); };
+function fmtT(t, key) {
+  const d = new Date(t*1000);
+  if (key === "1D") return d.toLocaleTimeString("en-AU",{timeZone:TZ,hour:"numeric",minute:"2-digit"});
+  if (key === "1W" || key === "1M") return d.toLocaleString("en-AU",{timeZone:TZ,weekday:"short",day:"numeric",month:"short",hour:"numeric"});
+  return d.toLocaleDateString("en-AU",{timeZone:TZ,day:"numeric",month:"short",year:"2-digit"});
+}
+const LABEL = {"1D":"since previous close","1W":"past week","1M":"past month","3M":"past 3 months","6M":"past 6 months","1Y":"past year","5Y":"past 5 years"};
+function setHeader(m, s, key) {
+  if (!s) { $("#px").textContent = `A$${px(m.price)}`; $("#rc").innerHTML = ""; return; }
+  const ch = s.last - s.first, p = ch / s.first * 100;
+  $("#px").textContent = `A$${px(s.last)}`;
+  $("#rc").innerHTML = `<b class="${ch>=0?"pos":"neg"}" style="font-weight:500">${ch>=0?"+":"−"}${px(Math.abs(ch))} (${spct(p,2)})</b> <span>${s.at ? fmtT(s.at, key) : LABEL[key]}</span>`;
+}
+function drawChart(m, bars, key) {
+  const box = $("#chart"), rows = rangeRows(bars, key);
+  if (rows.length < 2) { box.innerHTML = `<div class="msg">No ${key} price history available.</div>`; $("#axis").innerHTML = ""; setHeader(m, null, key); return; }
+  const W = Math.max(280, box.clientWidth), H = box.clientHeight, padT = 16, padB = 8;
+  const vals = rows.map(r => r[1]);
+  const showHigh = key === "1Y" && m.high_52w;
+  const base = key === "1D" && bars.prev_close ? [bars.prev_close] : [];
+  const lo = Math.min(...vals, ...base), hi = Math.max(...vals, ...base, showHigh ? m.high_52w : -Infinity), rg = (hi-lo)||1;
+  const X = i => i*W/(rows.length-1), Y = v => padT + (1-(v-lo)/rg)*(H-padT-padB);
+  const first = key === "1D" && bars.prev_close ? bars.prev_close : vals[0], last = vals.at(-1), col = last >= first ? "var(--up)" : "var(--down)";
+  const d = rows.map((r,i)=>`${i?"L":"M"}${X(i).toFixed(1)},${Y(r[1]).toFixed(1)}`).join("");
+  const id = "g" + key;
+  box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="${esc(m.ticker)} price, ${LABEL[key]}">
+    <defs><linearGradient id="${id}" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="${col}" stop-opacity=".16"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></linearGradient></defs>
+    ${[0.25,0.5,0.75].map(f=>`<line x1="0" x2="${W}" y1="${padT+f*(H-padT-padB)}" y2="${padT+f*(H-padT-padB)}" stroke="var(--line)" stroke-width="1"/>`).join("")}
+    <line x1="0" x2="${W}" y1="${Y(first)}" y2="${Y(first)}" stroke="var(--muted)" stroke-opacity=".6" stroke-dasharray="1 4"/>
+    ${key === "1D" && bars.prev_close ? `<text x="${W-4}" y="${Y(first)-4}" text-anchor="end" font-size="10.5" fill="var(--muted)" font-family="inherit">Prev close ${px(first)}</text>` : ""}
+    ${showHigh ? `<line x1="0" x2="${W}" y1="${Y(m.high_52w)}" y2="${Y(m.high_52w)}" stroke="var(--down)" stroke-opacity=".6" stroke-dasharray="4 4"/><text x="4" y="${Y(m.high_52w)-4}" font-size="10.5" fill="var(--down)" font-family="inherit">52-week high ${px(m.high_52w)}</text>` : ""}
+    <path d="${d}L${W},${H}L0,${H}Z" fill="url(#${id})"/>
+    <path d="${d}" fill="none" stroke="${col}" stroke-width="1.6" stroke-linejoin="round"/>
+    <g id="cur" style="display:none"><line id="cx" y1="0" y2="${H}" stroke="var(--muted)" stroke-width="1"/><circle id="cd" r="4" fill="${col}" stroke="var(--bg)" stroke-width="2"/></g>
+    <circle cx="${X(rows.length-1)}" cy="${Y(last)}" r="3" fill="${col}"/>
+  </svg>`;
+  $("#axis").innerHTML = `<span>${fmtT(rows[0][0], key)}</span><span>Low ${px(Math.min(...vals))} · High ${px(Math.max(...vals))}</span><span>${fmtT(rows.at(-1)[0], key)}</span>`;
+  setHeader(m, {first, last}, key);
+
+  const svg = box.querySelector("svg"), cur = svg.querySelector("#cur"), cx = svg.querySelector("#cx"), cd = svg.querySelector("#cd");
+  const move = e => {
+    const rect = svg.getBoundingClientRect(), x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+    const i = Math.max(0, Math.min(rows.length-1, Math.round(x / rect.width * (rows.length-1))));
+    cur.style.display = ""; cx.setAttribute("x1", X(i)); cx.setAttribute("x2", X(i));
+    cd.setAttribute("cx", X(i)); cd.setAttribute("cy", Y(rows[i][1]));
+    setHeader(m, {first, last: rows[i][1], at: rows[i][0]}, key);
+  };
+  const leave = () => { cur.style.display = "none"; setHeader(m, {first, last}, key); };
+  svg.addEventListener("pointermove", move); svg.addEventListener("pointerdown", move);
+  svg.addEventListener("touchmove", move, {passive:true});
+  svg.addEventListener("pointerleave", leave); svg.addEventListener("touchend", leave);
+}
+
+/* ---------------- detail sheet ---------------- */
+let currentRange = "1Y", openTicker = null;
+async function openSheet(m) {
+  openTicker = m.ticker;
+  const yoy = m.revenue_yoy_pct || [];
+  const rows = (m.revenue_fy||[]).map((v,i,a)=>`<tr><td>${fyLabel(m,i,a.length)}</td><td>${money(v)}</td><td class="${i&&yoy[i-1]<=0?"neg":""}">${i?spct(yoy[i-1]):"–"}</td><td>${m.ebitda_fy_hist&&m.ebitda_fy_hist[i]!=null?money(m.ebitda_fy_hist[i]):"–"}</td></tr>`).join("");
+  const notes = [];
+  if (m.fragile) notes.push(`<div class="note"><b>Fragile pass.</b> The 52-week high (${dShort(m.high_52w_date)}) was set at the start of the window and rolls off within days. Against the 6-month high the drawdown is ${pct(m.drawdown_vs_6m_high_pct)}${m.drawdown_vs_6m_high_pct!=null&&m.drawdown_vs_6m_high_pct<D.criteria.drawdown_min_pct?", which would fail the drawdown rule.":", which would still pass."}</div>`);
+  if (m.fails && m.fails.length) notes.push(`<div class="note"><b>Misses:</b> ${m.fails.map(f=>`${RULE[f.rule]}, ${esc(f.detail)}`).join("; ")}.</div>`);
+  if (m.sector === "Finance") notes.push(`<div class="note">Financial company. TradingView's standardised EBITDA can differ a lot from the company's reported figure; check the results release.</div>`);
+  $("#sheetBody").innerHTML = `<div class="grab"></div>
+    <div class="s-top"><div><h3>${esc(m.ticker)}</h3><div class="sub">${esc(short(m.name))} · ${esc(m.industry||m.sector||"")}</div></div><button class="x" id="closeSheet" aria-label="Close">×</button></div>
+    <div class="px" id="px">A$${px(m.price)}</div><div class="rc" id="rc"></div>
+    <div class="ranges" role="group" aria-label="Time range">${RANGES.map(([k])=>`<button data-r="${k}" aria-pressed="${k===currentRange}">${k}</button>`).join("")}</div>
+    <div class="chart" id="chart"><div class="msg">Loading chart…</div></div>
+    <div class="axis" id="axis"></div>
+    <div class="kv">
+      <div><span>Below 52-week high</span><b class="neg">${pct(m.drawdown_pct)}</b></div>
+      <div><span>52-week high</span><b>A$${px(m.high_52w)} <small>${dShort(m.high_52w_date)}</small></b></div>
+      <div><span>Market cap</span><b>${cap(m.market_cap)}</b></div>
+      <div><span>EBITDA, latest FY</span><b>${money(m.ebitda_fy)}</b></div>
+      <div><span>Status</span><b>${esc(m.status)}</b></div>
+      <div><span>Next results</span><b>${dShort(m.next_earnings)}</b></div>
+    </div>
+    <table><thead><tr><th>Fiscal year</th><th>Revenue</th><th>YoY</th><th>EBITDA</th></tr></thead><tbody>${rows}</tbody></table>
+    ${notes.join("")}
+    <a class="tv" href="${m.tv_url}" target="_blank" rel="noopener">Open ${esc(m.ticker)} in TradingView ↗</a>`;
+  const dlg = $("#sheet"); if (!dlg.open) dlg.showModal();
+  $("#closeSheet").onclick = () => dlg.close();
+  const bars = await loadBars(m.ticker);
+  if (openTicker !== m.ticker) return;
+  const btns = $("#sheetBody").querySelectorAll("[data-r]");
+  if (!bars) { $("#chart").innerHTML = `<div class="msg">Price history isn't available for this stock yet.</div>`; btns.forEach(b => b.disabled = true); return; }
+  btns.forEach(b => {
+    b.disabled = rangeRows(bars, b.dataset.r).length < 2;
+    b.onclick = () => { currentRange = b.dataset.r; btns.forEach(x => x.setAttribute("aria-pressed", x === b)); drawChart(m, bars, currentRange); };
+  });
+  if (rangeRows(bars, currentRange).length < 2) { currentRange = "1Y"; btns.forEach(x => x.setAttribute("aria-pressed", x.dataset.r === "1Y")); }
+  drawChart(m, bars, currentRange);
+}
+$("#sheet").addEventListener("click", e => { if (e.target.id === "sheet") e.target.close(); });
+$("#sheet").addEventListener("close", () => { openTicker = null; });
+
+/* ---------------- page ---------------- */
+let D, BY = {};
+function render() {
+  const M = D.matches, B = D.borderline, c = D.criteria;
+  const groups = {};
+  M.forEach(m => (groups[m.sector||"Other"] ||= []).push(m));
+  const order = Object.keys(groups).sort((a,b)=>groups[b].length-groups[a].length || a.localeCompare(b));
+  const avg = M.length ? M.reduce((s,m)=>s+m.drawdown_pct,0)/M.length : null;
+  const ch = D.changes||{};
+  const chText = !ch.since ? "First recorded run." : (!ch.added.length && !ch.removed.length) ? `No change since ${sydDate(ch.since)}.` :
+    `${ch.added.length?`<b>In:</b> ${ch.added.join(", ")}. `:""}${ch.removed.length?`<b>Out:</b> ${ch.removed.join(", ")}.`:""}`;
+  const row = m => `<button class="row" data-t="${m.ticker}">
+      <div style="min-width:0"><div class="tk">${m.ticker}${m.is_new?"<em>New</em>":""}${m.fragile?'<em class="f">Fragile</em>':""}</div><div class="nm">${esc(short(m.name))}</div></div>
+      <div><div class="dd"><small>▼</small>${m.drawdown_pct.toFixed(1)}%</div><div class="meta">A$${px(m.price)} · ${cap(m.market_cap)}</div></div>
+      <div class="sp">${spark(m)}</div></button>`;
+  $("#app").innerHTML = `<header class="head"><div class="ey">ASX screen · ${sydStamp(D.run_at)}</div>
+    <h1><b>${M.length} wounded</b> mid-caps</h1>
+    <p>Down at least ${c.drawdown_min_pct}% from the 52-week high, revenue up in each of the last ${c.revenue_years} years, EBITDA above ${money(c.ebitda_threshold)}, market cap ${cap(c.market_cap_min)}–${cap(c.market_cap_max)}.${D.loosened?" <b>No stocks passed the standard rules, so this run used the loosened thresholds shown.</b>":""}</p></header>
+  <div class="figs"><div><b>${D.universe_count}</b>screened</div><div><b>${pct(avg,0)}</b>avg drawdown</div><div><b>${B.length}</b>near misses</div></div>
+  <div class="chg">${chText}</div>
+  ${order.map(g=>`<section class="grp"><h2><span>${esc(g)}</span><span>${groups[g].length}</span></h2>${groups[g].map(row).join("")}</section>`).join("")}
+  <section class="grp"><h2><span>Near misses</span><span>missed one rule</span></h2>
+    <div class="pills">${B.map(m=>`<button data-t="${m.ticker}"><b>${m.ticker}</b><span>${RULE[m.fails[0].rule]} · ${pct(m.drawdown_pct,0)} off</span></button>`).join("")}</div></section>
+  <div class="foot">
+    <p>Data from TradingView, delayed and end-of-day. Revenue and EBITDA are TradingView's standardised fiscal-year figures in AUD and can differ from company reports.</p>
+    <p>A mechanical screen of ${D.universe_count} ASX stocks, refreshed each weekday evening. Not financial advice.</p></div>`;
+  $("#app").querySelectorAll("[data-t]").forEach(el => el.addEventListener("click", () => openSheet(BY[el.dataset.t])));
+}
+(async () => {
+  try { D = await (await fetch("data/latest.json", {cache:"no-cache"})).json(); }
+  catch (e) { $("#app").innerHTML = `<p>Couldn't load the screen data. If you opened this file directly, serve the folder over HTTP instead.</p>`; return; }
+  [...D.matches, ...D.borderline].forEach(m => BY[m.ticker] = m);
+  render();
+  let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { if (openTicker) loadBars(openTicker).then(b => b && openTicker && drawChart(BY[openTicker], b, currentRange)); }, 150); });
+})();
+</script>
