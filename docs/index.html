@@ -391,6 +391,7 @@ async function enableAlerts() {
   let sub = null;
   try { sub = (await reg.pushManager.getSubscription()) || await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: urlB64(VAPID_PUBLIC) }); } catch (e) {}
   panel.hidden = false;
+  if (!sub && !periodic) { panel.innerHTML = "Alerts couldn't be set up on this device. Install the app from Chrome, then try again."; return; }
   panel.innerHTML = `<b>Alerts are on for this device.</b> You'll be notified when a refresh adds a stock to the screen.
     ${periodic ? "" : " Background checks aren't available here, so instant alerts need the step below."}
     ${sub ? `<ol><li>Copy this device code.</li><li>In GitHub, open the repo's Settings → Secrets and variables → Actions.</li><li>Add it as a secret named <b>PUSH_SUBSCRIPTIONS</b> (or replace the old value).</li></ol>
