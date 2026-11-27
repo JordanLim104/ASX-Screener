@@ -1,387 +1,275 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><!--STRIP-FOR-ARTIFACT-->
 <title>Wounded Mid-Caps</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#000000">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><!--STRIP-FOR-ARTIFACT-->
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121317" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Archivo:wdth,wght@62..125,400..900&family=Inter+Tight:wght@300;400;500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap">
 <style>
-/* Four skins over one data file. Each skin owns its tokens and layout.
-   ledger = Swiss ruled list, giant numerals · column = dense ruled table with drawdown bars
-   index  = quiet light-weight grotesk, grouped by sector · broker = dark retail-broker app */
+/* Index: quiet, light-weight grotesk; ruled list grouped by sector; red only for losses. */
 :root{
-  --up:#1f9d55; --down:#d0312d; --warn:#c98a00;
-  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
-  --bg:#ffffff; --fg:#0b0b0c; --muted:#6b6b70; --line:#e3e3e6; --accent:#d0312d; --panel:#f5f5f6;
+  --bg:#ffffff; --fg:#16181d; --muted:#7c808a; --line:#e7e8eb; --panel:#f5f6f8; --soft:#b9bcc4;
+  --down:#c8102e; --up:#0f8a4f; --warn:#b7791f;
+  --sans:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121317; --fg:#eceef2; --muted:#8b909b; --line:#262830; --panel:#1b1d23; --soft:#4a4e58;
+  --down:#ff5468; --up:#3ccf8e; --warn:#e5a93a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121317; --fg:#eceef2; --muted:#8b909b; --line:#262830; --panel:#1b1d23; --soft:#4a4e58;
+  --down:#ff5468; --up:#3ccf8e; --warn:#e5a93a; color-scheme:dark}
 *{box-sizing:border-box}
-html,body{min-height:100%}
-body{margin:0;background:var(--bg);color:var(--fg);font-variant-numeric:tabular-nums;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:14px;font-variant-numeric:tabular-nums;-webkit-text-size-adjust:100%}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px 96px}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.foot{font-size:11px;line-height:1.5;color:var(--muted);margin-top:28px}
-.foot p{margin:0 0 6px}
+:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 svg{display:block;max-width:100%}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:8px 48px}
 
-/* ---------- skin switcher (bottom) ---------- */
-.switch{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;justify-content:center;
-  padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));pointer-events:none}
-.switch nav{pointer-events:auto;display:flex;gap:2px;padding:4px;border-radius:999px;background:rgba(20,20,22,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(0,0,0,.25)}
-.switch a{font:600 12px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:#bbb;text-decoration:none;padding:9px 12px;border-radius:999px}
-.switch a[aria-current="true"]{background:#fff;color:#000}
+.head{padding:22px 0 18px}
+.ey{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.head h1{margin:6px 0 0;font-size:40px;font-weight:300;letter-spacing:-.025em;line-height:1.02;text-wrap:balance}
+.head h1 b{font-weight:600}
+.head p{margin:10px 0 0;color:var(--muted);font-size:13.5px;line-height:1.5;max-width:60ch}
+.figs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--fg);border-bottom:1px solid var(--line)}
+.figs div{padding:12px 0 14px;font-size:11.5px;color:var(--muted)}
+.figs b{display:block;font-size:30px;font-weight:300;color:var(--fg);letter-spacing:-.02em;line-height:1.1}
+.chg{font-size:12.5px;color:var(--muted);padding:10px 0;border-bottom:1px solid var(--line)}
+.chg b{color:var(--fg);font-weight:500}
 
-/* ---------- detail sheet (shared, skinned by tokens) ---------- */
-dialog.sheet{border:0;padding:0;margin:auto auto 0;width:100%;max-width:640px;max-height:88vh;border-radius:16px 16px 0 0;background:var(--bg);color:var(--fg);overflow:auto}
-dialog.sheet::backdrop{background:rgba(0,0,0,.55)}
-.sheet .in{padding:18px max(18px,env(safe-area-inset-left,0px)) calc(24px + env(safe-area-inset-bottom,0px))}
-.sheet .grab{width:40px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 14px}
-.sheet h3{margin:0;font-size:22px}
-.sheet .sub{color:var(--muted);font-size:13px;margin-top:2px}
-.sheet .kv{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;margin:16px 0}
-.sheet .kv div span{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.sheet .kv div b{font-size:17px;font-weight:600}
-.sheet table{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0 14px}
-.sheet th,.sheet td{text-align:right;padding:6px 4px;border-bottom:1px solid var(--line)}
+.grp{margin-top:26px}
+.grp h2{margin:0 0 2px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;gap:12px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 14px;padding:14px 0;border-bottom:1px solid var(--line);width:100%;text-align:left;align-items:baseline}
+.grp h2+.row{border-top:1px solid var(--line)}
+.row:hover{background:linear-gradient(90deg,transparent,var(--panel) 20%,var(--panel) 80%,transparent)}
+.row .tk{font-size:17px;font-weight:600;letter-spacing:-.01em}
+.row .tk em{font-style:normal;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--down);margin-left:8px;vertical-align:2px}
+.row .tk em.f{color:var(--warn)}
+.row .nm{font-size:13px;font-weight:300;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .dd{font-size:30px;font-weight:300;letter-spacing:-.03em;line-height:1;text-align:right}
+.row .dd small{font-size:14px;color:var(--down);margin-right:3px}
+.row .meta{font-size:12px;color:var(--muted);text-align:right;white-space:nowrap}
+.row .sp{grid-column:1/-1;margin-top:8px;color:var(--soft)}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.pills button{border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:13px;display:flex;gap:8px;align-items:baseline}
+.pills button:hover{border-color:var(--muted)}
+.pills b{font-weight:600}
+.pills span{color:var(--muted);font-weight:300;font-size:12px}
+.foot{font-size:11.5px;line-height:1.55;color:var(--muted);margin-top:32px;border-top:1px solid var(--line);padding-top:14px}
+.foot p{margin:0 0 6px;max-width:70ch}
+
+/* detail sheet */
+dialog.sheet{border:0;padding:0;margin:auto auto 0;width:100%;max-width:640px;max-height:92vh;border-radius:18px 18px 0 0;background:var(--bg);color:var(--fg);overflow:auto;overscroll-behavior:contain}
+dialog.sheet::backdrop{background:rgba(10,12,16,.5)}
+@media (min-width:700px){dialog.sheet{margin:auto;border-radius:18px}}
+.sheet .in{padding:14px max(20px,env(safe-area-inset-left,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-right,0px))}
+.grab{width:38px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 16px}
+.s-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.s-top h3{margin:0;font-size:20px;font-weight:600;letter-spacing:-.01em}
+.s-top .sub{font-size:13px;font-weight:300;color:var(--muted)}
+.x{width:32px;height:32px;border-radius:50%;background:var(--panel);font-size:18px;line-height:32px;text-align:center;flex:none}
+.px{font-size:40px;font-weight:300;letter-spacing:-.03em;line-height:1;margin-top:16px}
+.rc{font-size:13.5px;margin-top:6px;min-height:1.3em}
+.rc span{color:var(--muted)}
+.ranges{display:flex;gap:2px;margin:16px 0 6px;border-bottom:1px solid var(--line)}
+.ranges button{flex:1;padding:8px 0 9px;font-size:13px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.ranges button[aria-pressed="true"]{color:var(--fg);border-bottom-color:var(--fg)}
+.ranges button:disabled{opacity:.35;cursor:default}
+.chart{position:relative;height:200px;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.chart svg{width:100%;height:100%}
+.chart .msg{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-size:13px}
+.axis{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:var(--muted);margin-top:4px}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;margin:20px 0 6px;padding-top:16px;border-top:1px solid var(--line)}
+.kv span{display:block;font-size:11px;color:var(--muted);letter-spacing:.04em}
+.kv b{font-size:17px;font-weight:400}
+.kv b small{font-size:12px;color:var(--muted);font-weight:300}
+.sheet table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0}
+.sheet th,.sheet td{text-align:right;padding:7px 4px;border-bottom:1px solid var(--line)}
 .sheet th:first-child,.sheet td:first-child{text-align:left}
-.sheet th{font-weight:500;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
-.sheet .note{font-size:13px;line-height:1.45;padding:10px 12px;border-radius:8px;background:var(--panel);margin:8px 0}
-.sheet .btns{display:flex;gap:8px;margin-top:14px}
-.sheet .btns a,.sheet .btns button{flex:1;text-align:center;padding:12px;border-radius:10px;border:1px solid var(--line);font-weight:600;font-size:14px;text-decoration:none}
+.sheet th{font-weight:500;color:var(--muted);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.note{font-size:13px;line-height:1.5;padding:10px 12px;border-radius:10px;background:var(--panel);margin:8px 0}
+.tv{display:block;text-align:center;padding:13px;border-radius:12px;border:1px solid var(--line);font-weight:500;text-decoration:none;margin-top:14px}
 .neg{color:var(--down)} .pos{color:var(--up)}
-
-/* =====================================================================
-   SKIN 1 · LEDGER — Swiss ruled list, giant numerals. Light + dark.
-   ===================================================================== */
-[data-skin="ledger"]{--bg:#ffffff;--fg:#0a0a0a;--muted:#707074;--line:#0a0a0a;--hair:#dcdcdf;--accent:#e4002b;--panel:#f3f3f4;--down:#e4002b;--display:"Archivo",system-ui,sans-serif}
-@media (prefers-color-scheme:dark){[data-skin="ledger"]:not([data-theme="light"]){--bg:#0d0d0e;--fg:#f4f4f4;--muted:#9a9a9f;--line:#f4f4f4;--hair:#2c2c2f;--accent:#ff3b4f;--panel:#19191b;--down:#ff3b4f;color-scheme:dark}}
-[data-skin="ledger"][data-theme="dark"]{--bg:#0d0d0e;--fg:#f4f4f4;--muted:#9a9a9f;--line:#f4f4f4;--hair:#2c2c2f;--accent:#ff3b4f;--panel:#19191b;--down:#ff3b4f;color-scheme:dark}
-[data-skin="ledger"] body{font-family:var(--display);font-size:14px}
-.l-mast{border-bottom:3px solid var(--line);padding:14px 0 10px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px}
-.l-mast h1{margin:0;font-size:clamp(40px,13vw,72px);line-height:.86;font-weight:900;font-stretch:72%;letter-spacing:-.02em;text-transform:uppercase}
-.l-mast .d{text-align:right;font:500 11px/1.4 var(--mono);color:var(--muted)}
-.l-mast .d b{display:block;color:var(--fg);font-size:28px;font-family:var(--display);font-weight:800;font-stretch:80%;line-height:1}
-.l-rules{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
-.l-rules div{padding:8px 6px 8px 0;font:500 10.5px/1.3 var(--mono);color:var(--muted)}
-.l-rules div b{display:block;font:800 15px/1.1 var(--display);font-stretch:85%;color:var(--fg)}
-.l-chg{font:500 12px/1.5 var(--mono);padding:10px 0;border-bottom:1px solid var(--hair);color:var(--muted)}
-.l-chg b{color:var(--fg)}
-.l-sec{display:flex;justify-content:space-between;align-items:baseline;margin-top:26px;border-bottom:3px solid var(--line);padding-bottom:4px}
-.l-sec h2{margin:0;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.l-sec span{font:500 11px var(--mono);color:var(--muted)}
-.l-row{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;padding:14px 0 12px;border-bottom:1px solid var(--hair);width:100%;text-align:left;align-items:start}
-.l-num{font-weight:900;font-stretch:66%;font-size:58px;line-height:.82;color:var(--down);letter-spacing:-.02em;min-width:2.1ch}
-.l-num small{font-size:20px;font-weight:700;margin-left:1px}
-.l-id{min-width:0}
-.l-id .tk{font-weight:800;font-size:20px;letter-spacing:.01em;display:flex;gap:8px;align-items:center}
-.l-id .nm{color:var(--muted);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.l-id .mt{font:500 11.5px/1.5 var(--mono);margin-top:5px}
-.l-row .sp{grid-column:1/-1;margin-top:6px}
-.l-tag{font:600 9.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border:1px solid currentColor}
-.l-tag.new{color:var(--accent)}
-.l-tag.frag{color:var(--muted)}
-.l-bl{display:grid;grid-template-columns:3.4em 1fr auto;gap:10px;padding:10px 0;border-bottom:1px solid var(--hair);width:100%;text-align:left;align-items:baseline}
-.l-bl b{font-weight:800}
-.l-bl span{color:var(--muted);font-size:12.5px;min-width:0}
-.l-bl i{font:500 12px var(--mono);font-style:normal}
-
-/* =====================================================================
-   SKIN 2 · COLUMN — Ledger's Swiss rules, as a dense table with drawdown bars.
-   ===================================================================== */
-[data-skin="column"]{--bg:#fbfbfa;--fg:#111111;--muted:#77777b;--line:#111111;--hair:#e2e2e0;--accent:#e4002b;--panel:#efefed;--down:#e4002b;--track:#ececea;--warn:#d39a00;--display:"Archivo",system-ui,sans-serif}
-@media (prefers-color-scheme:dark){[data-skin="column"]:not([data-theme="light"]){--bg:#101011;--fg:#efefef;--muted:#96969b;--line:#efefef;--hair:#2a2a2d;--accent:#ff4057;--panel:#1b1b1d;--down:#ff4057;--track:#232326;--warn:#f0b62e;color-scheme:dark}}
-[data-skin="column"][data-theme="dark"]{--bg:#101011;--fg:#efefef;--muted:#96969b;--line:#efefef;--hair:#2a2a2d;--accent:#ff4057;--panel:#1b1b1d;--down:#ff4057;--track:#232326;--warn:#f0b62e;color-scheme:dark}
-[data-skin="column"] body{font-family:var(--display);font-size:14px}
-.c-mast{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:10px 0 6px;border-bottom:3px solid var(--line)}
-.c-mast h1{margin:0;font-size:26px;font-weight:900;font-stretch:70%;text-transform:uppercase;letter-spacing:.01em}
-.c-mast span{font:500 11px var(--mono);color:var(--muted);text-align:right}
-.c-crit{font:500 11px/1.6 var(--mono);color:var(--muted);padding:8px 0;border-bottom:1px solid var(--hair)}
-.c-crit b{color:var(--fg);font-weight:600}
-.c-stats{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
-.c-stats div{padding:10px 0;font:500 10.5px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
-.c-stats b{display:block;font:900 34px/1 var(--display);font-stretch:68%;color:var(--fg);letter-spacing:0;margin-bottom:2px}
-.c-stats div:first-child b{color:var(--down)}
-.c-sec{display:flex;justify-content:space-between;align-items:baseline;margin-top:22px;padding-bottom:4px;border-bottom:2px solid var(--line)}
-.c-sec h2{margin:0;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.c-sec span{font:500 10.5px var(--mono);color:var(--muted)}
-.c-row{display:grid;grid-template-columns:3.1em minmax(0,1fr) 30% 2.9em;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--hair);width:100%;text-align:left}
-.c-row:hover{background:var(--panel)}
-.c-row .tk{font-weight:800;font-size:15px}
-.c-row .nm{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.c-row .nm small{display:block;font:500 10px var(--mono);overflow:hidden;text-overflow:ellipsis;color:var(--muted)}
-.c-bar{position:relative;height:10px;background:var(--track)}
-.c-bar em{position:absolute;left:0;top:0;bottom:0;background:var(--down)}
-.c-bar.warn em{background:var(--warn)}
-.c-bar i{position:absolute;top:-3px;bottom:-3px;width:1.5px;background:var(--fg)}
-.c-row .v{font:600 13px var(--mono);text-align:right}
-.c-row .why{grid-column:2/-1;font:500 10.5px/1.4 var(--mono);color:var(--muted);margin-top:-4px}
-.c-key{display:flex;gap:14px;font:500 10px var(--mono);color:var(--muted);padding:8px 0 0;align-items:center}
-.c-key i{display:inline-block;width:1.5px;height:10px;background:var(--fg);vertical-align:middle;margin-right:4px}
-.c-flag{font:600 9px var(--mono);letter-spacing:.05em;color:var(--accent);margin-left:4px;vertical-align:2px}
-
-/* =====================================================================
-   SKIN 3 · INDEX — quiet, light-weight grotesk; grouped by sector.
-   ===================================================================== */
-[data-skin="index"]{--bg:#ffffff;--fg:#16181d;--muted:#7c808a;--line:#e7e8eb;--accent:#c8102e;--panel:#f5f6f8;--down:#c8102e;--soft:#b9bcc4;--sans:"Inter Tight",system-ui,sans-serif}
-@media (prefers-color-scheme:dark){[data-skin="index"]:not([data-theme="light"]){--bg:#121317;--fg:#eceef2;--muted:#8b909b;--line:#262830;--accent:#ff5468;--panel:#1b1d23;--down:#ff5468;--soft:#4a4e58;color-scheme:dark}}
-[data-skin="index"][data-theme="dark"]{--bg:#121317;--fg:#eceef2;--muted:#8b909b;--line:#262830;--accent:#ff5468;--panel:#1b1d23;--down:#ff5468;--soft:#4a4e58;color-scheme:dark}
-[data-skin="index"] body{font-family:var(--sans);font-size:14px;font-weight:400}
-.i-head{padding:22px 0 18px}
-.i-head .ey{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.i-head h1{margin:6px 0 0;font-size:40px;font-weight:300;letter-spacing:-.025em;line-height:1.02;text-wrap:balance}
-.i-head h1 b{font-weight:600}
-.i-head p{margin:10px 0 0;color:var(--muted);font-size:13.5px;line-height:1.5}
-.i-figs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--fg);border-bottom:1px solid var(--line)}
-.i-figs div{padding:12px 0 14px;font-size:11.5px;color:var(--muted)}
-.i-figs b{display:block;font-size:30px;font-weight:300;color:var(--fg);letter-spacing:-.02em;line-height:1.1}
-.i-grp{margin-top:26px}
-.i-grp h2{margin:0 0 2px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
-.i-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 14px;padding:14px 0;border-bottom:1px solid var(--line);width:100%;text-align:left;align-items:baseline}
-.i-row:first-of-type{border-top:1px solid var(--line)}
-.i-row .tk{font-size:17px;font-weight:600;letter-spacing:-.01em}
-.i-row .tk em{font-style:normal;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-left:8px;vertical-align:2px}
-.i-row .nm{font-size:13px;font-weight:300;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.i-row .dd{font-size:30px;font-weight:300;letter-spacing:-.03em;line-height:1;text-align:right}
-.i-row .dd small{font-size:14px;color:var(--down);margin-right:3px}
-.i-row .meta{font-size:12px;color:var(--muted);text-align:right;white-space:nowrap}
-.i-row .sp{grid-column:1/-1;margin-top:8px;color:var(--soft)}
-.i-bl{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.i-bl button{border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:13px;display:flex;gap:8px;align-items:baseline}
-.i-bl button b{font-weight:600}
-.i-bl button span{color:var(--muted);font-weight:300;font-size:12px}
-[data-skin="index"] .sheet h3{font-weight:500;letter-spacing:-.02em}
-
-/* =====================================================================
-   SKIN 4 · BROKER — dark retail-broker app: rounded rows, pills, big price.
-   Deliberately single-theme (dark).
-   ===================================================================== */
-[data-skin="broker"]{--bg:#0a0a0a;--fg:#ffffff;--muted:#8e8e93;--line:#1f1f22;--card:#151517;--accent:#ffffff;--panel:#1c1c1f;--up:#2fd67b;--down:#ff5a5f;--downbg:rgba(255,90,95,.14);--upbg:rgba(47,214,123,.14);--warn:#ffb340;--sans:"DM Sans",system-ui,sans-serif;color-scheme:dark}
-[data-skin="broker"] body{font-family:var(--sans);font-size:15px}
-.b-top{display:flex;justify-content:space-between;align-items:center;padding:8px 0 4px}
-.b-top h1{margin:0;font-size:30px;font-weight:700;letter-spacing:-.02em}
-.b-top time{font-size:12px;color:var(--muted);text-align:right}
-.b-sub{color:var(--muted);font-size:13px;margin:2px 0 16px}
-.b-sum{background:var(--card);border-radius:18px;padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.b-sum div span{display:block;font-size:12px;color:var(--muted);margin-bottom:2px}
-.b-sum div b{font-size:24px;font-weight:700;letter-spacing:-.01em}
-.b-sum .chg{grid-column:1/-1;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
-.b-seg{display:grid;grid-template-columns:1fr 1fr;background:var(--card);border-radius:12px;padding:3px;margin:18px 0 8px}
-.b-seg button{padding:9px;border-radius:9px;font-size:14px;font-weight:600;color:var(--muted)}
-.b-seg button[aria-pressed="true"]{background:#2a2a2e;color:var(--fg)}
-.b-pills{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:4px 0 6px}
-.b-pills span{flex:none;font-size:12px;padding:6px 10px;border-radius:999px;background:var(--card);color:var(--muted)}
-.b-row{display:grid;grid-template-columns:42px minmax(0,1fr) 58px auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);width:100%;text-align:left}
-.b-av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:12px;color:#fff}
-.b-row .tk{font-weight:700;font-size:15.5px;display:flex;gap:6px;align-items:center}
-.b-row .tk i{font-style:normal;font-size:10px;font-weight:700;padding:2px 6px;border-radius:6px;background:#2a2a2e;color:var(--muted)}
-.b-row .nm{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.b-row .r{text-align:right}
-.b-row .r b{display:block;font-weight:600;font-size:15px}
-.b-pill{display:inline-block;margin-top:3px;font-size:12px;font-weight:700;padding:3px 8px;border-radius:7px;color:var(--down);background:var(--downbg)}
-.b-pill.warn{color:var(--warn);background:rgba(255,179,64,.14)}
-[data-skin="broker"] dialog.sheet{background:#121214;border-radius:22px 22px 0 0;font-family:var(--sans)}
-[data-skin="broker"] .sheet h3{font-size:16px;font-weight:600;color:var(--muted)}
-[data-skin="broker"] .sheet .btns a{background:#fff;color:#000;border:0;border-radius:14px}
-[data-skin="broker"] .sheet .btns button{border-radius:14px;background:#222;border:0}
-.b-price{font-size:38px;font-weight:700;letter-spacing:-.02em;margin-top:4px}
-.b-price+div{font-weight:600;color:var(--down);font-size:14px}
-@media (prefers-reduced-motion:no-preference){.l-row,.b-row,.c-row,.i-row{transition:background-color .15s ease}}
 </style>
 
-<div class="wrap" id="app" aria-live="polite"><p style="font-family:monospace;color:#888">Loading screen…</p></div>
-<div class="switch" id="switch" hidden><nav aria-label="Dashboard style"></nav></div>
-<dialog class="sheet" id="sheet"><div class="in" id="sheetBody"></div></dialog>
+<div class="wrap" id="app" aria-live="polite"><p style="color:#888">Loading screen…</p></div>
+<dialog class="sheet" id="sheet" aria-label="Stock detail"><div class="in" id="sheetBody"></div></dialog>
 
 <script>
-/* ---------------- config ---------------- */
-const DEFAULT_SKIN = "ledger";       // ledger | column | index | broker
-const SHOW_SWITCHER = true;          // set false once you've picked a style
-const SKINS = [["ledger","Ledger"],["column","Column"],["index","Index"],["broker","Broker"]];
-
 /* ---------------- helpers ---------------- */
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const cap = v => v == null ? "–" : v >= 1e9 ? `A$${(v/1e9).toFixed(v>=1e10?0:2)}bn` : `A$${Math.round(v/1e6)}m`;
 const money = v => v == null ? "–" : (v<0?"−":"") + (Math.abs(v)>=1e9 ? `A$${(Math.abs(v)/1e9).toFixed(2)}bn` : `A$${Math.round(Math.abs(v)/1e6)}m`);
-const px = v => v == null ? "–" : v < 1 ? v.toFixed(3) : v < 10 ? v.toFixed(2) : v.toFixed(2);
+const px = v => v == null ? "–" : v < 1 ? v.toFixed(3) : v.toFixed(2);
 const pct = (v, d=1) => v == null ? "–" : `${v.toFixed(d)}%`;
 const spct = (v, d=1) => v == null ? "–" : `${v>0?"+":v<0?"−":""}${Math.abs(v).toFixed(d)}%`;
 const short = s => (s||"").replace(/\b(Limited|Ltd\.?|Group|Holdings|Inc\.?|Corporation|Shs Chess.*|Chess Depository.*)\b/gi,"").replace(/\s+/g," ").replace(/[ ,.]+$/,"").trim();
-const syd = iso => new Date(iso).toLocaleString("en-AU",{timeZone:"Australia/Sydney",weekday:"short",day:"numeric",month:"short",hour:"numeric",minute:"2-digit"});
-const sydDate = iso => new Date(iso).toLocaleDateString("en-AU",{timeZone:"Australia/Sydney",day:"numeric",month:"short",year:"numeric"});
+const TZ = "Australia/Sydney";
+const sydDate = iso => new Date(iso).toLocaleDateString("en-AU",{timeZone:TZ,day:"numeric",month:"short",year:"numeric"});
+const sydStamp = iso => new Date(iso).toLocaleString("en-AU",{timeZone:TZ,weekday:"short",day:"numeric",month:"short",hour:"numeric",minute:"2-digit"});
 const dShort = s => s ? new Date(s+"T00:00:00Z").toLocaleDateString("en-AU",{day:"numeric",month:"short",year:"2-digit",timeZone:"UTC"}) : "–";
-const fyLabel = (m, i, n) => { const y = m.fy_end ? +m.fy_end.slice(0,4) : null; return y ? `FY${String(y - (n-1-i)).slice(2)}` : `Y${i+1}`; };
-const RULE = {mcap:"Mkt cap", drawdown:"Drawdown", revenue:"Revenue", ebitda:"EBITDA"};
+const fyLabel = (m, i, n) => { const y = m.fy_end ? +m.fy_end.slice(0,4) : null; return y ? `FY${String(y-(n-1-i)).slice(2)}` : `Y${i+1}`; };
+const RULE = {mcap:"Market cap", drawdown:"Drawdown", revenue:"Revenue", ebitda:"EBITDA"};
 
-/* Sparkline: points from TradingView performance figures, placed on a day axis. */
-function spark(m, {w=120, h=34, stroke="currentColor", fill="none", high=true, lowline=false, sw=1.5}={}) {
-  const L = m.ladder || []; if (L.length < 2) return "";
-  const X = {"1Y":0,"6M":182,"3M":273,"1M":335,"1W":358,"Now":365};
-  const vals = L.map(p=>p.p).concat(high && m.high_52w ? [m.high_52w] : []);
+/* Row sparkline: 1Y weekly closes when available, else performance-point ladder. */
+function spark(m, w=700, h=26) {
+  let vals = m.spark && m.spark.length > 2 ? m.spark : (m.ladder||[]).map(p=>p.p);
+  if (vals.length < 2) return "";
   const lo = Math.min(...vals), hi = Math.max(...vals), r = (hi-lo)||1, pad = 3;
-  const xy = L.map(p => [ (X[p.t]/365)*(w-2*pad)+pad, h-pad-((p.p-lo)/r)*(h-2*pad) ]);
-  const d = xy.map((p,i)=>`${i?"L":"M"}${p[0].toFixed(1)},${p[1].toFixed(1)}`).join("");
-  const area = fill!=="none" ? `<path d="${d}L${xy.at(-1)[0]},${h}L${xy[0][0]},${h}Z" fill="${fill}" stroke="none"/>` : "";
-  const hy = m.high_52w ? h-pad-((m.high_52w-lo)/r)*(h-2*pad) : null;
-  const hl = high && hy!=null ? `<line x1="0" x2="${w}" y1="${hy}" y2="${hy}" stroke="${stroke}" stroke-opacity=".35" stroke-dasharray="2 3"/>` : "";
-  const end = xy.at(-1);
-  return `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" preserveAspectRatio="none" aria-hidden="true">${area}${hl}<path d="${d}" fill="none" stroke="${stroke}" stroke-width="${sw}" stroke-linejoin="round" vector-effect="non-scaling-stroke"/><circle cx="${end[0]}" cy="${end[1]}" r="2.4" fill="${stroke}"/></svg>`;
+  const pts = vals.map((v,i)=>[pad+i*(w-2*pad)/(vals.length-1), h-pad-((v-lo)/r)*(h-2*pad)]);
+  const d = pts.map((p,i)=>`${i?"L":"M"}${p[0].toFixed(1)},${p[1].toFixed(1)}`).join("");
+  const e = pts.at(-1);
+  return `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" preserveAspectRatio="none" aria-hidden="true"><path d="${d}" fill="none" stroke="currentColor" stroke-width="1.2" vector-effect="non-scaling-stroke"/><circle cx="${e[0]}" cy="${e[1]}" r="2.6" fill="var(--down)"/></svg>`;
 }
-function revBars(m, {w=90, h=28, color="currentColor"}={}) {
-  const v = m.revenue_fy || []; if (!v.length) return "";
-  const mx = Math.max(...v), bw = w/v.length;
-  return `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" aria-hidden="true">${v.map((x,i)=>{const bh=Math.max(2,(x/mx)*(h-2));return `<rect x="${i*bw+1}" y="${h-bh}" width="${bw-3}" height="${bh}" fill="${color}" fill-opacity="${.35+.65*(i+1)/v.length}"/>`}).join("")}</svg>`;
+
+/* ---------------- chart with time ranges ---------------- */
+const RANGES = [
+  ["1D","intraday",null], ["1W","hourly",7], ["1M","hourly",31], ["3M","daily",92],
+  ["6M","daily",183], ["1Y","daily",366], ["5Y","weekly",1830],
+];
+const barCache = {};
+function loadBars(t) {
+  if (!(t in barCache)) barCache[t] = fetch(`data/bars/${t}.json`, {cache:"no-cache"}).then(r => r.ok ? r.json() : null).catch(() => null);
+  return barCache[t];
+}
+function sliceRange(bars, src, days) {
+  const rows = bars && bars[src] || [];
+  if (!rows.length || !days) return rows;
+  const cut = rows.at(-1)[0] - days*86400;
+  return rows.filter(r => r[0] >= cut);
+}
+const rangeRows = (bars, key) => { const [, src, days] = RANGES.find(r => r[0] === key); return sliceRange(bars, src, days); };
+function fmtT(t, key) {
+  const d = new Date(t*1000);
+  if (key === "1D") return d.toLocaleTimeString("en-AU",{timeZone:TZ,hour:"numeric",minute:"2-digit"});
+  if (key === "1W" || key === "1M") return d.toLocaleString("en-AU",{timeZone:TZ,weekday:"short",day:"numeric",month:"short",hour:"numeric"});
+  return d.toLocaleDateString("en-AU",{timeZone:TZ,day:"numeric",month:"short",year:"2-digit"});
+}
+const LABEL = {"1D":"since previous close","1W":"past week","1M":"past month","3M":"past 3 months","6M":"past 6 months","1Y":"past year","5Y":"past 5 years"};
+function setHeader(m, s, key) {
+  if (!s) { $("#px").textContent = `A$${px(m.price)}`; $("#rc").innerHTML = ""; return; }
+  const ch = s.last - s.first, p = ch / s.first * 100;
+  $("#px").textContent = `A$${px(s.last)}`;
+  $("#rc").innerHTML = `<b class="${ch>=0?"pos":"neg"}" style="font-weight:500">${ch>=0?"+":"−"}${px(Math.abs(ch))} (${spct(p,2)})</b> <span>${s.at ? fmtT(s.at, key) : LABEL[key]}</span>`;
+}
+function drawChart(m, bars, key) {
+  const box = $("#chart"), rows = rangeRows(bars, key);
+  if (rows.length < 2) { box.innerHTML = `<div class="msg">No ${key} price history available.</div>`; $("#axis").innerHTML = ""; setHeader(m, null, key); return; }
+  const W = Math.max(280, box.clientWidth), H = box.clientHeight, padT = 16, padB = 8;
+  const vals = rows.map(r => r[1]);
+  const showHigh = key === "1Y" && m.high_52w;
+  const base = key === "1D" && bars.prev_close ? [bars.prev_close] : [];
+  const lo = Math.min(...vals, ...base), hi = Math.max(...vals, ...base, showHigh ? m.high_52w : -Infinity), rg = (hi-lo)||1;
+  const X = i => i*W/(rows.length-1), Y = v => padT + (1-(v-lo)/rg)*(H-padT-padB);
+  const first = key === "1D" && bars.prev_close ? bars.prev_close : vals[0], last = vals.at(-1), col = last >= first ? "var(--up)" : "var(--down)";
+  const d = rows.map((r,i)=>`${i?"L":"M"}${X(i).toFixed(1)},${Y(r[1]).toFixed(1)}`).join("");
+  const id = "g" + key;
+  box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="${esc(m.ticker)} price, ${LABEL[key]}">
+    <defs><linearGradient id="${id}" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="${col}" stop-opacity=".16"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></linearGradient></defs>
+    ${[0.25,0.5,0.75].map(f=>`<line x1="0" x2="${W}" y1="${padT+f*(H-padT-padB)}" y2="${padT+f*(H-padT-padB)}" stroke="var(--line)" stroke-width="1"/>`).join("")}
+    <line x1="0" x2="${W}" y1="${Y(first)}" y2="${Y(first)}" stroke="var(--muted)" stroke-opacity=".6" stroke-dasharray="1 4"/>
+    ${key === "1D" && bars.prev_close ? `<text x="${W-4}" y="${Y(first)-4}" text-anchor="end" font-size="10.5" fill="var(--muted)" font-family="inherit">Prev close ${px(first)}</text>` : ""}
+    ${showHigh ? `<line x1="0" x2="${W}" y1="${Y(m.high_52w)}" y2="${Y(m.high_52w)}" stroke="var(--down)" stroke-opacity=".6" stroke-dasharray="4 4"/><text x="4" y="${Y(m.high_52w)-4}" font-size="10.5" fill="var(--down)" font-family="inherit">52-week high ${px(m.high_52w)}</text>` : ""}
+    <path d="${d}L${W},${H}L0,${H}Z" fill="url(#${id})"/>
+    <path d="${d}" fill="none" stroke="${col}" stroke-width="1.6" stroke-linejoin="round"/>
+    <g id="cur" style="display:none"><line id="cx" y1="0" y2="${H}" stroke="var(--muted)" stroke-width="1"/><circle id="cd" r="4" fill="${col}" stroke="var(--bg)" stroke-width="2"/></g>
+    <circle cx="${X(rows.length-1)}" cy="${Y(last)}" r="3" fill="${col}"/>
+  </svg>`;
+  $("#axis").innerHTML = `<span>${fmtT(rows[0][0], key)}</span><span>Low ${px(Math.min(...vals))} · High ${px(Math.max(...vals))}</span><span>${fmtT(rows.at(-1)[0], key)}</span>`;
+  setHeader(m, {first, last}, key);
+
+  const svg = box.querySelector("svg"), cur = svg.querySelector("#cur"), cx = svg.querySelector("#cx"), cd = svg.querySelector("#cd");
+  const move = e => {
+    const rect = svg.getBoundingClientRect(), x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+    const i = Math.max(0, Math.min(rows.length-1, Math.round(x / rect.width * (rows.length-1))));
+    cur.style.display = ""; cx.setAttribute("x1", X(i)); cx.setAttribute("x2", X(i));
+    cd.setAttribute("cx", X(i)); cd.setAttribute("cy", Y(rows[i][1]));
+    setHeader(m, {first, last: rows[i][1], at: rows[i][0]}, key);
+  };
+  const leave = () => { cur.style.display = "none"; setHeader(m, {first, last}, key); };
+  svg.addEventListener("pointermove", move); svg.addEventListener("pointerdown", move);
+  svg.addEventListener("touchmove", move, {passive:true});
+  svg.addEventListener("pointerleave", leave); svg.addEventListener("touchend", leave);
 }
 
 /* ---------------- detail sheet ---------------- */
-function openSheet(m) {
+let currentRange = "1Y", openTicker = null;
+async function openSheet(m) {
+  openTicker = m.ticker;
   const yoy = m.revenue_yoy_pct || [];
   const rows = (m.revenue_fy||[]).map((v,i,a)=>`<tr><td>${fyLabel(m,i,a.length)}</td><td>${money(v)}</td><td class="${i&&yoy[i-1]<=0?"neg":""}">${i?spct(yoy[i-1]):"–"}</td><td>${m.ebitda_fy_hist&&m.ebitda_fy_hist[i]!=null?money(m.ebitda_fy_hist[i]):"–"}</td></tr>`).join("");
   const notes = [];
-  if (m.fragile) notes.push(`<div class="note"><b>Fragile pass.</b> The 52-week high (${dShort(m.high_52w_date)}) was set at the start of the window and will roll off within days. Against the 6-month high the drawdown is ${pct(m.drawdown_vs_6m_high_pct)}${m.drawdown_vs_6m_high_pct!=null&&m.drawdown_vs_6m_high_pct<D.criteria.drawdown_min_pct?", which would fail the drawdown rule":", which would still pass"}.</div>`);
-  if (m.fails && m.fails.length) notes.push(`<div class="note"><b>Fails:</b> ${m.fails.map(f=>`${RULE[f.rule]}: ${esc(f.detail)}`).join("; ")}</div>`);
-  if (m.sector==="Finance") notes.push(`<div class="note">Financial company: TradingView's standardised EBITDA can differ a lot from what the company reports. Check the results release.</div>`);
+  if (m.fragile) notes.push(`<div class="note"><b>Fragile pass.</b> The 52-week high (${dShort(m.high_52w_date)}) was set at the start of the window and rolls off within days. Against the 6-month high the drawdown is ${pct(m.drawdown_vs_6m_high_pct)}${m.drawdown_vs_6m_high_pct!=null&&m.drawdown_vs_6m_high_pct<D.criteria.drawdown_min_pct?", which would fail the drawdown rule.":", which would still pass."}</div>`);
+  if (m.fails && m.fails.length) notes.push(`<div class="note"><b>Misses:</b> ${m.fails.map(f=>`${RULE[f.rule]}, ${esc(f.detail)}`).join("; ")}.</div>`);
+  if (m.sector === "Finance") notes.push(`<div class="note">Financial company. TradingView's standardised EBITDA can differ a lot from the company's reported figure; check the results release.</div>`);
   $("#sheetBody").innerHTML = `<div class="grab"></div>
-    <h3>${esc(m.ticker)} · ${esc(short(m.name))}</h3>
-    ${document.documentElement.dataset.skin==="broker"?`<div class="b-price">A$${px(m.price)}</div><div>−${pct(m.drawdown_pct,2)} from 52-week high</div>`:""}
-    <div class="sub">${esc(m.industry||m.sector||"")} · ${esc(m.status)}</div>
-    <div style="margin-top:14px;color:var(--down)">${spark(m,{w:600,h:90,stroke:"currentColor",fill:"currentColor",sw:2}).replace('fill="currentColor" stroke="none"','fill="currentColor" fill-opacity=".1" stroke="none"')}</div>
+    <div class="s-top"><div><h3>${esc(m.ticker)}</h3><div class="sub">${esc(short(m.name))} · ${esc(m.industry||m.sector||"")}</div></div><button class="x" id="closeSheet" aria-label="Close">×</button></div>
+    <div class="px" id="px">A$${px(m.price)}</div><div class="rc" id="rc"></div>
+    <div class="ranges" role="group" aria-label="Time range">${RANGES.map(([k])=>`<button data-r="${k}" aria-pressed="${k===currentRange}">${k}</button>`).join("")}</div>
+    <div class="chart" id="chart"><div class="msg">Loading chart…</div></div>
+    <div class="axis" id="axis"></div>
     <div class="kv">
-      <div><span>Last price</span><b>A$${px(m.price)}</b></div>
-      <div><span>Below 52w high</span><b class="neg">${pct(m.drawdown_pct)}</b></div>
-      <div><span>52w high</span><b>A$${px(m.high_52w)}</b> <small style="color:var(--muted)">${dShort(m.high_52w_date)}</small></div>
+      <div><span>Below 52-week high</span><b class="neg">${pct(m.drawdown_pct)}</b></div>
+      <div><span>52-week high</span><b>A$${px(m.high_52w)} <small>${dShort(m.high_52w_date)}</small></b></div>
       <div><span>Market cap</span><b>${cap(m.market_cap)}</b></div>
-      <div><span>EBITDA (latest FY)</span><b>${money(m.ebitda_fy)}</b></div>
+      <div><span>EBITDA, latest FY</span><b>${money(m.ebitda_fy)}</b></div>
+      <div><span>Status</span><b>${esc(m.status)}</b></div>
       <div><span>Next results</span><b>${dShort(m.next_earnings)}</b></div>
     </div>
-    <table><thead><tr><th>Fiscal yr</th><th>Revenue</th><th>YoY</th><th>EBITDA</th></tr></thead><tbody>${rows}</tbody></table>
+    <table><thead><tr><th>Fiscal year</th><th>Revenue</th><th>YoY</th><th>EBITDA</th></tr></thead><tbody>${rows}</tbody></table>
     ${notes.join("")}
-    <div class="btns"><a href="${m.tv_url}" target="_blank" rel="noopener">Open in TradingView</a><button id="closeSheet">Close</button></div>`;
-  const dlg = $("#sheet"); dlg.showModal();
+    <a class="tv" href="${m.tv_url}" target="_blank" rel="noopener">Open ${esc(m.ticker)} in TradingView ↗</a>`;
+  const dlg = $("#sheet"); if (!dlg.open) dlg.showModal();
   $("#closeSheet").onclick = () => dlg.close();
+  const bars = await loadBars(m.ticker);
+  if (openTicker !== m.ticker) return;
+  const btns = $("#sheetBody").querySelectorAll("[data-r]");
+  if (!bars) { $("#chart").innerHTML = `<div class="msg">Price history isn't available for this stock yet.</div>`; btns.forEach(b => b.disabled = true); return; }
+  btns.forEach(b => {
+    b.disabled = rangeRows(bars, b.dataset.r).length < 2;
+    b.onclick = () => { currentRange = b.dataset.r; btns.forEach(x => x.setAttribute("aria-pressed", x === b)); drawChart(m, bars, currentRange); };
+  });
+  if (rangeRows(bars, currentRange).length < 2) { currentRange = "1Y"; btns.forEach(x => x.setAttribute("aria-pressed", x.dataset.r === "1Y")); }
+  drawChart(m, bars, currentRange);
 }
 $("#sheet").addEventListener("click", e => { if (e.target.id === "sheet") e.target.close(); });
+$("#sheet").addEventListener("close", () => { openTicker = null; });
 
-/* ---------------- shared bits ---------------- */
+/* ---------------- page ---------------- */
 let D, BY = {};
-function footer() {
-  return `<div class="foot">
-    <p>Data: TradingView screener, delayed / end-of-day. Revenue and EBITDA are TradingView's standardised fiscal-year figures, converted to AUD. Price path is drawn from 1W/1M/3M/6M/1Y performance points, so it is approximate.</p>
-    <p>A mechanical screen across ${D.universe_count} ASX stocks in the ${cap(D.criteria.market_cap_min)}–${cap(D.criteria.market_cap_max)} band. Figures can differ from company reports. Not financial advice.</p></div>`;
-}
-const crit = () => D.criteria;
-const loosenNote = () => D.loosened ? `No stocks passed the base rules, so this run loosened them to drawdown ≥ ${crit().drawdown_min_pct}% and EBITDA > ${money(crit().ebitda_threshold)}.` : "";
-const changeText = () => { const c = D.changes||{}; if (!c.since) return "First recorded run."; const a=c.added||[], r=c.removed||[]; if(!a.length&&!r.length) return `No change since ${sydDate(c.since)}.`; return `${a.length?`In: ${a.join(", ")}.`:""} ${r.length?`Out: ${r.join(", ")}.`:""}`.trim(); };
-const why = m => (m.fails||[]).map(f=>f.detail).join("; ");
-
-/* ---------------- skin renderers ---------------- */
-const R = {};
-
-R.ledger = () => {
-  const M = D.matches, B = D.borderline, c = crit();
-  const row = m => `<button class="l-row" data-t="${m.ticker}">
-      <div class="l-num">${m.drawdown_pct.toFixed(0)}<small>%</small></div>
-      <div class="l-id"><div class="tk">${m.ticker}${m.is_new?'<span class="l-tag new">New</span>':""}${m.fragile?'<span class="l-tag frag">Fragile</span>':""}</div>
-        <div class="nm">${esc(short(m.name))}</div>
-        <div class="mt">A$${px(m.price)} ← ${px(m.high_52w)} · ${cap(m.market_cap)} · EBITDA ${money(m.ebitda_fy)}</div></div>
-      <div class="sp" style="color:var(--fg)">${spark(m,{w:700,h:30,sw:1.4})}</div></button>`;
-  return `<header class="l-mast"><h1>Wounded<br>mid-caps</h1><div class="d">ASX · ${sydDate(D.run_at)}<b>${M.length}</b>pass all four rules</div></header>
-  <div class="l-rules"><div><b>${cap(c.market_cap_min).replace("A$","$")}–${cap(c.market_cap_max).replace("A$","$")}</b>market cap</div><div><b>≥${c.drawdown_min_pct}%</b>below 52w high</div><div><b>${c.revenue_years} of ${c.revenue_years}</b>years rev growth</div><div><b>&gt;${money(c.ebitda_threshold).replace("A$","$")}</b>EBITDA</div></div>
-  <div class="l-chg">${D.loosened?`<b>${esc(loosenNote())}</b><br>`:""}<b>Changes</b> ${esc(changeText())}</div>
-  <div class="l-sec"><h2>Matches</h2><span>% below 52-week high</span></div>
-  ${M.map(row).join("")}
-  <div class="l-sec"><h2>Borderline</h2><span>missed one rule</span></div>
-  ${B.map(m=>`<button class="l-bl" data-t="${m.ticker}"><b>${m.ticker}</b><span>${esc(why(m))}</span><i>${pct(m.drawdown_pct,0)}</i></button>`).join("")}
-  ${footer()}`;
-};
-
-R.column = () => {
-  const M = D.matches, B = D.borderline, c = crit();
-  const med = M.length ? [...M].sort((a,b)=>a.drawdown_pct-b.drawdown_pct)[Math.floor(M.length/2)].drawdown_pct : null;
-  const bar = (dd, warn) => `<div class="c-bar${warn?" warn":""}"><em style="width:${Math.min(100,dd||0)}%"></em><i style="left:${c.drawdown_min_pct}%"></i></div>`;
-  const row = m => `<button class="c-row" data-t="${m.ticker}"><span class="tk">${m.ticker}</span>
-      <span class="nm">${esc(short(m.name))}${m.is_new?'<span class="c-flag">NEW</span>':""}${m.fragile?'<span class="c-flag">FRAGILE</span>':""}<small>${cap(m.market_cap)} · ${money(m.ebitda_fy).replace("A$","")} EBITDA</small></span>
-      ${bar(m.drawdown_pct)}<span class="v">${m.drawdown_pct.toFixed(1)}</span></button>`;
-  const brow = m => `<button class="c-row" data-t="${m.ticker}"><span class="tk">${m.ticker}</span>
-      <span class="nm">${esc(short(m.name))}<small>${cap(m.market_cap)}</small></span>
-      ${bar(m.drawdown_pct, true)}<span class="v">${(m.drawdown_pct||0).toFixed(1)}</span>
-      <span class="why">${RULE[m.fails[0].rule]}: ${esc(m.fails[0].detail)}</span></button>`;
-  return `<header class="c-mast"><h1>Wounded mid-caps</h1><span>ASX · ${sydDate(D.run_at)}</span></header>
-  <div class="c-crit"><b>${cap(c.market_cap_min)}–${cap(c.market_cap_max)}</b> cap · <b>≥${c.drawdown_min_pct}%</b> off 52w high · revenue up <b>${c.revenue_years}/${c.revenue_years}</b> yrs · EBITDA <b>&gt;${money(c.ebitda_threshold)}</b>${D.loosened?`<br><b style="color:var(--accent)">${esc(loosenNote())}</b>`:""}</div>
-  <div class="c-stats"><div><b>${M.length}</b>matches</div><div><b>${med!=null?med.toFixed(0)+"%":"–"}</b>median drawdown</div><div><b>${D.universe_count}</b>screened</div></div>
-  <div class="c-sec"><h2>Matches</h2><span>% below 52w high</span></div>
-  ${M.map(row).join("")}
-  <div class="c-key"><span><i></i>${c.drawdown_min_pct}% threshold</span><span>${esc(changeText())}</span></div>
-  <div class="c-sec"><h2>Borderline</h2><span>missed one rule</span></div>
-  ${B.map(brow).join("")}
-  ${footer()}`;
-};
-
-R.index = () => {
-  const M = D.matches, B = D.borderline, c = crit();
+function render() {
+  const M = D.matches, B = D.borderline, c = D.criteria;
   const groups = {};
   M.forEach(m => (groups[m.sector||"Other"] ||= []).push(m));
   const order = Object.keys(groups).sort((a,b)=>groups[b].length-groups[a].length || a.localeCompare(b));
   const avg = M.length ? M.reduce((s,m)=>s+m.drawdown_pct,0)/M.length : null;
-  const row = m => `<button class="i-row" data-t="${m.ticker}">
-      <div style="min-width:0"><div class="tk">${m.ticker}${m.is_new?"<em>New</em>":""}${m.fragile?"<em>Fragile</em>":""}</div><div class="nm">${esc(short(m.name))}</div></div>
+  const ch = D.changes||{};
+  const chText = !ch.since ? "First recorded run." : (!ch.added.length && !ch.removed.length) ? `No change since ${sydDate(ch.since)}.` :
+    `${ch.added.length?`<b>In:</b> ${ch.added.join(", ")}. `:""}${ch.removed.length?`<b>Out:</b> ${ch.removed.join(", ")}.`:""}`;
+  const row = m => `<button class="row" data-t="${m.ticker}">
+      <div style="min-width:0"><div class="tk">${m.ticker}${m.is_new?"<em>New</em>":""}${m.fragile?'<em class="f">Fragile</em>':""}</div><div class="nm">${esc(short(m.name))}</div></div>
       <div><div class="dd"><small>▼</small>${m.drawdown_pct.toFixed(1)}%</div><div class="meta">A$${px(m.price)} · ${cap(m.market_cap)}</div></div>
-      <div class="sp">${spark(m,{w:700,h:26,sw:1.2})}</div></button>`;
-  return `<header class="i-head"><div class="ey">ASX screen · ${sydDate(D.run_at)}</div>
+      <div class="sp">${spark(m)}</div></button>`;
+  $("#app").innerHTML = `<header class="head"><div class="ey">ASX screen · ${sydStamp(D.run_at)}</div>
     <h1><b>${M.length} wounded</b> mid-caps</h1>
-    <p>Down at least ${c.drawdown_min_pct}% from the 52-week high, revenue up in each of the last ${c.revenue_years} years, EBITDA positive, ${cap(c.market_cap_min)}–${cap(c.market_cap_max)} market cap.${D.loosened?" "+esc(loosenNote()):""}</p></header>
-  <div class="i-figs"><div><b>${D.universe_count}</b>screened</div><div><b>${pct(avg,0)}</b>avg drawdown</div><div><b>${B.length}</b>near misses</div></div>
-  ${order.map(g=>`<section class="i-grp"><h2><span>${esc(g)}</span><span>${groups[g].length}</span></h2>${groups[g].map(row).join("")}</section>`).join("")}
-  <section class="i-grp"><h2><span>Near misses</span><span>${esc(changeText())}</span></h2>
-  <div class="i-bl">${B.map(m=>`<button data-t="${m.ticker}"><b>${m.ticker}</b><span>${RULE[m.fails[0].rule]} · ${pct(m.drawdown_pct,0)}</span></button>`).join("")}</div></section>
-  ${footer()}`;
-};
-
-let brokerTab = "matches";
-const AV = ["#3d5afe","#00a389","#e2552e","#8e44ec","#d4a017","#1e88e5","#c2185b","#43a047"];
-const avColor = t => AV[[...t].reduce((s,ch)=>s+ch.charCodeAt(0),0) % AV.length];
-R.broker = () => {
-  const M = D.matches, B = D.borderline, c = crit();
-  const list = brokerTab === "matches" ? M : B;
-  const row = m => `<button class="b-row" data-t="${m.ticker}"><div class="b-av" style="background:${avColor(m.ticker)}">${m.ticker}</div>
-      <div style="min-width:0"><div class="tk">${m.ticker}${m.is_new?"<i>NEW</i>":""}${m.fragile?"<i>FRAGILE</i>":""}</div><div class="nm">${brokerTab==="matches"?esc(short(m.name)):RULE[m.fails[0].rule]+": "+esc(m.fails[0].detail)}</div></div>
-      <div style="color:var(--down)">${spark(m,{w:58,h:26,high:false,sw:1.6})}</div>
-      <div class="r"><b>$${px(m.price)}</b><span class="b-pill${brokerTab==="matches"?"":" warn"}">−${(m.drawdown_pct||0).toFixed(2)}%</span></div></button>`;
-  return `<div class="b-top"><h1>Screener</h1><time>ASX<br>${syd(D.run_at)}</time></div>
-  <div class="b-sub">Wounded mid-caps · ${D.universe_count} stocks screened</div>
-  <div class="b-sum"><div><span>Matches</span><b>${M.length}</b></div><div><span>Watchlist</span><b>${B.length}</b></div>
-    <div class="chg">${D.loosened?esc(loosenNote())+" ":""}${esc(changeText())}</div></div>
-  <div class="b-seg" role="group" aria-label="List"><button data-tab="matches" aria-pressed="${brokerTab==="matches"}">Matches</button><button data-tab="watch" aria-pressed="${brokerTab==="watch"}">Watchlist</button></div>
-  <div class="b-pills"><span>${cap(c.market_cap_min)}–${cap(c.market_cap_max)}</span><span>≥${c.drawdown_min_pct}% off high</span><span>Revenue ↑ ${c.revenue_years} yrs</span><span>EBITDA &gt; ${money(c.ebitda_threshold)}</span></div>
-  ${list.map(row).join("")}
-  ${footer()}`;
-};
-
-/* ---------------- boot ---------------- */
-function skinFromHash() { const h = location.hash.slice(1); return R[h] ? h : (()=>{ try { return localStorage.getItem("skin"); } catch(e){ return null; } })() || DEFAULT_SKIN; }
-function render() {
-  let s = skinFromHash(); if (!R[s]) s = DEFAULT_SKIN;
-  document.documentElement.dataset.skin = s;
-  try { localStorage.setItem("skin", s); } catch(e) {}
-  document.querySelector('meta[name="theme-color"]').content = getComputedStyle(document.documentElement).getPropertyValue("--bg").trim() || "#000";
-  $("#app").innerHTML = R[s]();
+    <p>Down at least ${c.drawdown_min_pct}% from the 52-week high, revenue up in each of the last ${c.revenue_years} years, EBITDA above ${money(c.ebitda_threshold)}, market cap ${cap(c.market_cap_min)}–${cap(c.market_cap_max)}.${D.loosened?" <b>No stocks passed the standard rules, so this run used the loosened thresholds shown.</b>":""}</p></header>
+  <div class="figs"><div><b>${D.universe_count}</b>screened</div><div><b>${pct(avg,0)}</b>avg drawdown</div><div><b>${B.length}</b>near misses</div></div>
+  <div class="chg">${chText}</div>
+  ${order.map(g=>`<section class="grp"><h2><span>${esc(g)}</span><span>${groups[g].length}</span></h2>${groups[g].map(row).join("")}</section>`).join("")}
+  <section class="grp"><h2><span>Near misses</span><span>missed one rule</span></h2>
+    <div class="pills">${B.map(m=>`<button data-t="${m.ticker}"><b>${m.ticker}</b><span>${RULE[m.fails[0].rule]} · ${pct(m.drawdown_pct,0)} off</span></button>`).join("")}</div></section>
+  <div class="foot">
+    <p>Data from TradingView, delayed and end-of-day. Revenue and EBITDA are TradingView's standardised fiscal-year figures in AUD and can differ from company reports.</p>
+    <p>A mechanical screen of ${D.universe_count} ASX stocks, refreshed each weekday evening. Not financial advice.</p></div>`;
   $("#app").querySelectorAll("[data-t]").forEach(el => el.addEventListener("click", () => openSheet(BY[el.dataset.t])));
-  $("#app").querySelectorAll("[data-tab]").forEach(el => el.addEventListener("click", () => { brokerTab = el.dataset.tab; render(); }));
-  if (SHOW_SWITCHER) {
-    $("#switch").hidden = false;
-    $("#switch nav").innerHTML = SKINS.map(([k,l]) => `<a href="#${k}" aria-current="${k===s}">${l}</a>`).join("");
-  }
 }
 (async () => {
-  try {
-    D = window.__DATA__ || await (await fetch("data/latest.json", {cache:"no-cache"})).json();
-  } catch (e) {
-    $("#app").innerHTML = `<p style="font-family:monospace">Couldn't load data/latest.json. If you opened this file directly, serve the folder over HTTP instead.</p>`; return;
-  }
+  try { D = await (await fetch("data/latest.json", {cache:"no-cache"})).json(); }
+  catch (e) { $("#app").innerHTML = `<p>Couldn't load the screen data. If you opened this file directly, serve the folder over HTTP instead.</p>`; return; }
   [...D.matches, ...D.borderline].forEach(m => BY[m.ticker] = m);
   render();
-  addEventListener("hashchange", render);
+  let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { if (openTicker) loadBars(openTicker).then(b => b && openTicker && drawChart(BY[openTicker], b, currentRange)); }, 150); });
 })();
 </script>

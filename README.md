@@ -3,10 +3,12 @@
 Finds ASX mid-caps that have sold off hard but are still growing revenue and
 EBITDA-positive. Two ways to run it:
 
-- **`tv_screen.py` + dashboard (recommended).** Pulls the whole ASX from
-  TradingView's screener in one request, applies the rules, and writes
-  `docs/data/latest.json`. A GitHub Action runs it every weekday evening and
-  GitHub Pages serves the mobile dashboard in `docs/`.
+- **`tv_screen.py` + `tv_bars.py` + dashboard (recommended).** `tv_screen.py`
+  pulls the whole ASX from TradingView's screener in one request, applies the
+  rules, and writes `docs/data/latest.json`. `tv_bars.py` then fetches price
+  history (5-minute, hourly, daily) for the ~30 stocks on the dashboard over one
+  TradingView chart connection, for the 1D–5Y chart views. A GitHub Action runs
+  both every weekday evening and deploys `docs/` to GitHub Pages.
 - **`screen.py`** (original). Ticker-by-ticker via yfinance/EODHD over
   `universe.txt`, emails an HTML table.
 
@@ -21,27 +23,30 @@ Names that miss exactly one rule by a small margin are listed as borderline. A p
 whose 52-week high was set in the first two weeks of the window is flagged fragile.
 
 ## Dashboard
-`docs/index.html` is a static page with four styles (Ledger, Column, Index, Broker),
-switched from the bar at the bottom or by URL hash (`#ledger`). Set
-`DEFAULT_SKIN` and `SHOW_SWITCHER` at the top of its script once you've picked one.
+`docs/index.html` is a static mobile page. Stocks are grouped by sector; tap one
+for a detail sheet with a price chart (1D, 1W, 1M, 3M, 6M, 1Y, 5Y; drag across
+the chart to read prices), fundamentals and flags.
 
 Local preview:
 ```bash
-python tv_screen.py && python -m http.server -d docs 8000
+python tv_screen.py && python tv_bars.py && python -m http.server -d docs 8000
 ```
 
 ### Deploy (one-time)
 1. Merge this branch into `main`.
-2. Repo **Settings → Pages**: Source "Deploy from a branch", branch `main`, folder `/docs`.
-3. Repo **Settings → Actions → General → Workflow permissions**: "Read and write".
-4. **Actions → Refresh screener data → Run workflow** to do a first run.
+2. Repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+3. **Actions → Refresh screener and deploy dashboard → Run workflow** for the first run.
+
+Screen results (`latest.json`, `runs.json`, `history/`) are committed each run so
+changes can be tracked; price history is only deployed, so the repo stays small.
 
 The site is then at `https://jordanlim104.github.io/ASX-Screener/`.
 
 ### Refresh cadence and rate limits
-TradingView has no official free API; `scanner.tradingview.com` is the endpoint
-its public screener page calls. The script makes **one POST per run** for ~400
-rows, retries with backoff on 429/5xx, and refuses to overwrite data on a short
+TradingView has no official free API; `scanner.tradingview.com` and its chart
+websocket are the endpoints its public pages use. Each run makes **one screener
+POST** for ~400 rows and **one chart connection** with three series per
+dashboard stock, pausing between stocks. The screener retries with backoff on 429/5xx, and refuses to overwrite data on a short
 response. One run per weekday (07:30 UTC, after the ASX close) is a tiny load.
 Fundamentals only move at reporting season (Feb/Aug), so the daily run is really
 refreshing prices and drawdowns. Weekly is also reasonable; edit the cron.

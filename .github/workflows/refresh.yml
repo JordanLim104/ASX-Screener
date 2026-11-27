@@ -1,14 +1,19 @@
-name: Refresh screener data
+name: Refresh screener and deploy dashboard
 
 on:
   schedule:
     # 07:30 UTC Mon–Fri = 6:30pm AEDT / 5:30pm AEST, after the ASX close and
     # once TradingView's end-of-day figures have settled.
     - cron: "30 7 * * 1-5"
+  push:
+    branches: [main]
+    paths: ["docs/index.html", "tv_screen.py", "tv_bars.py", "criteria.yaml"]
   workflow_dispatch: {}
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: refresh
@@ -17,20 +22,37 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pyyaml requests
-      - name: Run screen (one TradingView request)
+      - run: pip install pyyaml requests websocket-client
+
+      - name: Run screen (one TradingView screener request)
         run: python tv_screen.py --config criteria.yaml --out docs/data
-      - name: Commit data
+
+      - name: Fetch price history for the charts (one TradingView chart connection)
+        continue-on-error: true   # the dashboard still works without charts
+        run: python tv_bars.py docs/data
+
+      - name: Commit screen results (price history is deployed, not committed)
         run: |
           git config user.name "screener-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/data
           git diff --cached --quiet && echo "No change" && exit 0
           git commit -m "Refresh screener data $(date -u +%F)"
+          git pull --rebase --autostash
           git push
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deploy
+        uses: actions/deploy-pages@v4
