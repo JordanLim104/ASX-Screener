@@ -1,5 +1,5 @@
 {
- "run_at": "2026-11-27T14:24:08+00:00",
+ "run_at": "2026-11-27T14:40:16+00:00",
  "source": "TradingView screener (scanner.tradingview.com), delayed/end-of-day",
  "criteria": {
   "market_cap_min": 500000000,
@@ -139,7 +139,46 @@
     1.36,
     1.675
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Tuas Ltd. engages in the operation of a mobile network and the provision of mobile telecommunications services.",
+   "news": [
+    {
+     "title": "Tuas Bull Sees Potential for Quick Regulatory Resolution \u2014 Market Talk",
+     "source": "Dow Jones Newswires",
+     "published": 1795048980,
+     "url": "https://www.tradingview.com/news/DJN_DN20261118009800:0-tuas-bull-sees-potential-for-quick-regulatory-resolution-market-talk/"
+    },
+    {
+     "title": "Tuas Target Price Cut 22% to A$2.30/Share by Citi>TUA.AU",
+     "source": "Dow Jones Newswires",
+     "published": 1795048560,
+     "url": "https://www.tradingview.com/news/DJN_DN20261118009791_20261118009791:0-tuas-target-price-cut-22-to-a-2-30-share-by-citi-tua-au/"
+    },
+    {
+     "title": "Australia's Tuas says Singapore unit does not contest spectrum misuse notice",
+     "source": "Reuters",
+     "published": 1794888094,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_L6N46Y07B:0-australia-s-tuas-says-singapore-unit-does-not-contest-spectrum-misuse-notice/"
+    },
+    {
+     "title": "Australia's Tuas says Singapore unit does not contest unauthorised spectrum use notice",
+     "source": "Reuters",
+     "published": 1794872537,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_L3N46X1T0:0-australia-s-tuas-says-singapore-unit-does-not-contest-unauthorised-spectrum-use-notice/"
+    },
+    {
+     "title": "Tuas Limited Says Simba Responded To Show Cause Notice On 16 November",
+     "source": "Reuters",
+     "published": 1794866823,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN46X1N7:0-tuas-limited-says-simba-responded-to-show-cause-notice-on-16-november/"
+    },
+    {
+     "title": "Tuas Price Target Cut 15% to A$3.70/Share by Morgan Stanley",
+     "source": "Dow Jones Newswires",
+     "published": 1793325000,
+     "url": "https://www.tradingview.com/news/DJN_DN20261029020604_20261029020604:0-tuas-price-target-cut-15-to-a-3-70-share-by-morgan-stanley/"
+    }
+   ]
   },
   {
    "ticker": "DRO",
@@ -268,7 +307,46 @@
     1.07,
     1.12
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "DroneShield Ltd. engages in the development and commercialisation of hardware and software technology for drone detection and security.",
+   "news": [
+    {
+     "title": "The 10 most shorted ASX stocks plus the biggest risers and fallers \u2013 Week 43",
+     "source": "Market Index",
+     "published": 1792371008,
+     "url": "https://www.tradingview.com/news/marketindex:404da3a3c094b:0-the-10-most-shorted-asx-stocks-plus-the-biggest-risers-and-fallers-week-43/"
+    },
+    {
+     "title": "DroneShield Bear Thinks Underlying Sales Momentum Has Stalled \u2014 Market Talk",
+     "source": "Dow Jones Newswires",
+     "published": 1792101180,
+     "url": "https://www.tradingview.com/news/DJN_DN20261015009094:0-droneshield-bear-thinks-underlying-sales-momentum-has-stalled-market-talk/"
+    },
+    {
+     "title": "DroneShield Price Target Cut 14% to A$1.25/Share by Jefferies",
+     "source": "Dow Jones Newswires",
+     "published": 1792098420,
+     "url": "https://www.tradingview.com/news/DJN_DN20261015008680_20261015008680:0-droneshield-price-target-cut-14-to-a-1-25-share-by-jefferies/"
+    },
+    {
+     "title": "DroneShield Logs $261m in Committed Revenue as Counter-Drone Business Scales",
+     "source": "Small Caps",
+     "published": 1792030772,
+     "url": "https://www.tradingview.com/news/smallcaps:054abd1bb094b:0-droneshield-logs-261m-in-committed-revenue-as-counter-drone-business-scales/"
+    },
+    {
+     "title": "DRO: $261M in FY2026 Committed Revenue, with next-generation products and subscriptions scaling",
+     "source": "Quartr",
+     "published": 1792018747,
+     "url": "https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:4291799:0-dro-261m-in-fy2026-committed-revenue-with-next-generation-products-and-subscriptions-scaling/"
+    },
+    {
+     "title": "The 10 most shorted ASX stocks plus the biggest risers and fallers \u2013 Week 41",
+     "source": "Market Index",
+     "published": 1791158848,
+     "url": "https://www.tradingview.com/news/marketindex:e6f28a79c094b:0-the-10-most-shorted-asx-stocks-plus-the-biggest-risers-and-fallers-week-41/"
+    }
+   ]
   },
   {
    "ticker": "CIA",
@@ -397,7 +475,46 @@
     1.69,
     1.775
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Champion Iron Ltd. engages in the production, exploration, and development of iron ore properties.",
+   "news": [
+    {
+     "title": "CIA: DRPF ramp-up targets 69% Fe output as high-purity demand strengthens",
+     "source": "Quartr",
+     "published": 1794433450,
+     "url": "https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:4628920:0-cia-drpf-ramp-up-targets-69-fe-output-as-high-purity-demand-strengthens/"
+    },
+    {
+     "title": "Champion Iron 2Q Miss Tempers Bull's Positive Outlook \u2014 Market Talk",
+     "source": "Dow Jones Newswires",
+     "published": 1793746140,
+     "url": "https://www.tradingview.com/news/DJN_DN20261103014571:0-champion-iron-2q-miss-tempers-bull-s-positive-outlook-market-talk/"
+    },
+    {
+     "title": "Champion Iron Target Price Cut 14% to A$3.10/Share by UBS>CIA.AU",
+     "source": "Dow Jones Newswires",
+     "published": 1793742180,
+     "url": "https://www.tradingview.com/news/DJN_DN20261103013539_20261103013539:0-champion-iron-target-price-cut-14-to-a-3-10-share-by-ubs-cia-au/"
+    },
+    {
+     "title": "RBC Capital maintains Champion Iron at Outperform, lowers price target to $4 from $8",
+     "source": "TradingView",
+     "published": 1793724827,
+     "url": "https://www.tradingview.com/news/tradingview:d979b40a4ad78:0-rbc-capital-maintains-champion-iron-at-outperform-lowers-price-target-to-4-from-8/"
+    },
+    {
+     "title": "Champion Iron Ltd. Price Target Cut to C$4.00/Share From C$8.00 by RBC",
+     "source": "Dow Jones Newswires",
+     "published": 1793717340,
+     "url": "https://www.tradingview.com/news/DJN_DN20261103007422:0-champion-iron-ltd-price-target-cut-to-c-4-00-share-from-c-8-00-by-rbc/"
+    },
+    {
+     "title": "Scotiabank maintains Champion Iron at Sector Outperform, lowers price target to $3.50 from $4",
+     "source": "TradingView",
+     "published": 1793390155,
+     "url": "https://www.tradingview.com/news/tradingview:8767f07e66f53:0-scotiabank-maintains-champion-iron-at-sector-outperform-lowers-price-target-to-3-50-from-4/"
+    }
+   ]
   },
   {
    "ticker": "GQG",
@@ -526,7 +643,46 @@
     0.515,
     0.585
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "GQG Partners, Inc. is a holding company, which engages in the provision of investment services through its subsidiary.",
+   "news": [
+    {
+     "title": "GQG Partners ASX-listed shares recover some lost ground on Nvidia-linked developments",
+     "source": "Reuters",
+     "published": 1795493146,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_L6N475062:0-gqg-partners-asx-listed-shares-recover-some-lost-ground-on-nvidia-linked-developments/"
+    },
+    {
+     "title": "GQG Loses Bull as Outflows Raise Longer-Term Risks \u2014 Market Talk",
+     "source": "Dow Jones Newswires",
+     "published": 1795480500,
+     "url": "https://www.tradingview.com/news/DJN_DN20261123010097:0-gqg-loses-bull-as-outflows-raise-longer-term-risks-market-talk/"
+    },
+    {
+     "title": "GQG Partners Cut to Neutral From Buy by UBS >GQG.AU",
+     "source": "Dow Jones Newswires",
+     "published": 1795470420,
+     "url": "https://www.tradingview.com/news/DJN_DN20261123009200_20261123009200:0-gqg-partners-cut-to-neutral-from-buy-by-ubs-gqg-au/"
+    },
+    {
+     "title": "GQG Partners Target Price Cut 73% to A$0.49/Share by UBS>GQG.AU",
+     "source": "Dow Jones Newswires",
+     "published": 1795470420,
+     "url": "https://www.tradingview.com/news/DJN_DN20261123009200_20261123009201:0-gqg-partners-target-price-cut-73-to-a-0-49-share-by-ubs-gqg-au/"
+    },
+    {
+     "title": "GQG Partners Target Price Cut 36% to A$0.70/Share by Macquarie>GQG.AU",
+     "source": "Dow Jones Newswires",
+     "published": 1794781320,
+     "url": "https://www.tradingview.com/news/DJN_DN20261115000921_20261115000921:0-gqg-partners-target-price-cut-36-to-a-0-70-share-by-macquarie-gqg-au/"
+    },
+    {
+     "title": "GQG Partners Price Target Cut 17% to A$1.25/Share by Jarden",
+     "source": "Dow Jones Newswires",
+     "published": 1794443820,
+     "url": "https://www.tradingview.com/news/DJN_DN20261111009411_20261111009411:0-gqg-partners-price-target-cut-17-to-a-1-25-share-by-jarden/"
+    }
+   ]
   },
   {
    "ticker": "OCL",
@@ -655,7 +811,46 @@
     5.57,
     5.8
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Objective Corp. Ltd. engages in the supply of information technology software and services.",
+   "news": [
+    {
+     "title": "OCL: FY2026 growth and a $40m+ FY2027 EBITDA outlook anchor strategy focused on trusted GovTech and AI",
+     "source": "Quartr",
+     "published": 1795558662,
+     "url": "https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:4351169:0-ocl-fy2026-growth-and-a-40m-fy2027-ebitda-outlook-anchor-strategy-focused-on-trusted-govtech-and-ai/"
+    },
+    {
+     "title": "OCL: FY26 growth and recurring revenue gains underpin continued FY27 investment and AI expansion",
+     "source": "Quartr",
+     "published": 1795538182,
+     "url": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:4822626:0-ocl-fy26-growth-and-recurring-revenue-gains-underpin-continued-fy27-investment-and-ai-expansion/"
+    },
+    {
+     "title": "Objective Corp Cut to Equalweight From Overweight by Morgan Stanley >OCL.AU",
+     "source": "Dow Jones Newswires",
+     "published": 1788225420,
+     "url": "https://www.tradingview.com/news/DJN_DN20260831008531_20260831008531:0/"
+    },
+    {
+     "title": "Objective Corp Target Price Cut 55% to A$7.25/Share by Morgan Stanley>OCL.AU",
+     "source": "Dow Jones Newswires",
+     "published": 1788225420,
+     "url": "https://www.tradingview.com/news/DJN_DN20260831008531_20260831008532:0/"
+    },
+    {
+     "title": "Objective Price Target Cut 12% to A$9.50/Share by Shaw & Partners",
+     "source": "Dow Jones Newswires",
+     "published": 1788129180,
+     "url": "https://www.tradingview.com/news/DJN_DN20260830000538_20260830000538:0/"
+    },
+    {
+     "title": "OCL: SaaS growth and product investment face a Defence-driven FY2027 earnings reset",
+     "source": "Quartr",
+     "published": 1787869715,
+     "url": "https://www.tradingview.com/news/urn:summary_document_report:quartr.com:3672530:0-ocl-saas-growth-and-product-investment-face-a-defence-driven-fy2027-earnings-reset/"
+    }
+   ]
   },
   {
    "ticker": "DVP",
@@ -784,7 +979,46 @@
     2.66,
     2.59
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Develop Global Ltd. engages in the exploration and production of mine base and precious metal resources.",
+   "news": [
+    {
+     "title": "Develop Global Target Price Cut 33% to A$3.60/Share by Bell Potter>DVP.AU",
+     "source": "Dow Jones Newswires",
+     "published": 1795654200,
+     "url": "https://www.tradingview.com/news/DJN_DN20261125008438_20261125008438:0-develop-global-target-price-cut-33-to-a-3-60-share-by-bell-potter-dvp-au/"
+    },
+    {
+     "title": "Develop Global to Pause Pioneer Dome Operations Pending Lithium Price Recovery",
+     "source": "Small Caps",
+     "published": 1795567226,
+     "url": "https://www.tradingview.com/news/smallcaps:208a6d238094b:0-develop-global-to-pause-pioneer-dome-operations-pending-lithium-price-recovery/"
+    },
+    {
+     "title": "DVP: A multi-asset production and services platform targets growth in copper, base metals and lithium",
+     "source": "Quartr",
+     "published": 1794967831,
+     "url": "https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:4695179:0-dvp-a-multi-asset-production-and-services-platform-targets-growth-in-copper-base-metals-and-lithium/"
+    },
+    {
+     "title": "Develop Global Says David Lonsdale Assumes Role Of Interim CFO",
+     "source": "Reuters",
+     "published": 1793322987,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_TUE3J0SF:0-develop-global-says-david-lonsdale-assumes-role-of-interim-cfo/"
+    },
+    {
+     "title": "Develop Global Q1 2027 Earnings Call Is Live",
+     "source": "TradingView",
+     "published": 1793230024,
+     "url": "https://www.tradingview.com/news/urn:live_audio:quartr.com:783577:0-develop-global-q1-2027-earnings-call-is-live/"
+    },
+    {
+     "title": "DVP: Woodlawn set records as Pioneer Dome and Yitirrti advanced toward production growth",
+     "source": "Quartr",
+     "published": 1793223586,
+     "url": "https://www.tradingview.com/news/urn:summary_document_report:quartr.com:4366268:0-dvp-woodlawn-set-records-as-pioneer-dome-and-yitirrti-advanced-toward-production-growth/"
+    }
+   ]
   },
   {
    "ticker": "MAF",
@@ -913,7 +1147,46 @@
     4.03,
     4.41
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "MA Financial Group Ltd. operates as a diversified financial services group.",
+   "news": [
+    {
+     "title": "MA Financial Initiated at Neutral by Macquarie",
+     "source": "Dow Jones Newswires",
+     "published": 1794868680,
+     "url": "https://www.tradingview.com/news/DJN_DN20261116011297_20261116011297:0-ma-financial-initiated-at-neutral-by-macquarie/"
+    },
+    {
+     "title": "MA Financial Initiated with A$5.10/Share Price Target by Macquarie",
+     "source": "Dow Jones Newswires",
+     "published": 1794868680,
+     "url": "https://www.tradingview.com/news/DJN_DN20261116011297_20261116011299:0-ma-financial-initiated-with-a-5-10-share-price-target-by-macquarie/"
+    },
+    {
+     "title": "MA Financial Price Target Cut 2.2% to A$8.47/Share by Morgans",
+     "source": "Dow Jones Newswires",
+     "published": 1792708140,
+     "url": "https://www.tradingview.com/news/DJN_DN20261022013806_20261022013806:0-ma-financial-price-target-cut-2-2-to-a-8-47-share-by-morgans/"
+    },
+    {
+     "title": "MA Financial Price Target Cut 9.3% to A$7.80/Share by Jarden",
+     "source": "Dow Jones Newswires",
+     "published": 1792630620,
+     "url": "https://www.tradingview.com/news/DJN_DN20261021012191_20261021012191:0-ma-financial-price-target-cut-9-3-to-a-7-80-share-by-jarden/"
+    },
+    {
+     "title": "MA Financial Group Says Assets Under Management As At Qtr End A$15.7 BLN",
+     "source": "Reuters",
+     "published": 1792546602,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN4661R0:0-ma-financial-group-says-assets-under-management-as-at-qtr-end-a-15-7-bln/"
+    },
+    {
+     "title": "MAF: AUM and lending grew strongly, while residential property credit faced mounting strain",
+     "source": "Quartr",
+     "published": 1792536638,
+     "url": "https://www.tradingview.com/news/urn:summary_document_report:quartr.com:4076566:0-maf-aum-and-lending-grew-strongly-while-residential-property-credit-faced-mounting-strain/"
+    }
+   ]
   },
   {
    "ticker": "GDG",
@@ -1042,7 +1315,46 @@
     2.7,
     2.61
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Generation Development Group Ltd. engages in the provision of development capital to financial sector businesses.",
+   "news": [
+    {
+     "title": "GDG: FY26 growth and market leadership support continued investment and FY27 expansion",
+     "source": "Quartr",
+     "published": 1795559126,
+     "url": "https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:4804175:0-gdg-fy26-growth-and-market-leadership-support-continued-investment-and-fy27-expansion/"
+    },
+    {
+     "title": "Generation Development Price Target Cut 1.0% to A$4.95/Share by Jefferies",
+     "source": "Dow Jones Newswires",
+     "published": 1792708500,
+     "url": "https://www.tradingview.com/news/DJN_DN20261022013834_20261022013834:0-generation-development-price-target-cut-1-0-to-a-4-95-share-by-jefferies/"
+    },
+    {
+     "title": "Generation Development Price Target Cut 9.6% to A$5.00/Share by Bell Potter",
+     "source": "Dow Jones Newswires",
+     "published": 1792706880,
+     "url": "https://www.tradingview.com/news/DJN_DN20261022013718_20261022013718:0-generation-development-price-target-cut-9-6-to-a-5-00-share-by-bell-potter/"
+    },
+    {
+     "title": "Generation Development Price Target Cut 1.7% to A$5.90/Share by Barrenjoey",
+     "source": "Dow Jones Newswires",
+     "published": 1792646160,
+     "url": "https://www.tradingview.com/news/DJN_DN20261022000860_20261022000860:0-generation-development-price-target-cut-1-7-to-a-5-90-share-by-barrenjoey/"
+    },
+    {
+     "title": "GDG: FUM rose 29% YoY as record investment-bond inflows fueled a strong quarter",
+     "source": "Quartr",
+     "published": 1792619267,
+     "url": "https://www.tradingview.com/news/urn:summary_document_report:quartr.com:4332881:0-gdg-fum-rose-29-yoy-as-record-investment-bond-inflows-fueled-a-strong-quarter/"
+    },
+    {
+     "title": "Weekly Wrap: Banks Lifted ASX 200 As Small Caps Fell",
+     "source": "Small Caps",
+     "published": 1792188230,
+     "url": "https://www.tradingview.com/news/smallcaps:4e9256c5d094b:0-weekly-wrap-banks-lifted-asx-200-as-small-caps-fell/"
+    }
+   ]
   },
   {
    "ticker": "PXA",
@@ -1171,7 +1483,46 @@
     6.51,
     6.46
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "PEXA Group Ltd. engages in the development and provision of electronic conveyancing system.",
+   "news": [
+    {
+     "title": "Pexa Price Target Raised 2.7% to A$7.50/Share by Jefferies",
+     "source": "Dow Jones Newswires",
+     "published": 1795036440,
+     "url": "https://www.tradingview.com/news/DJN_DN20261118007660_20261118007660:0-pexa-price-target-raised-2-7-to-a-7-50-share-by-jefferies/"
+    },
+    {
+     "title": "Pexa Group Says IPart Recommends 16% Reduction In Pexa Exchange Regulated Revenue Requirement From FY28",
+     "source": "Reuters",
+     "published": 1794964568,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_TUE5DVXW1:0-pexa-group-says-ipart-recommends-16-reduction-in-pexa-exchange-regulated-revenue-requirement-from-fy28/"
+    },
+    {
+     "title": "PXA: Fee cuts target ~$50m in annual savings while preserving strong modelled financial headroom",
+     "source": "Quartr",
+     "published": 1794952398,
+     "url": "https://www.tradingview.com/news/urn:summary_document_report:quartr.com:4667679:0-pxa-fee-cuts-target-50m-in-annual-savings-while-preserving-strong-modelled-financial-headroom/"
+    },
+    {
+     "title": "PXA: IPART\u2019s proposed fee cut could constrain platform investment and put jobs at risk",
+     "source": "Quartr",
+     "published": 1794878524,
+     "url": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:4672048:0-pxa-ipart-s-proposed-fee-cut-could-constrain-platform-investment-and-put-jobs-at-risk/"
+    },
+    {
+     "title": "Pexa Price Target Cut 1.4% to A$7.30/Share by Jefferies",
+     "source": "Dow Jones Newswires",
+     "published": 1794469320,
+     "url": "https://www.tradingview.com/news/DJN_DN20261112003009_20261112003009:0-pexa-price-target-cut-1-4-to-a-7-30-share-by-jefferies/"
+    },
+    {
+     "title": "Pexa Price Target Cut 2.9% to A$6.70/Share by Jarden",
+     "source": "Dow Jones Newswires",
+     "published": 1794444060,
+     "url": "https://www.tradingview.com/news/DJN_DN20261111009441_20261111009441:0-pexa-price-target-cut-2-9-to-a-6-70-share-by-jarden/"
+    }
+   ]
   },
   {
    "ticker": "SNZ",
@@ -1300,7 +1651,46 @@
     4.62,
     4.95
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Summerset Group Holdings Ltd. engages in the development and operation of retirement villages and aged care facilities.",
+   "news": [
+    {
+     "title": "Correct: Summerset Target Price Cut 21% to NZ$10.50/Share by UBS>SUM.NZ",
+     "source": "Dow Jones Newswires",
+     "published": 1795470300,
+     "url": "https://www.tradingview.com/news/DJN_DN20261123009174_20261123009177:0-correct-summerset-target-price-cut-21-to-nz-10-50-share-by-ubs-sum-nz/"
+    },
+    {
+     "title": "Summerset Target Price Cut 21% to NZ$10.50/Share by UBS>SUM.NZ",
+     "source": "Dow Jones Newswires",
+     "published": 1795470300,
+     "url": "https://www.tradingview.com/news/DJN_DN20261123009174_20261123009174:0-summerset-target-price-cut-21-to-nz-10-50-share-by-ubs-sum-nz/"
+    },
+    {
+     "title": "Summerset Price Target Cut 24% to NZ$9.45/Share by Forsyth Barr",
+     "source": "Dow Jones Newswires",
+     "published": 1794268980,
+     "url": "https://www.tradingview.com/news/DJN_DN20261109013835_20261109013835:0-summerset-price-target-cut-24-to-nz-9-45-share-by-forsyth-barr/"
+    },
+    {
+     "title": "Summerset Group Holdings Ltd.: Susan Matthews Named to the Bd.",
+     "source": "Dow Jones Newswires",
+     "published": 1792611480,
+     "url": "https://www.tradingview.com/news/DJN_DN20261021008202_20261021008202:0-summerset-group-holdings-ltd-susan-matthews-named-to-the-bd/"
+    },
+    {
+     "title": "Summerset Price Target Cut 1.2% to NZ$12.45/Share by Forsyth Barr",
+     "source": "Dow Jones Newswires",
+     "published": 1791856740,
+     "url": "https://www.tradingview.com/news/DJN_DN20261012007431_20261012007431:0-summerset-price-target-cut-1-2-to-nz-12-45-share-by-forsyth-barr/"
+    },
+    {
+     "title": "Summerset Price Target Cut 1.5% to NZ$13.89/Share by Macquarie",
+     "source": "Dow Jones Newswires",
+     "published": 1791842820,
+     "url": "https://www.tradingview.com/news/DJN_DN20261012006994_20261012006994:0-summerset-price-target-cut-1-5-to-nz-13-89-share-by-macquarie/"
+    }
+   ]
   },
   {
    "ticker": "CYL",
@@ -1429,7 +1819,46 @@
     3.64,
     4.07
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Catalyst Metals Ltd. engages in the acquisition, exploration, and development of mineral properties.",
+   "news": [
+    {
+     "title": "Catalyst Metals Price Target Cut 15% to A$9.66/Share by Morgans",
+     "source": "Dow Jones Newswires",
+     "published": 1793834100,
+     "url": "https://www.tradingview.com/news/DJN_DN20261104020357_20261104020357:0-catalyst-metals-price-target-cut-15-to-a-9-66-share-by-morgans/"
+    },
+    {
+     "title": "Catalyst Metals Announces Appointment Of Ben Mackinnon As CFO",
+     "source": "Reuters",
+     "published": 1793756791,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_TUE5YHZY2:0-catalyst-metals-announces-appointment-of-ben-mackinnon-as-cfo/"
+    },
+    {
+     "title": "Catalyst Metals Price Target Cut 17% to A$9.75/Share by Canaccord Genuity",
+     "source": "Dow Jones Newswires",
+     "published": 1793596080,
+     "url": "https://www.tradingview.com/news/DJN_DN20261102000069_20261102000069:0-catalyst-metals-price-target-cut-17-to-a-9-75-share-by-canaccord-genuity/"
+    },
+    {
+     "title": "Catalyst Metals Price Target Cut 33% to A$6.50/Share by UBS",
+     "source": "Dow Jones Newswires",
+     "published": 1793574420,
+     "url": "https://www.tradingview.com/news/DJN_DN20261101001020_20261101001020:0-catalyst-metals-price-target-cut-33-to-a-6-50-share-by-ubs/"
+    },
+    {
+     "title": "Catalyst Metals QTRLY Gold Sold 27,229Oz",
+     "source": "Reuters",
+     "published": 1793322521,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN46F3E6:0-catalyst-metals-qtrly-gold-sold-27-229oz/"
+    },
+    {
+     "title": "CYL: A 2Moz Reserve base supports the ~200koz growth plan despite FY27 mine delays",
+     "source": "Quartr",
+     "published": 1793314093,
+     "url": "https://www.tradingview.com/news/urn:summary_document_report:quartr.com:4385446:0-cyl-a-2moz-reserve-base-supports-the-200koz-growth-plan-despite-fy27-mine-delays/"
+    }
+   ]
   },
   {
    "ticker": "TPW",
@@ -1558,7 +1987,46 @@
     6.16,
     6.65
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Temple & Webster Group Ltd. operates as an online retailer of furniture and homewares.",
+   "news": [
+    {
+     "title": "Michael Burry Is \u2018Temporarily' Bullish: What His Latest Bets Reveal About the Market",
+     "source": "Benzinga",
+     "published": 1795637894,
+     "url": "https://www.tradingview.com/news/benzinga:7daf16df4094b:0-michael-burry-is-temporarily-bullish-what-his-latest-bets-reveal-about-the-market/"
+    },
+    {
+     "title": "Michael Burry reveals 2 big stock bets after Nvidia selloff",
+     "source": "GuruFocus",
+     "published": 1794418657,
+     "url": "https://www.tradingview.com/news/gurufocus:0bb3a94b6094b:0-michael-burry-reveals-2-big-stock-bets-after-nvidia-selloff/"
+    },
+    {
+     "title": "Michael Burry Sees Nvidia Becoming \u2018A Heck Of A Trade\u2019 \u2014 Reveals His 2 Biggest Bets And Where He\u2019s Buying More",
+     "source": "Stocktwits",
+     "published": 1794363608,
+     "url": "https://www.tradingview.com/news/stocktwits:47440ea12094b:0-michael-burry-sees-nvidia-becoming-a-heck-of-a-trade-reveals-his-2-biggest-bets-and-where-he-s-buying-more/"
+    },
+    {
+     "title": "Temple & Webster Price Target Raised 33% to A$7.00/Share by Jefferies",
+     "source": "Dow Jones Newswires",
+     "published": 1794258360,
+     "url": "https://www.tradingview.com/news/DJN_DN20261109010791_20261109010791:0-temple-webster-price-target-raised-33-to-a-7-00-share-by-jefferies/"
+    },
+    {
+     "title": "A warning to all investors in ASX lithium and copper stocks: BHP, RIO, PLS at risk",
+     "source": "Market Index",
+     "published": 1793831412,
+     "url": "https://www.tradingview.com/news/marketindex:ede4d4a77094b:0-a-warning-to-all-investors-in-asx-lithium-and-copper-stocks-bhp-rio-pls-at-risk/"
+    },
+    {
+     "title": "Temple & Webster Faces Challenging Seasonal Period \u2014 Market Talk",
+     "source": "Dow Jones Newswires",
+     "published": 1793059140,
+     "url": "https://www.tradingview.com/news/DJN_DN20261026010206:0-temple-webster-faces-challenging-seasonal-period-market-talk/"
+    }
+   ]
   },
   {
    "ticker": "SDR",
@@ -1687,7 +2155,46 @@
     3.15,
     3.07
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "SiteMinder Ltd. is an open hotel commerce platform, which engages in the hotels and accommodation providers a comprehensive range of products and solutions to manage and streamline the distribution of rooms across a wide selection of\u2026",
+   "news": [
+    {
+     "title": "SiteMinder Price Target Raised 16% to A$4.10/Share by Canaccord Genuity",
+     "source": "Dow Jones Newswires",
+     "published": 1793227740,
+     "url": "https://www.tradingview.com/news/DJN_DN20261028017264_20261028017265:0-siteminder-price-target-raised-16-to-a-4-10-share-by-canaccord-genuity/"
+    },
+    {
+     "title": "SiteMinder Upgraded to Buy from Hold by Canaccord Genuity",
+     "source": "Dow Jones Newswires",
+     "published": 1793227680,
+     "url": "https://www.tradingview.com/news/DJN_DN20261028017264_20261028017264:0-siteminder-upgraded-to-buy-from-hold-by-canaccord-genuity/"
+    },
+    {
+     "title": "SDR: FY26 margin gains underpin an AI-enabled growth plan targeting mid-20s ARR CAGR through FY30",
+     "source": "Quartr",
+     "published": 1793137477,
+     "url": "https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:4366283:0-sdr-fy26-margin-gains-underpin-an-ai-enabled-growth-plan-targeting-mid-20s-arr-cagr-through-fy30/"
+    },
+    {
+     "title": "The 10 most shorted ASX stocks plus the biggest risers and fallers \u2013 Week 37",
+     "source": "Market Index",
+     "published": 1788747312,
+     "url": "https://www.tradingview.com/news/marketindex:36dbd38a4094b:0-the-10-most-shorted-asx-stocks-plus-the-biggest-risers-and-fallers-week-37/"
+    },
+    {
+     "title": "SiteMinder Price Target Cut 14% to A$5.20/Share by Citi",
+     "source": "Dow Jones Newswires",
+     "published": 1788129600,
+     "url": "https://www.tradingview.com/news/DJN_DN20260830000551_20260830000551:0/"
+    },
+    {
+     "title": "SiteMinder Lifts Profitability on Accelerated Smart Platform Growth",
+     "source": "Small Caps",
+     "published": 1787632554,
+     "url": "https://www.tradingview.com/news/smallcaps:beb7f316c094b:0-siteminder-lifts-profitability-on-accelerated-smart-platform-growth/"
+    }
+   ]
   },
   {
    "ticker": "SKS",
@@ -1816,7 +2323,46 @@
     5.27,
     5.41
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "SKS Technologies Group Ltd. engages in the development and distribution of technology products.",
+   "news": [
+    {
+     "title": "SKS Technologies Raised to Buy From Accumulate by Morgans >SKS.AU",
+     "source": "Dow Jones Newswires",
+     "published": 1795737240,
+     "url": "https://www.tradingview.com/news/DJN_DN20261126004164_20261126004164:0-sks-technologies-raised-to-buy-from-accumulate-by-morgans-sks-au/"
+    },
+    {
+     "title": "SKS Technologies Target Price Cut 16% to A$8.20/Share by Morgans>SKS.AU",
+     "source": "Dow Jones Newswires",
+     "published": 1795737240,
+     "url": "https://www.tradingview.com/news/DJN_DN20261126004164_20261126004165:0-sks-technologies-target-price-cut-16-to-a-8-20-share-by-morgans-sks-au/"
+    },
+    {
+     "title": "SKS: FY26 earnings surged as tender demand and data centre work accelerated",
+     "source": "Quartr",
+     "published": 1795565903,
+     "url": "https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:4829718:0-sks-fy26-earnings-surged-as-tender-demand-and-data-centre-work-accelerated/"
+    },
+    {
+     "title": "What happens if one of the ASX\u2019s fastest-growing sectors starts to slow?",
+     "source": "Market Index",
+     "published": 1792987160,
+     "url": "https://www.tradingview.com/news/marketindex:0b6aa98f7094b:0-what-happens-if-one-of-the-asx-s-fastest-growing-sectors-starts-to-slow/"
+    },
+    {
+     "title": "ASX data centre stocks crack as Firmus and AirTrunk listings stall",
+     "source": "Market Index",
+     "published": 1791950186,
+     "url": "https://www.tradingview.com/news/marketindex:8b38628a9094b:0-asx-data-centre-stocks-crack-as-firmus-and-airtrunk-listings-stall/"
+    },
+    {
+     "title": "SKS Technologies Expects FY27 Sales Revenue Of A$500 Mln And PBT Of A$60 Million",
+     "source": "Reuters",
+     "published": 1791332769,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN45S1IW:0-sks-technologies-expects-fy27-sales-revenue-of-a-500-mln-and-pbt-of-a-60-million/"
+    }
+   ]
   },
   {
    "ticker": "ZIP",
@@ -1945,7 +2491,46 @@
     7.81,
     9.11
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Zip Co. Ltd. is a digital financial services company, which engages in the offering of point-of-sale credit and payment services.",
+   "news": [
+    {
+     "title": "Weekly Wrap: Resources Heavyweights Drive ASX Rebound As Small Caps Outperform",
+     "source": "Small Caps",
+     "published": 1795768929,
+     "url": "https://www.tradingview.com/news/smallcaps:c1b38bd07094b:0-weekly-wrap-resources-heavyweights-drive-asx-rebound-as-small-caps-outperform/"
+    },
+    {
+     "title": "Zip's Bull Sees U.S. Exposure at a Reasonable Price \u2014 Market Talk",
+     "source": "Dow Jones Newswires",
+     "published": 1795479900,
+     "url": "https://www.tradingview.com/news/DJN_DN20261123010081:0-zip-s-bull-sees-u-s-exposure-at-a-reasonable-price-market-talk/"
+    },
+    {
+     "title": "Zip Target Price Raised to A$12.80/Share From A$2.90/Share by Jefferies>ZIP.AU",
+     "source": "Dow Jones Newswires",
+     "published": 1795473840,
+     "url": "https://www.tradingview.com/news/DJN_DN20261123009707_20261123009707:0-zip-target-price-raised-to-a-12-80-share-from-a-2-90-share-by-jefferies-zip-au/"
+    },
+    {
+     "title": "Lord & Taylor Partners with Zip US to Fuel Its Retail Comeback, Bridge the Payment Gap, and Unlock New Customers Ahead of Black Friday and Cyber Monday",
+     "source": "BusinessWire",
+     "published": 1795446000,
+     "url": "https://www.tradingview.com/news/business_wire:1314083833a6f:0-lord-taylor-partners-with-zip-us-to-fuel-its-retail-comeback-bridge-the-payment-gap-and-unlock-new-customers-ahead-of-black-friday-and-cyber-monday/"
+    },
+    {
+     "title": "Zip Co Limited (ZIP) Adds Lord & Taylor as a Payment Partner",
+     "source": "TradingView",
+     "published": 1795446000,
+     "url": "https://www.tradingview.com/news/tradingview:fd2fbc6d7ee16:0-zip-co-limited-zip-adds-lord-taylor-as-a-payment-partner/"
+    },
+    {
+     "title": "Zip Co Says Trading In Post-Consolidation Shares To Commence November 23",
+     "source": "Reuters",
+     "published": 1795051522,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN46Z0YZ:0-zip-co-says-trading-in-post-consolidation-shares-to-commence-november-23/"
+    }
+   ]
   },
   {
    "ticker": "APE",
@@ -2074,7 +2659,46 @@
     13.95,
     14.16
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Eagers Automotive Ltd. engages in the management of automotive dealerships.",
+   "news": [
+    {
+     "title": "How safe is your job? Australian economy sheds 43,500 jobs as unemployment hits four-year high",
+     "source": "Market Index",
+     "published": 1795055541,
+     "url": "https://www.tradingview.com/news/marketindex:85f6adb10094b:0-how-safe-is-your-job-australian-economy-sheds-43-500-jobs-as-unemployment-hits-four-year-high/"
+    },
+    {
+     "title": "Eagers Automotive Surprises With U.S. Foray \u2014 Market Talk",
+     "source": "Dow Jones Newswires",
+     "published": 1794965940,
+     "url": "https://www.tradingview.com/news/DJN_DN20261117010140:0-eagers-automotive-surprises-with-u-s-foray-market-talk/"
+    },
+    {
+     "title": "Eagers Makes Interesting Strategic Move into U.S. \u2014 Market Talk",
+     "source": "Dow Jones Newswires",
+     "published": 1794965760,
+     "url": "https://www.tradingview.com/news/DJN_DN20261117010137:0-eagers-makes-interesting-strategic-move-into-u-s-market-talk/"
+    },
+    {
+     "title": "Eagers Automotive Announces Entry Into US Market With California Dealership Acquisition",
+     "source": "Reuters",
+     "published": 1794878150,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN46X1N0:0-eagers-automotive-announces-entry-into-us-market-with-california-dealership-acquisition/"
+    },
+    {
+     "title": "Eagers to Buy U.S. Dealership Group With CanadaOne Auto Founder",
+     "source": "Dow Jones Newswires",
+     "published": 1794867000,
+     "url": "https://www.tradingview.com/news/DJN_DN20261116010567:0-eagers-to-buy-u-s-dealership-group-with-canadaone-auto-founder/"
+    },
+    {
+     "title": "Eagers: Expects Several Canadian Acquisition Opportunities to Be Completed in 1Q 2027",
+     "source": "Dow Jones Newswires",
+     "published": 1794866100,
+     "url": "https://www.tradingview.com/news/DJN_DN20261116010567_20261116010697:0-eagers-expects-several-canadian-acquisition-opportunities-to-be-completed-in-1q-2027/"
+    }
+   ]
   }
  ],
  "borderline": [
@@ -2209,7 +2833,46 @@
     2.44,
     2.61
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Silex Systems Ltd. engages in the development and commercialization of laser uranium enrichment technology.",
+   "news": [
+    {
+     "title": "Silex Systems Initiated at Outperform (Speculative) by BMO Capital Markets",
+     "source": "Dow Jones Newswires",
+     "published": 1793592240,
+     "url": "https://www.tradingview.com/news/DJN_DN20261101001579_20261101001579:0-silex-systems-initiated-at-outperform-speculative-by-bmo-capital-markets/"
+    },
+    {
+     "title": "Silex Systems Initiated with A$7.50/Share Price Target by BMO Capital Markets",
+     "source": "Dow Jones Newswires",
+     "published": 1793592240,
+     "url": "https://www.tradingview.com/news/DJN_DN20261101001579_20261101001580:0-silex-systems-initiated-with-a-7-50-share-price-target-by-bmo-capital-markets/"
+    },
+    {
+     "title": "Silex Systems Says US NRC Issues Final Environmental Impact Statement",
+     "source": "Reuters",
+     "published": 1792979205,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_TUE7GVTPJ:0-silex-systems-says-us-nrc-issues-final-environmental-impact-statement/"
+    },
+    {
+     "title": "SLX: Cameco offtake and TRL-6 completion advance GLE toward targeted 2030 operations",
+     "source": "Quartr",
+     "published": 1792190227,
+     "url": "https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:4272269:0-slx-cameco-offtake-and-trl-6-completion-advance-gle-toward-targeted-2030-operations/"
+    },
+    {
+     "title": "SLX: TRL-7 targets end-CY2027; Paducah FID is targeted for late 2027 or H1 2028",
+     "source": "Quartr",
+     "published": 1792147013,
+     "url": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:4316407:0-slx-trl-7-targets-end-cy2027-paducah-fid-is-targeted-for-late-2027-or-h1-2028/"
+    },
+    {
+     "title": "SLX: DOE tails could underpin 5m lb/year uranium output, with first production targeted before end-2030",
+     "source": "Quartr",
+     "published": 1790630302,
+     "url": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:4221394:0-slx-doe-tails-could-underpin-5m-lb-year-uranium-output-with-first-production-targeted-before-end-2030/"
+    }
+   ]
   },
   {
    "ticker": "4DX",
@@ -2342,7 +3005,46 @@
     2.03,
     2.32
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "4DMedical Ltd. is a software technology company, which commercializes four-dimensional lung imaging platform called XV Technology.",
+   "news": [
+    {
+     "title": "Weekly Wrap: Resources Heavyweights Drive ASX Rebound As Small Caps Outperform",
+     "source": "Small Caps",
+     "published": 1795768929,
+     "url": "https://www.tradingview.com/news/smallcaps:c1b38bd07094b:0-weekly-wrap-resources-heavyweights-drive-asx-rebound-as-small-caps-outperform/"
+    },
+    {
+     "title": "Weekly Wrap: Miner And Bank Selling Sends ASX Lower As Small Caps Lag",
+     "source": "Small Caps",
+     "published": 1795165406,
+     "url": "https://www.tradingview.com/news/smallcaps:a60933062094b:0-weekly-wrap-miner-and-bank-selling-sends-asx-lower-as-small-caps-lag/"
+    },
+    {
+     "title": "4DMedical: CT:VQ adoption is building toward CTPA expansion and 2028 break-even",
+     "source": "Quartr",
+     "published": 1794788983,
+     "url": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:4645056:0-4dmedical-ct-vq-adoption-is-building-toward-ctpa-expansion-and-2028-break-even/"
+    },
+    {
+     "title": "4DMedical: Record scans and global deployments drove 66% YoY revenue growth; cash closed at $242.8m",
+     "source": "Quartr",
+     "published": 1793141689,
+     "url": "https://www.tradingview.com/news/urn:summary_document_report:quartr.com:4201032:0-4dmedical-record-scans-and-global-deployments-drove-66-yoy-revenue-growth-cash-closed-at-242-8m/"
+    },
+    {
+     "title": "4DMedical: FY26 growth set the stage for global expansion, amid shareholder pushback on executive pay",
+     "source": "Quartr",
+     "published": 1793139751,
+     "url": "https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:4366325:0-4dmedical-fy26-growth-set-the-stage-for-global-expansion-amid-shareholder-pushback-on-executive-pay/"
+    },
+    {
+     "title": "4DMedical: CT:VQ adoption accelerates as VA expansion and CLEAR widen the growth opportunity",
+     "source": "Quartr",
+     "published": 1793067089,
+     "url": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:4370139:0-4dmedical-ct-vq-adoption-accelerates-as-va-expansion-and-clear-widen-the-growth-opportunity/"
+    }
+   ]
   },
   {
    "ticker": "FML",
@@ -2475,7 +3177,46 @@
     1.56,
     1.69
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Focus Minerals Ltd. engages in the exploration and development of gold properties.",
+   "news": [
+    {
+     "title": "FML: 30,011 oz sold, $96.749m operating cash flow and $184.585m quarter-end cash",
+     "source": "Quartr",
+     "published": 1793235025,
+     "url": "https://www.tradingview.com/news/urn:summary_document_report:quartr.com:4385725:0-fml-30-011-oz-sold-96-749m-operating-cash-flow-and-184-585m-quarter-end-cash/"
+    },
+    {
+     "title": "FML: H1 2026 profit hit $85.82M, revenue soared, and a maiden dividend was declared",
+     "source": "Quartr",
+     "published": 1789080222,
+     "url": "https://www.tradingview.com/news/urn:summary_document_report:quartr.com:3683832:0-fml-h1-2026-profit-hit-85-82m-revenue-soared-and-a-maiden-dividend-was-declared/"
+    },
+    {
+     "title": "Focus Minerals Declares Maiden Fully Franked Final Dividend A$0.08 Per Share",
+     "source": "Reuters",
+     "published": 1789005200,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN45116R:0-focus-minerals-declares-maiden-fully-franked-final-dividend-a-0-08-per-share/"
+    },
+    {
+     "title": "FML: Gold production and sales supported strong cash reserves and ongoing resource development",
+     "source": "Quartr",
+     "published": 1785475447,
+     "url": "https://www.tradingview.com/news/urn:summary_document_report:quartr.com:3940114:0-fml-gold-production-and-sales-supported-strong-cash-reserves-and-ongoing-resource-development/"
+    },
+    {
+     "title": "FML: Transformative year with asset sale, operational stability, and strategic growth initiatives",
+     "source": "Quartr",
+     "published": 1779851210,
+     "url": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:3404407:0-fml-transformative-year-with-asset-sale-operational-stability-and-strategic-growth-initiatives/"
+    },
+    {
+     "title": "FML: Strong FY25 results and ongoing resource expansion position the project for future growth",
+     "source": "Quartr",
+     "published": 1779843431,
+     "url": "https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:3395511:0-fml-strong-fy25-results-and-ongoing-resource-expansion-position-the-project-for-future-growth/"
+    }
+   ]
   },
   {
    "ticker": "AEL",
@@ -2608,7 +3349,46 @@
     1.55,
     1.615
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Amplitude Energy Ltd.is an oil and gas exploration and development company.",
+   "news": [
+    {
+     "title": "AEL: ECSP and stronger Orbost output underpin the next phase of production growth",
+     "source": "Quartr",
+     "published": 1795644825,
+     "url": "https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:4827537:0-ael-ecsp-and-stronger-orbost-output-underpin-the-next-phase-of-production-growth/"
+    },
+    {
+     "title": "DOF Gets Contract From Amplitude Energy Limited",
+     "source": "Reuters",
+     "published": 1794818727,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_TUC5KKPHQ:0-dof-gets-contract-from-amplitude-energy-limited/"
+    },
+    {
+     "title": "AEL: Lower costs and stronger Orbost output underpin a 2028 brownfield growth push",
+     "source": "Quartr",
+     "published": 1793831020,
+     "url": "https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:4452578:0-ael-lower-costs-and-stronger-orbost-output-underpin-a-2028-brownfield-growth-push/"
+    },
+    {
+     "title": "Amplitude Energy Initiated with A$2.69/Share Price Target by BMO Capital Markets",
+     "source": "Dow Jones Newswires",
+     "published": 1793590980,
+     "url": "https://www.tradingview.com/news/DJN_DN20261101001482_20261101001483:0-amplitude-energy-initiated-with-a-2-69-share-price-target-by-bmo-capital-markets/"
+    },
+    {
+     "title": "Amplitude Energy Initiated at Outperform by BMO Capital Markets",
+     "source": "Dow Jones Newswires",
+     "published": 1793590920,
+     "url": "https://www.tradingview.com/news/DJN_DN20261101001482_20261101001482:0-amplitude-energy-initiated-at-outperform-by-bmo-capital-markets/"
+    },
+    {
+     "title": "Amplitude Energy Price Target Raised 2% to A$2.55/Share by Macquarie",
+     "source": "Dow Jones Newswires",
+     "published": 1792969200,
+     "url": "https://www.tradingview.com/news/DJN_DN20261025000581_20261025000581:0-amplitude-energy-price-target-raised-2-to-a-2-55-share-by-macquarie/"
+    }
+   ]
   },
   {
    "ticker": "360",
@@ -2741,7 +3521,46 @@
     20.6,
     20.06
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Life360, Inc. engages in the development of location sharing mobile applications.",
+   "news": [
+    {
+     "title": "Life360 Director Sold Shares Worth Over $7.2M",
+     "source": "TradingView",
+     "published": 1795648803,
+     "url": "https://www.tradingview.com/news/tradingview:479d971b680d2:0-life360-director-sold-shares-worth-over-7-2m/"
+    },
+    {
+     "title": "Life360 Names Goines as Chairman, Succeeding Hulls",
+     "source": "Dow Jones Newswires",
+     "published": 1795445100,
+     "url": "https://www.tradingview.com/news/DJN_DN20261123005464:0-life360-names-goines-as-chairman-succeeding-hulls/"
+    },
+    {
+     "title": "Life360\u2019s Chris Hulls to Retire as Executive Chairman; Mark Goines to Chair Board",
+     "source": "TradingView",
+     "published": 1795443783,
+     "url": "https://www.tradingview.com/news/tradingview:9c2098a1091df:0-life360-s-chris-hulls-to-retire-as-executive-chairman-mark-goines-to-chair-board/"
+    },
+    {
+     "title": "Life360: Hulls to Step Dn Beginning Dec 31 >LIF",
+     "source": "Dow Jones Newswires",
+     "published": 1795443420,
+     "url": "https://www.tradingview.com/news/DJN_DN20261123005045_20261123005095:0-life360-hulls-to-step-dn-beginning-dec-31-lif/"
+    },
+    {
+     "title": "Life360: Hulls to Remain on Bd as a Director >LIF",
+     "source": "Dow Jones Newswires",
+     "published": 1795443360,
+     "url": "https://www.tradingview.com/news/DJN_DN20261123005045_20261123005081:0-life360-hulls-to-remain-on-bd-as-a-director-lif/"
+    },
+    {
+     "title": "Life360 Announces Board Transition",
+     "source": "GlobeNewswire",
+     "published": 1795443300,
+     "url": "https://www.tradingview.com/news/globenewswire:73e7761df094b:0-life360-announces-board-transition/"
+    }
+   ]
   },
   {
    "ticker": "CAT",
@@ -2874,7 +3693,46 @@
     2.64,
     2.76
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Catapult Sports Ltd. engages in the development and supply of wearable athlete tracking and analytics solutions.",
+   "news": [
+    {
+     "title": "Catapult's Bull Wants Demonstration of Opportunity \u2014 Market Talk",
+     "source": "Dow Jones Newswires",
+     "published": 1795393440,
+     "url": "https://www.tradingview.com/news/DJN_DN20261122001801:0-catapult-s-bull-wants-demonstration-of-opportunity-market-talk/"
+    },
+    {
+     "title": "Catapult Sports Target Price Cut 3.8% to A$5.00/Share by Morgan Stanley>CAT.AU",
+     "source": "Dow Jones Newswires",
+     "published": 1795390980,
+     "url": "https://www.tradingview.com/news/DJN_DN20261122001749_20261122001749:0-catapult-sports-target-price-cut-3-8-to-a-5-00-share-by-morgan-stanley-cat-au/"
+    },
+    {
+     "title": "Catapult Sports Price Target Cut 6.5% to A$5.05/Share by Morgans",
+     "source": "Dow Jones Newswires",
+     "published": 1795041360,
+     "url": "https://www.tradingview.com/news/DJN_DN20261118009309_20261118009309:0-catapult-sports-price-target-cut-6-5-to-a-5-05-share-by-morgans/"
+    },
+    {
+     "title": "Catapult's Bull Sees Operational Strength Despite Noise \u2014 Market Talk",
+     "source": "Dow Jones Newswires",
+     "published": 1794972540,
+     "url": "https://www.tradingview.com/news/DJN_DN20261117010385:0-catapult-s-bull-sees-operational-strength-despite-noise-market-talk/"
+    },
+    {
+     "title": "Catapult Sports Target Price Cut 19% to A$5.25/Share by UBS>CAT.AU",
+     "source": "Dow Jones Newswires",
+     "published": 1794967800,
+     "url": "https://www.tradingview.com/news/DJN_DN20261117010230_20261117010230:0-catapult-sports-target-price-cut-19-to-a-5-25-share-by-ubs-cat-au/"
+    },
+    {
+     "title": "Catapult Sports Price Target Cut 29% to A$5.70/Share by Canaccord Genuity",
+     "source": "Dow Jones Newswires",
+     "published": 1794966900,
+     "url": "https://www.tradingview.com/news/DJN_DN20261117010189_20261117010189:0-catapult-sports-price-target-cut-29-to-a-5-70-share-by-canaccord-genuity/"
+    }
+   ]
   },
   {
    "ticker": "PNR",
@@ -3007,7 +3865,46 @@
     2.98,
     3.06
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Pantoro Gold Ltd. engages in the exploration and processing of gold mining.",
+   "news": [
+    {
+     "title": "PNR: A debt-free balance sheet backs expanded Norseman development and a 200,000 oz/year ambition",
+     "source": "Quartr",
+     "published": 1795489456,
+     "url": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:4789535:0-pnr-a-debt-free-balance-sheet-backs-expanded-norseman-development-and-a-200-000-oz-year-ambition/"
+    },
+    {
+     "title": "Market Might Be Underestimating Some Australian Gold Miners \u2014 Market Talk",
+     "source": "Dow Jones Newswires",
+     "published": 1794961620,
+     "url": "https://www.tradingview.com/news/DJN_DN20261117009910:0-market-might-be-underestimating-some-australian-gold-miners-market-talk/"
+    },
+    {
+     "title": "Pantoro Gold Initiated at Outperform by BMO Capital Markets",
+     "source": "Dow Jones Newswires",
+     "published": 1793591040,
+     "url": "https://www.tradingview.com/news/DJN_DN20261101001487_20261101001487:0-pantoro-gold-initiated-at-outperform-by-bmo-capital-markets/"
+    },
+    {
+     "title": "Pantoro Gold Initiated with A$4.00/Share Price Target by BMO Capital Markets",
+     "source": "Dow Jones Newswires",
+     "published": 1793591040,
+     "url": "https://www.tradingview.com/news/DJN_DN20261101001487_20261101001488:0-pantoro-gold-initiated-with-a-4-00-share-price-target-by-bmo-capital-markets/"
+    },
+    {
+     "title": "Pantoro Gold Target Price Raised 8.9% to A$2.45/Share by Bell Potter>PNR.AU",
+     "source": "Dow Jones Newswires",
+     "published": 1793057820,
+     "url": "https://www.tradingview.com/news/DJN_DN20261026010164_20261026010164:0-pantoro-gold-target-price-raised-8-9-to-a-2-45-share-by-bell-potter-pnr-au/"
+    },
+    {
+     "title": "Pantoro Gold Price Target Raised 2.2% to A$4.60/Share by UBS",
+     "source": "Dow Jones Newswires",
+     "published": 1792707540,
+     "url": "https://www.tradingview.com/news/DJN_DN20261022013776_20261022013776:0-pantoro-gold-price-target-raised-2-2-to-a-4-60-share-by-ubs/"
+    }
+   ]
   },
   {
    "ticker": "EQR",
@@ -3140,7 +4037,46 @@
     0.235,
     0.28
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "EQ Resources Ltd. engages in mineral exploration, mining evaluation and development.",
+   "news": [
+    {
+     "title": "Weekly Wrap: Resources Heavyweights Drive ASX Rebound As Small Caps Outperform",
+     "source": "Small Caps",
+     "published": 1795768929,
+     "url": "https://www.tradingview.com/news/smallcaps:c1b38bd07094b:0-weekly-wrap-resources-heavyweights-drive-asx-rebound-as-small-caps-outperform/"
+    },
+    {
+     "title": "EQR: Debt-free growth plans advance alongside a renewed focus on safety and shareholder returns",
+     "source": "Quartr",
+     "published": 1795593981,
+     "url": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:4813079:0-eqr-debt-free-growth-plans-advance-alongside-a-renewed-focus-on-safety-and-shareholder-returns/"
+    },
+    {
+     "title": "EQR: Record Q1 FY27 cash generation and debt repayment are funding multi-asset growth plans",
+     "source": "Quartr",
+     "published": 1795563234,
+     "url": "https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:4365923:0-eqr-record-q1-fy27-cash-generation-and-debt-repayment-are-funding-multi-asset-growth-plans/"
+    },
+    {
+     "title": "Weekly Wrap: Financials Cushion ASX As Small Caps And Miners Fall",
+     "source": "Small Caps",
+     "published": 1794564093,
+     "url": "https://www.tradingview.com/news/smallcaps:f00281935094b:0-weekly-wrap-financials-cushion-asx-as-small-caps-and-miners-fall/"
+    },
+    {
+     "title": "EQR: Barruecopardo rebounded as Mount Carbine expansion and downstream growth advanced",
+     "source": "Quartr",
+     "published": 1793760519,
+     "url": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:4442658:0-eqr-barruecopardo-rebounded-as-mount-carbine-expansion-and-downstream-growth-advanced/"
+    },
+    {
+     "title": "EQ Resources Q1 2027 Earnings Call Is Live",
+     "source": "TradingView",
+     "published": 1793753823,
+     "url": "https://www.tradingview.com/news/urn:live_audio:quartr.com:783619:0-eq-resources-q1-2027-earnings-call-is-live/"
+    }
+   ]
   },
   {
    "ticker": "RPL",
@@ -3273,7 +4209,46 @@
     1.825,
     1.91
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Regal Partners Ltd. engages in the provision of investment management services.",
+   "news": [
+    {
+     "title": "Regal Partners Initiated at Outperform by Macquarie",
+     "source": "Dow Jones Newswires",
+     "published": 1794868800,
+     "url": "https://www.tradingview.com/news/DJN_DN20261116011318_20261116011318:0-regal-partners-initiated-at-outperform-by-macquarie/"
+    },
+    {
+     "title": "Regal Partners Initiated with A$3.65/Share Price Target by Macquarie",
+     "source": "Dow Jones Newswires",
+     "published": 1794868800,
+     "url": "https://www.tradingview.com/news/DJN_DN20261116011318_20261116011322:0-regal-partners-initiated-with-a-3-65-share-price-target-by-macquarie/"
+    },
+    {
+     "title": "Regal Partners Price Target Cut 5.9% to A$4.00/Share by Morgans",
+     "source": "Dow Jones Newswires",
+     "published": 1794781500,
+     "url": "https://www.tradingview.com/news/DJN_DN20261115000926_20261115000926:0-regal-partners-price-target-cut-5-9-to-a-4-00-share-by-morgans/"
+    },
+    {
+     "title": "Regal Partners Price Target Cut 22% to A$3.50/Share by Bell Potter",
+     "source": "Dow Jones Newswires",
+     "published": 1794781320,
+     "url": "https://www.tradingview.com/news/DJN_DN20261115000923_20261115000923:0-regal-partners-price-target-cut-22-to-a-3-50-share-by-bell-potter/"
+    },
+    {
+     "title": "Regal Partners Price Target Cut 13% to A$3.25/Share by Canaccord Genuity",
+     "source": "Dow Jones Newswires",
+     "published": 1794531060,
+     "url": "https://www.tradingview.com/news/DJN_DN20261112017409_20261112017409:0-regal-partners-price-target-cut-13-to-a-3-25-share-by-canaccord-genuity/"
+    },
+    {
+     "title": "Regal Partners Price Target Cut 10% to A$4.40/Share by Barrenjoey",
+     "source": "Dow Jones Newswires",
+     "published": 1794474480,
+     "url": "https://www.tradingview.com/news/DJN_DN20261112003753_20261112003753:0-regal-partners-price-target-cut-10-to-a-4-40-share-by-barrenjoey/"
+    }
+   ]
   },
   {
    "ticker": "CSC",
@@ -3406,7 +4381,46 @@
     8.9,
     9.3
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Capstone Copper Corp. is an exploration company that engages in copper mining.",
+   "news": [
+    {
+     "title": "Capstone Copper Price Target Cut 8.9% to A$12.75/Share by Barrenjoey",
+     "source": "Dow Jones Newswires",
+     "published": 1794776460,
+     "url": "https://www.tradingview.com/news/DJN_DN20261115000740_20261115000740:0-capstone-copper-price-target-cut-8-9-to-a-12-75-share-by-barrenjoey/"
+    },
+    {
+     "title": "Capstone Copper Corp. (CS) Cuts 2026 Copper Guidance Floor to 195K Tonnes",
+     "source": "TradingView",
+     "published": 1794488400,
+     "url": "https://www.tradingview.com/news/tradingview:e48dc66e40f6d:0-capstone-copper-corp-cs-cuts-2026-copper-guidance-floor-to-195k-tonnes/"
+    },
+    {
+     "title": "Capstone Copper Provides Update on Operations",
+     "source": "BusinessWire",
+     "published": 1794488400,
+     "url": "https://www.tradingview.com/news/business_wire:0ae1c764d316e:0-capstone-copper-provides-update-on-operations/"
+    },
+    {
+     "title": "Arrow Electronics launches new business Capstone to increase focus on IP&E solutions",
+     "source": "BusinessWire",
+     "published": 1794204000,
+     "url": "https://www.tradingview.com/news/business_wire:3085bf0ce83c1:0-arrow-electronics-launches-new-business-capstone-to-increase-focus-on-ip-e-solutions/"
+    },
+    {
+     "title": "A warning to all investors in ASX lithium and copper stocks: BHP, RIO, PLS at risk",
+     "source": "Market Index",
+     "published": 1793831412,
+     "url": "https://www.tradingview.com/news/marketindex:ede4d4a77094b:0-a-warning-to-all-investors-in-asx-lithium-and-copper-stocks-bhp-rio-pls-at-risk/"
+    },
+    {
+     "title": "Capstone Copper Corp. Price Target Raised to C$15.50/Share From C$15.00 by National Bank",
+     "source": "Dow Jones Newswires",
+     "published": 1793634540,
+     "url": "https://www.tradingview.com/news/DJN_DN20261102006009:0-capstone-copper-corp-price-target-raised-to-c-15-50-share-from-c-15-00-by-national-bank/"
+    }
+   ]
   },
   {
    "ticker": "KCN",
@@ -3539,7 +4553,46 @@
     3.63,
     3.89
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Kingsgate Consolidated Ltd. engages in the exploration, development, and mining of gold, silver, and precious metals.",
+   "news": [
+    {
+     "title": "Kingsgate Consolidated Says Mischa Mutavdzic Resigns As CFO",
+     "source": "Reuters",
+     "published": 1795743361,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN47713A:0-kingsgate-consolidated-says-mischa-mutavdzic-resigns-as-cfo/"
+    },
+    {
+     "title": "Kingsgate Consolidated Price Target Cut 4% to A$8.40/Share by Canaccord Genuity",
+     "source": "Dow Jones Newswires",
+     "published": 1793596020,
+     "url": "https://www.tradingview.com/news/DJN_DN20261102000060_20261102000060:0-kingsgate-consolidated-price-target-cut-4-to-a-8-40-share-by-canaccord-genuity/"
+    },
+    {
+     "title": "Kingsgate Consolidated Price Target Cut 1.3% to A$7.90/Share by Barrenjoey",
+     "source": "Dow Jones Newswires",
+     "published": 1793567280,
+     "url": "https://www.tradingview.com/news/DJN_DN20261101000802_20261101000802:0-kingsgate-consolidated-price-target-cut-1-3-to-a-7-90-share-by-barrenjoey/"
+    },
+    {
+     "title": "KCN: Chatree\u2019s H2-weighted FY27 recovery is backed by A$169.1m in cash, bullion and dor\u00e9",
+     "source": "Quartr",
+     "published": 1793239869,
+     "url": "https://www.tradingview.com/news/urn:summary_document_report:quartr.com:4388662:0-kcn-chatree-s-h2-weighted-fy27-recovery-is-backed-by-a-169-1m-in-cash-bullion-and-dor/"
+    },
+    {
+     "title": "Kingsgate: Continues to Work to Quantify, Substantiate Claim",
+     "source": "Dow Jones Newswires",
+     "published": 1793052360,
+     "url": "https://www.tradingview.com/news/DJN_DN20261026009869_20261026009873:0-kingsgate-continues-to-work-to-quantify-substantiate-claim/"
+    },
+    {
+     "title": "Kingsgate: Expects Majority of Insurance Proceeds to Be Received During 2027",
+     "source": "Dow Jones Newswires",
+     "published": 1793052360,
+     "url": "https://www.tradingview.com/news/DJN_DN20261026009869_20261026009871:0-kingsgate-expects-majority-of-insurance-proceeds-to-be-received-during-2027/"
+    }
+   ]
   },
   {
    "ticker": "SLC",
@@ -3672,7 +4725,46 @@
     2.21,
     2.08
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Superloop Ltd. engages in the provision of connectivity services in the Asia Pacific region.",
+   "news": [
+    {
+     "title": "SLC: Profitability surged as SuperCharge29 targets over AUD 1bn revenue by FY2029",
+     "source": "Quartr",
+     "published": 1795064458,
+     "url": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:4697625:0-slc-profitability-surged-as-supercharge29-targets-over-aud-1bn-revenue-by-fy2029/"
+    },
+    {
+     "title": "SLC: FY26 growth and FY27 guidance support ambitious, non-guidance FY29 targets",
+     "source": "Quartr",
+     "published": 1795043882,
+     "url": "https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:4328341:0-slc-fy26-growth-and-fy27-guidance-support-ambitious-non-guidance-fy29-targets/"
+    },
+    {
+     "title": "Weekly Wrap: Financials Cushion ASX As Small Caps And Miners Fall",
+     "source": "Small Caps",
+     "published": 1794564093,
+     "url": "https://www.tradingview.com/news/smallcaps:f00281935094b:0-weekly-wrap-financials-cushion-asx-as-small-caps-and-miners-fall/"
+    },
+    {
+     "title": "Superloop Price Target Cut 6% to A$3.90/Share by UBS",
+     "source": "Dow Jones Newswires",
+     "published": 1794436920,
+     "url": "https://www.tradingview.com/news/DJN_DN20261111009012_20261111009012:0-superloop-price-target-cut-6-to-a-3-90-share-by-ubs/"
+    },
+    {
+     "title": "Superloop Price Target Cut 0.3% to A$2.96/Share by Ord Minnett",
+     "source": "Dow Jones Newswires",
+     "published": 1794371580,
+     "url": "https://www.tradingview.com/news/DJN_DN20261110013989_20261110013989:0-superloop-price-target-cut-0-3-to-a-2-96-share-by-ord-minnett/"
+    },
+    {
+     "title": "Superloop Adds Bull After Sustained Share-Price Weakness \u2014 Market Talk",
+     "source": "Dow Jones Newswires",
+     "published": 1794350040,
+     "url": "https://www.tradingview.com/news/DJN_DN20261110012989:0-superloop-adds-bull-after-sustained-share-price-weakness-market-talk/"
+    }
+   ]
   },
   {
    "ticker": "RYM",
@@ -3805,7 +4897,46 @@
     1.43,
     1.42
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Ryman Healthcare Ltd. engages in the development and management of integrated retirement villages for the elderly.",
+   "news": [
+    {
+     "title": "Ryman Healthcare Price Target Cut 4.2% to NZ$2.30/Share by Forsyth Barr",
+     "source": "Dow Jones Newswires",
+     "published": 1795676520,
+     "url": "https://www.tradingview.com/news/DJN_DN20261126000730_20261126000730:0-ryman-healthcare-price-target-cut-4-2-to-nz-2-30-share-by-forsyth-barr/"
+    },
+    {
+     "title": "Ryman Healthcare Raised to Overweight From Neutral by Jarden >RYM.NZ",
+     "source": "Dow Jones Newswires",
+     "published": 1795654320,
+     "url": "https://www.tradingview.com/news/DJN_DN20261125008448_20261125008448:0-ryman-healthcare-raised-to-overweight-from-neutral-by-jarden-rym-nz/"
+    },
+    {
+     "title": "Ryman Healthcare Target Price Cut 21% to NZ$2.03/Share by Jarden>RYM.NZ",
+     "source": "Dow Jones Newswires",
+     "published": 1795654320,
+     "url": "https://www.tradingview.com/news/DJN_DN20261125008448_20261125008449:0-ryman-healthcare-target-price-cut-21-to-nz-2-03-share-by-jarden-rym-nz/"
+    },
+    {
+     "title": "Ryman Heathcare Target Price Cut 36% to NZ$2.25/Share by UBS>RYM.NZ",
+     "source": "Dow Jones Newswires",
+     "published": 1795644600,
+     "url": "https://www.tradingview.com/news/DJN_DN20261125007885_20261125007885:0-ryman-heathcare-target-price-cut-36-to-nz-2-25-share-by-ubs-rym-nz/"
+    },
+    {
+     "title": "Ryman Healthcare Lifts 1H27 Operating Earnings 56% as Aged Care Business Rebounds",
+     "source": "Small Caps",
+     "published": 1795562283,
+     "url": "https://www.tradingview.com/news/smallcaps:b9d0b22ea094b:0-ryman-healthcare-lifts-1h27-operating-earnings-56-as-aged-care-business-rebounds/"
+    },
+    {
+     "title": "Ryman Healthcare 1H Aged Care Profitability Per Bed Increased 59% to NZ$24,300",
+     "source": "Dow Jones Newswires",
+     "published": 1795560480,
+     "url": "https://www.tradingview.com/news/DJN_DN20261124008799_20261124008818:0-ryman-healthcare-1h-aged-care-profitability-per-bed-increased-59-to-nz-24-300/"
+    }
+   ]
   },
   {
    "ticker": "NGI",
@@ -3938,7 +5069,46 @@
     1.815,
     1.81
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Navigator Global Investments Ltd. operates as a fund management company.",
+   "news": [
+    {
+     "title": "NGI: AUM rose 21%; FY27 growth centers on Stable integration and diversified earnings",
+     "source": "Quartr",
+     "published": 1795735698,
+     "url": "https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:4271843:0-ngi-aum-rose-21-fy27-growth-centers-on-stable-integration-and-diversified-earnings/"
+    },
+    {
+     "title": "NGI: FY 2027 growth hinges on NGI Stable integration and broader portfolio diversification",
+     "source": "Quartr",
+     "published": 1795661366,
+     "url": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:4880051:0-ngi-fy-2027-growth-hinges-on-ngi-stable-integration-and-broader-portfolio-diversification/"
+    },
+    {
+     "title": "Navigator Global's Bull Mulls Mixed September Quarter \u2014 Market Talk",
+     "source": "Dow Jones Newswires",
+     "published": 1792455060,
+     "url": "https://www.tradingview.com/news/DJN_DN20261019008551:0-navigator-global-s-bull-mulls-mixed-september-quarter-market-talk/"
+    },
+    {
+     "title": "Navigator Global Investments Price Target Cut 5.6% to A$3.40/Share by UBS",
+     "source": "Dow Jones Newswires",
+     "published": 1792105080,
+     "url": "https://www.tradingview.com/news/DJN_DN20261015010021_20261015010021:0-navigator-global-investments-price-target-cut-5-6-to-a-3-40-share-by-ubs/"
+    },
+    {
+     "title": "Navigator Global Investments Reports Ownership-Adjusted AUM Of US$36.6 Bln For Q1 FY27",
+     "source": "Reuters",
+     "published": 1792025228,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN46015B:0-navigator-global-investments-reports-ownership-adjusted-aum-of-us-36-6-bln-for-q1-fy27/"
+    },
+    {
+     "title": "Navigator Global's Bull Unruffled by Disposal \u2014 Market Talk",
+     "source": "Dow Jones Newswires",
+     "published": 1790730780,
+     "url": "https://www.tradingview.com/news/DJN_DN20260929009196:0-navigator-global-s-bull-unruffled-by-disposal-market-talk/"
+    }
+   ]
   },
   {
    "ticker": "CBO",
@@ -4071,11 +5241,50 @@
     2.56,
     2.44
    ],
-   "has_bars": true
+   "has_bars": true,
+   "about": "Cobram Estate Olives Ltd. engages in farming olives and producing olive oil.",
+   "news": [
+    {
+     "title": "Cobram Estate Olives Price Target Cut 2.8% to A$3.48/Share by Ord Minnett",
+     "source": "Dow Jones Newswires",
+     "published": 1793653680,
+     "url": "https://www.tradingview.com/news/DJN_DN20261102009372_20261102009372:0-cobram-estate-olives-price-target-cut-2-8-to-a-3-48-share-by-ord-minnett/"
+    },
+    {
+     "title": "CBO: COR integration and U.S. expansion underpin materially higher FY27 EBITDA expectations",
+     "source": "Quartr",
+     "published": 1793336110,
+     "url": "https://www.tradingview.com/news/urn:summary_document_transcript:quartr.com:4389584:0-cbo-cor-integration-and-u-s-expansion-underpin-materially-higher-fy27-ebitda-expectations/"
+    },
+    {
+     "title": "Cobram Estate Olives Expects Group Earnings To Increase Materially In FY2027",
+     "source": "Reuters",
+     "published": 1793322163,
+     "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_FWN46F35N:0-cobram-estate-olives-expects-group-earnings-to-increase-materially-in-fy2027/"
+    },
+    {
+     "title": "CBO: FY26 earnings fell, while COR integration and FY27 growth plans anchor the outlook",
+     "source": "Quartr",
+     "published": 1793315084,
+     "url": "https://www.tradingview.com/news/urn:summary_document_slides:quartr.com:4265818:0-cbo-fy26-earnings-fell-while-cor-integration-and-fy27-growth-plans-anchor-the-outlook/"
+    },
+    {
+     "title": "Cobram Estate Olives Price Target Cut 5.0% to A$3.58/Share by Ord Minnett",
+     "source": "Dow Jones Newswires",
+     "published": 1788126360,
+     "url": "https://www.tradingview.com/news/DJN_DN20260830000427_20260830000428:0/"
+    },
+    {
+     "title": "Cobram Estate Olives Upgraded to Buy from Accumulate by Ord Minnett",
+     "source": "Dow Jones Newswires",
+     "published": 1788126360,
+     "url": "https://www.tradingview.com/news/DJN_DN20260830000427_20260830000427:0/"
+    }
+   ]
   }
  ],
  "changes": {
-  "since": "2026-11-27T14:19:14+00:00",
+  "since": "2026-11-27T14:24:08+00:00",
   "added": [],
   "removed": []
  }
