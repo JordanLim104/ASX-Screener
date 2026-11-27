@@ -1,0 +1,18 @@
+{
+  "id": "./",
+  "name": "Wounded Mid-Caps",
+  "short_name": "Mid-Caps",
+  "description": "Daily ASX screen for mid-caps sold off at least 50% that are still growing revenue and EBITDA-positive.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "categories": ["finance"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
