@@ -7,7 +7,7 @@ on:
     - cron: "30 7 * * 1-5"
   push:
     branches: [main]
-    paths: ["docs/index.html", "tv_screen.py", "tv_bars.py", "tv_details.py", "criteria.yaml"]
+    paths: ["docs/**", "!docs/data/**", "tv_*.py", "criteria.yaml", ".github/workflows/refresh.yml"]
   workflow_dispatch: {}
 
 permissions:
