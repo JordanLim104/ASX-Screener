@@ -1,0 +1,2346 @@
+{
+ "run_at": "2026-11-27T13:57:52+00:00",
+ "source": "TradingView screener (scanner.tradingview.com), delayed/end-of-day",
+ "criteria": {
+  "market_cap_min": 500000000,
+  "market_cap_max": 50000000000,
+  "drawdown_min_pct": 50,
+  "revenue_mode": "each_year",
+  "revenue_years": 3,
+  "ebitda_threshold": 0
+ },
+ "loosened": false,
+ "universe_count": 339,
+ "matches": [
+  {
+   "ticker": "TUA",
+   "symbol": "ASX:TUA",
+   "name": "Tuas Ltd.",
+   "sector": "Communications",
+   "industry": "Wireless Telecommunications",
+   "price": 1.675,
+   "change_pct": -0.2976190476190413,
+   "high_52w": 7.805,
+   "high_52w_date": "2026-01-26",
+   "low_52w": 1.092,
+   "drawdown_pct": 78.54,
+   "drawdown_vs_6m_high_pct": 39.53,
+   "market_cap": 921305618,
+   "revenue_fy": [
+    94265468.1001959,
+    132461195.93674502,
+    177397991.751588,
+    214280904.61548102
+   ],
+   "revenue_yoy_pct": [
+    40.52,
+    33.92,
+    20.79
+   ],
+   "ebitda_fy": 95695710,
+   "ebitda_fy_hist": [
+    34064850,
+    56281730,
+    80235400,
+    95695710
+   ],
+   "fy_end": "2026-07-31",
+   "next_earnings": "2027-03-25",
+   "perf": {
+    "W": 20.938628158844768,
+    "1M": 31.372549019607856,
+    "3M": -23.863636363636367,
+    "6M": -20.23809523809524,
+    "Y": -73.86895475819034
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 6.41
+    },
+    {
+     "t": "6M",
+     "p": 2.1
+    },
+    {
+     "t": "3M",
+     "p": 2.2
+    },
+    {
+     "t": "1M",
+     "p": 1.275
+    },
+    {
+     "t": "1W",
+     "p": 1.385
+    },
+    {
+     "t": "Now",
+     "p": 1.675
+    }
+   ],
+   "fragile": false,
+   "status": "Pass",
+   "fails": [],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-TUA/",
+   "is_new": false
+  },
+  {
+   "ticker": "DRO",
+   "symbol": "ASX:DRO",
+   "name": "DroneShield Limited",
+   "sector": "Electronic Technology",
+   "industry": "Aerospace & Defense",
+   "price": 1.12,
+   "change_pct": 4.1860465116279215,
+   "high_52w": 4.81,
+   "high_52w_date": "2026-01-19",
+   "low_52w": 1.01,
+   "drawdown_pct": 76.72,
+   "drawdown_vs_6m_high_pct": 66.37,
+   "market_cap": 995224008,
+   "revenue_fy": [
+    16806723.000158597,
+    54088928.0000321,
+    57529000.000849895,
+    216547000.000579
+   ],
+   "revenue_yoy_pct": [
+    221.83,
+    6.36,
+    276.41
+   ],
+   "ebitda_fy": 6536000,
+   "ebitda_fy_hist": [
+    -2360210,
+    4113909.9999999995,
+    -9885000,
+    6536000
+   ],
+   "fy_end": "2025-12-31",
+   "next_earnings": "2027-02-23",
+   "perf": {
+    "W": 7.177033492822984,
+    "1M": -24.324324324324316,
+    "3M": -37.60445682451253,
+    "6M": -66.96165191740413,
+    "Y": -48.148148148148145
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 2.16
+    },
+    {
+     "t": "6M",
+     "p": 3.39
+    },
+    {
+     "t": "3M",
+     "p": 1.795
+    },
+    {
+     "t": "1M",
+     "p": 1.48
+    },
+    {
+     "t": "1W",
+     "p": 1.045
+    },
+    {
+     "t": "Now",
+     "p": 1.12
+    }
+   ],
+   "fragile": false,
+   "status": "Pass",
+   "fails": [],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-DRO/",
+   "is_new": false
+  },
+  {
+   "ticker": "CIA",
+   "symbol": "ASX:CIA",
+   "name": "Champion Iron Ltd.",
+   "sector": "Non-Energy Minerals",
+   "industry": "Steel",
+   "price": 1.775,
+   "change_pct": 1.1396011396011407,
+   "high_52w": 6.685,
+   "high_52w_date": "2026-01-15",
+   "low_52w": 1.612,
+   "drawdown_pct": 73.45,
+   "drawdown_vs_6m_high_pct": 60.9,
+   "market_cap": 982882370,
+   "revenue_fy": [
+    1542380216.86662,
+    1718336407.12478,
+    1771323895.6166,
+    1938077910.47372
+   ],
+   "revenue_yoy_pct": [
+    11.41,
+    3.08,
+    9.41
+   ],
+   "ebitda_fy": 485907280,
+   "ebitda_fy_hist": [
+    545602210,
+    623161220,
+    517219889.99999994,
+    485907280
+   ],
+   "fy_end": "2026-03-31",
+   "next_earnings": "2027-01-28",
+   "perf": {
+    "W": 4.719764011799401,
+    "1M": -22.14912280701754,
+    "3M": -50,
+    "6M": -59.65909090909092,
+    "Y": -69.02268760907505
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 5.73
+    },
+    {
+     "t": "6M",
+     "p": 4.4
+    },
+    {
+     "t": "3M",
+     "p": 3.55
+    },
+    {
+     "t": "1M",
+     "p": 2.28
+    },
+    {
+     "t": "1W",
+     "p": 1.695
+    },
+    {
+     "t": "Now",
+     "p": 1.775
+    }
+   ],
+   "fragile": false,
+   "status": "Pass",
+   "fails": [],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-CIA/",
+   "is_new": false
+  },
+  {
+   "ticker": "GQG",
+   "symbol": "ASX:GQG",
+   "name": "GQG Partners, Inc. Shs Chess Depository Interests Repr 1 Sh",
+   "sector": "Finance",
+   "industry": "Investment Managers",
+   "price": 0.585,
+   "change_pct": 2.631578947368424,
+   "high_52w": 1.965,
+   "high_52w_date": "2026-03-05",
+   "low_52w": 0.51,
+   "drawdown_pct": 70.23,
+   "drawdown_vs_6m_high_pct": 61.76,
+   "market_cap": 1686060599,
+   "revenue_fy": [
+    630133358.649439,
+    779770432.4563301,
+    1152858348.71294,
+    1253472368.9227002
+   ],
+   "revenue_yoy_pct": [
+    23.75,
+    47.85,
+    8.73
+   ],
+   "ebitda_fy": 967809960,
+   "ebitda_fy_hist": [
+    479984290,
+    582703960,
+    884439130,
+    967809960
+   ],
+   "fy_end": "2025-12-31",
+   "next_earnings": "2027-02-18",
+   "perf": {
+    "W": 4.464285714285698,
+    "1M": -40.90909090909091,
+    "3M": -56.66666666666667,
+    "6M": -59.93150684931507,
+    "Y": -65.28189910979229
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 1.685
+    },
+    {
+     "t": "6M",
+     "p": 1.46
+    },
+    {
+     "t": "3M",
+     "p": 1.35
+    },
+    {
+     "t": "1M",
+     "p": 0.99
+    },
+    {
+     "t": "1W",
+     "p": 0.56
+    },
+    {
+     "t": "Now",
+     "p": 0.585
+    }
+   ],
+   "fragile": false,
+   "status": "Pass",
+   "fails": [],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-GQG/",
+   "is_new": false
+  },
+  {
+   "ticker": "OCL",
+   "symbol": "ASX:OCL",
+   "name": "Objective Corporation Limited",
+   "sector": "Technology Services",
+   "industry": "Packaged Software",
+   "price": 5.8,
+   "change_pct": 1.221640488656185,
+   "high_52w": 19.2,
+   "high_52w_date": "2025-12-21",
+   "low_52w": 4.75,
+   "drawdown_pct": 69.79,
+   "drawdown_vs_6m_high_pct": 50.17,
+   "market_cap": 542238236,
+   "revenue_fy": [
+    108919000,
+    114804000,
+    120075000,
+    131636000
+   ],
+   "revenue_yoy_pct": [
+    5.4,
+    4.59,
+    9.63
+   ],
+   "ebitda_fy": 50633000,
+   "ebitda_fy_hist": [
+    26078000,
+    42321000,
+    44146000,
+    50633000
+   ],
+   "fy_end": "2026-06-30",
+   "next_earnings": "2027-02-24",
+   "perf": {
+    "W": -4.918032786885243,
+    "1M": -10.769230769230772,
+    "3M": -6.300484652665599,
+    "6M": -44.23076923076923,
+    "Y": -67.59776536312849
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 17.9
+    },
+    {
+     "t": "6M",
+     "p": 10.4
+    },
+    {
+     "t": "3M",
+     "p": 6.19
+    },
+    {
+     "t": "1M",
+     "p": 6.5
+    },
+    {
+     "t": "1W",
+     "p": 6.1
+    },
+    {
+     "t": "Now",
+     "p": 5.8
+    }
+   ],
+   "fragile": false,
+   "status": "Pass",
+   "fails": [],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-OCL/",
+   "is_new": false
+  },
+  {
+   "ticker": "DVP",
+   "symbol": "ASX:DVP",
+   "name": "Develop Global Limited",
+   "sector": "Non-Energy Minerals",
+   "industry": "Other Metals/Minerals",
+   "price": 2.59,
+   "change_pct": 5.714285714285701,
+   "high_52w": 7.68,
+   "high_52w_date": "2026-06-16",
+   "low_52w": 2.325,
+   "drawdown_pct": 66.28,
+   "drawdown_vs_6m_high_pct": 66.28,
+   "market_cap": 797745676,
+   "revenue_fy": [
+    67755184,
+    147229949,
+    231472000,
+    388539000
+   ],
+   "revenue_yoy_pct": [
+    117.3,
+    57.22,
+    67.86
+   ],
+   "ebitda_fy": 39017000,
+   "ebitda_fy_hist": [
+    -3767670,
+    12899580,
+    26064000,
+    39017000
+   ],
+   "fy_end": "2026-06-30",
+   "next_earnings": "2027-03-15",
+   "perf": {
+    "W": -8.156028368794328,
+    "1M": -37.88968824940048,
+    "3M": -54.32098765432099,
+    "6M": -58.15831987075929,
+    "Y": -26.628895184135978
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 3.53
+    },
+    {
+     "t": "6M",
+     "p": 6.19
+    },
+    {
+     "t": "3M",
+     "p": 5.67
+    },
+    {
+     "t": "1M",
+     "p": 4.17
+    },
+    {
+     "t": "1W",
+     "p": 2.82
+    },
+    {
+     "t": "Now",
+     "p": 2.59
+    }
+   ],
+   "fragile": false,
+   "status": "Pass",
+   "fails": [],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-DVP/",
+   "is_new": false
+  },
+  {
+   "ticker": "MAF",
+   "symbol": "ASX:MAF",
+   "name": "MA Financial Group Limited",
+   "sector": "Finance",
+   "industry": "Investment Managers",
+   "price": 4.41,
+   "change_pct": 4.502369668246455,
+   "high_52w": 11.64,
+   "high_52w_date": "2026-01-04",
+   "low_52w": 3.97,
+   "drawdown_pct": 62.11,
+   "drawdown_vs_6m_high_pct": 41.63,
+   "market_cap": 805064896,
+   "revenue_fy": [
+    778148000,
+    916890000,
+    1209271000,
+    1789514000
+   ],
+   "revenue_yoy_pct": [
+    17.83,
+    31.89,
+    47.98
+   ],
+   "ebitda_fy": 533640000,
+   "ebitda_fy_hist": [
+    118715000,
+    177555000,
+    318057000,
+    533640000
+   ],
+   "fy_end": "2025-12-31",
+   "next_earnings": "2027-02-25",
+   "perf": {
+    "W": 0.4555808656036552,
+    "1M": -4.338394793926251,
+    "3M": -29.999999999999996,
+    "6M": -29.099678456591636,
+    "Y": -52.42718446601941
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 9.27
+    },
+    {
+     "t": "6M",
+     "p": 6.22
+    },
+    {
+     "t": "3M",
+     "p": 6.3
+    },
+    {
+     "t": "1M",
+     "p": 4.61
+    },
+    {
+     "t": "1W",
+     "p": 4.39
+    },
+    {
+     "t": "Now",
+     "p": 4.41
+    }
+   ],
+   "fragile": false,
+   "status": "Pass",
+   "fails": [],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-MAF/",
+   "is_new": false
+  },
+  {
+   "ticker": "GDG",
+   "symbol": "ASX:GDG",
+   "name": "Generation Development Group Limited",
+   "sector": "Finance",
+   "industry": "Investment Managers",
+   "price": 2.61,
+   "change_pct": -1.5094339622641524,
+   "high_52w": 6.56,
+   "high_52w_date": "2025-11-30",
+   "low_52w": 2.56,
+   "drawdown_pct": 60.21,
+   "drawdown_vs_6m_high_pct": 46.07,
+   "market_cap": 1069326796,
+   "revenue_fy": [
+    46816000,
+    109161000,
+    219517000,
+    364006000
+   ],
+   "revenue_yoy_pct": [
+    133.17,
+    101.09,
+    65.82
+   ],
+   "ebitda_fy": 403760000,
+   "ebitda_fy_hist": [
+    199964000,
+    282131000,
+    380225000,
+    403760000
+   ],
+   "fy_end": "2026-06-30",
+   "next_earnings": "2027-02-24",
+   "perf": {
+    "W": -10.921501706484651,
+    "1M": -16.61341853035144,
+    "3M": -18.437500000000007,
+    "6M": -35.3960396039604,
+    "Y": -60.33434650455927
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 6.58
+    },
+    {
+     "t": "6M",
+     "p": 4.04
+    },
+    {
+     "t": "3M",
+     "p": 3.2
+    },
+    {
+     "t": "1M",
+     "p": 3.13
+    },
+    {
+     "t": "1W",
+     "p": 2.93
+    },
+    {
+     "t": "Now",
+     "p": 2.61
+    }
+   ],
+   "fragile": true,
+   "status": "Pass (fragile)",
+   "fails": [],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-GDG/",
+   "is_new": false
+  },
+  {
+   "ticker": "PXA",
+   "symbol": "ASX:PXA",
+   "name": "PEXA Group Limited",
+   "sector": "Finance",
+   "industry": "Real Estate Development",
+   "price": 6.46,
+   "change_pct": 0.15503875968991915,
+   "high_52w": 16.05,
+   "high_52w_date": "2026-03-30",
+   "low_52w": 6.15,
+   "drawdown_pct": 59.75,
+   "drawdown_vs_6m_high_pct": 43.92,
+   "market_cap": 1134788476,
+   "revenue_fy": [
+    281688000,
+    340057000,
+    379507000,
+    406884000
+   ],
+   "revenue_yoy_pct": [
+    20.72,
+    11.6,
+    7.21
+   ],
+   "ebitda_fy": 151891000,
+   "ebitda_fy_hist": [
+    88247000,
+    105540000,
+    132827000,
+    151891000
+   ],
+   "fy_end": "2026-06-30",
+   "next_earnings": "2027-02-25",
+   "perf": {
+    "W": -3.582089552238809,
+    "1M": -5.693430656934303,
+    "3M": -7.714285714285714,
+    "6M": -39.22859830667921,
+    "Y": -55.75342465753425
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 14.6
+    },
+    {
+     "t": "6M",
+     "p": 10.63
+    },
+    {
+     "t": "3M",
+     "p": 7.0
+    },
+    {
+     "t": "1M",
+     "p": 6.85
+    },
+    {
+     "t": "1W",
+     "p": 6.7
+    },
+    {
+     "t": "Now",
+     "p": 6.46
+    }
+   ],
+   "fragile": false,
+   "status": "Pass",
+   "fails": [],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-PXA/",
+   "is_new": false
+  },
+  {
+   "ticker": "SNZ",
+   "symbol": "ASX:SNZ",
+   "name": "Summerset Group Holdings Limited",
+   "sector": "Health Services",
+   "industry": "Hospital/Nursing Management",
+   "price": 4.95,
+   "change_pct": -0.9999999999999963,
+   "high_52w": 12.09,
+   "high_52w_date": "2026-01-06",
+   "low_52w": 4.51,
+   "drawdown_pct": 59.06,
+   "drawdown_vs_6m_high_pct": 32.74,
+   "market_cap": 1191594723.8535259,
+   "revenue_fy": [
+    220778057.42673066,
+    250952808.7781662,
+    288061588.3265715,
+    311257146.99138254
+   ],
+   "revenue_yoy_pct": [
+    13.67,
+    14.79,
+    8.05
+   ],
+   "ebitda_fy": 27798810.595728736,
+   "ebitda_fy_hist": [
+    19722192.576938316,
+    20891550.897499926,
+    31157676.467260413,
+    27798810.595728736
+   ],
+   "fy_end": "2025-12-31",
+   "next_earnings": "2027-02-24",
+   "perf": {
+    "W": 2.2727272727272796,
+    "1M": -6.072106261859571,
+    "3M": -30.76923076923077,
+    "6M": -21.428571428571423,
+    "Y": -54.166666666666664
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 10.8
+    },
+    {
+     "t": "6M",
+     "p": 6.3
+    },
+    {
+     "t": "3M",
+     "p": 7.15
+    },
+    {
+     "t": "1M",
+     "p": 5.27
+    },
+    {
+     "t": "1W",
+     "p": 4.84
+    },
+    {
+     "t": "Now",
+     "p": 4.95
+    }
+   ],
+   "fragile": false,
+   "status": "Pass",
+   "fails": [],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-SNZ/",
+   "is_new": false
+  },
+  {
+   "ticker": "CYL",
+   "symbol": "ASX:CYL",
+   "name": "Catalyst Metals Limited",
+   "sector": "Non-Energy Minerals",
+   "industry": "Precious Metals",
+   "price": 4.07,
+   "change_pct": 3.826530612244907,
+   "high_52w": 9.8,
+   "high_52w_date": "2026-01-26",
+   "low_52w": 3.4,
+   "drawdown_pct": 58.47,
+   "drawdown_vs_6m_high_pct": 42.68,
+   "market_cap": 1034811353,
+   "revenue_fy": [
+    63944000,
+    241951000,
+    361412000,
+    631938000
+   ],
+   "revenue_yoy_pct": [
+    278.38,
+    49.37,
+    74.85
+   ],
+   "ebitda_fy": 345386000,
+   "ebitda_fy_hist": [
+    -1563000,
+    53959000,
+    157302000,
+    345386000
+   ],
+   "fy_end": "2026-06-30",
+   "next_earnings": "2027-03-16",
+   "perf": {
+    "W": 10.000000000000004,
+    "1M": -22.47619047619047,
+    "3M": -39.52451708766716,
+    "6M": -21.276595744680847,
+    "Y": -42.26950354609929
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 7.05
+    },
+    {
+     "t": "6M",
+     "p": 5.17
+    },
+    {
+     "t": "3M",
+     "p": 6.73
+    },
+    {
+     "t": "1M",
+     "p": 5.25
+    },
+    {
+     "t": "1W",
+     "p": 3.7
+    },
+    {
+     "t": "Now",
+     "p": 4.07
+    }
+   ],
+   "fragile": false,
+   "status": "Pass",
+   "fails": [],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-CYL/",
+   "is_new": false
+  },
+  {
+   "ticker": "TPW",
+   "symbol": "ASX:TPW",
+   "name": "Temple & Webster Group Ltd",
+   "sector": "Retail Trade",
+   "industry": "Specialty Stores",
+   "price": 6.65,
+   "change_pct": 0.1506024096385644,
+   "high_52w": 15.7,
+   "high_52w_date": "2025-11-30",
+   "low_52w": 4.03,
+   "drawdown_pct": 57.64,
+   "drawdown_vs_6m_high_pct": 5.14,
+   "market_cap": 773870323,
+   "revenue_fy": [
+    395513000,
+    497841000,
+    600719000,
+    664586000
+   ],
+   "revenue_yoy_pct": [
+    25.87,
+    20.66,
+    10.63
+   ],
+   "ebitda_fy": 21905000,
+   "ebitda_fy_hist": [
+    15500000,
+    10856000,
+    18791000,
+    21905000
+   ],
+   "fy_end": "2026-06-30",
+   "next_earnings": "2027-02-15",
+   "perf": {
+    "W": 1.9938650306748587,
+    "1M": 33.00000000000001,
+    "3M": 41.48936170212767,
+    "6M": 23.376623376623392,
+    "Y": -53.267744202389316
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 14.23
+    },
+    {
+     "t": "6M",
+     "p": 5.39
+    },
+    {
+     "t": "3M",
+     "p": 4.7
+    },
+    {
+     "t": "1M",
+     "p": 5.0
+    },
+    {
+     "t": "1W",
+     "p": 6.52
+    },
+    {
+     "t": "Now",
+     "p": 6.65
+    }
+   ],
+   "fragile": true,
+   "status": "Pass (fragile)",
+   "fails": [],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-TPW/",
+   "is_new": false
+  },
+  {
+   "ticker": "SDR",
+   "symbol": "ASX:SDR",
+   "name": "SiteMinder Limited",
+   "sector": "Technology Services",
+   "industry": "Internet Software/Services",
+   "price": 3.07,
+   "change_pct": 3.020134228187915,
+   "high_52w": 6.65,
+   "high_52w_date": "2025-11-30",
+   "low_52w": 2.47,
+   "drawdown_pct": 53.83,
+   "drawdown_vs_6m_high_pct": 30.54,
+   "market_cap": 840142835,
+   "revenue_fy": [
+    151384000,
+    190673000,
+    224327000,
+    266060999.99999997
+   ],
+   "revenue_yoy_pct": [
+    25.95,
+    17.65,
+    18.6
+   ],
+   "ebitda_fy": 27517000,
+   "ebitda_fy_hist": [
+    -25174000,
+    316000,
+    15441000,
+    27517000
+   ],
+   "fy_end": "2026-06-30",
+   "next_earnings": "2027-03-03",
+   "perf": {
+    "W": -6.402439024390243,
+    "1M": 1.3201320132013215,
+    "3M": -1.9169329073482446,
+    "6M": -7.25075528700907,
+    "Y": -53.12977099236642
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 6.55
+    },
+    {
+     "t": "6M",
+     "p": 3.31
+    },
+    {
+     "t": "3M",
+     "p": 3.13
+    },
+    {
+     "t": "1M",
+     "p": 3.03
+    },
+    {
+     "t": "1W",
+     "p": 3.28
+    },
+    {
+     "t": "Now",
+     "p": 3.07
+    }
+   ],
+   "fragile": true,
+   "status": "Pass (fragile)",
+   "fails": [],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-SDR/",
+   "is_new": false
+  },
+  {
+   "ticker": "SKS",
+   "symbol": "ASX:SKS",
+   "name": "SKS Technologies Group Limited",
+   "sector": "Electronic Technology",
+   "industry": "Electronic Equipment/Instruments",
+   "price": 5.41,
+   "change_pct": 10.408163265306117,
+   "high_52w": 11.55,
+   "high_52w_date": "2026-10-05",
+   "low_52w": 3.31,
+   "drawdown_pct": 53.16,
+   "drawdown_vs_6m_high_pct": 53.16,
+   "market_cap": 565681855,
+   "revenue_fy": [
+    83268128,
+    136309155,
+    261655008,
+    347927741
+   ],
+   "revenue_yoy_pct": [
+    63.7,
+    91.96,
+    32.97
+   ],
+   "ebitda_fy": 41656160,
+   "ebitda_fy_hist": [
+    1804360,
+    8804440,
+    22697640,
+    41656160
+   ],
+   "fy_end": "2026-06-30",
+   "next_earnings": "2027-02-23",
+   "perf": {
+    "W": 3.6398467432950268,
+    "1M": -12.175324675324674,
+    "3M": -37.67281105990783,
+    "6M": -38.731596828992075,
+    "Y": 30.992736077481847
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 4.13
+    },
+    {
+     "t": "6M",
+     "p": 8.83
+    },
+    {
+     "t": "3M",
+     "p": 8.68
+    },
+    {
+     "t": "1M",
+     "p": 6.16
+    },
+    {
+     "t": "1W",
+     "p": 5.22
+    },
+    {
+     "t": "Now",
+     "p": 5.41
+    }
+   ],
+   "fragile": false,
+   "status": "Pass",
+   "fails": [],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-SKS/",
+   "is_new": false
+  },
+  {
+   "ticker": "ZIP",
+   "symbol": "ASX:ZIP",
+   "name": "Zip Co Ltd.",
+   "sector": "Finance",
+   "industry": "Finance/Rental/Leasing",
+   "price": 9.11,
+   "change_pct": 2.1300448430493217,
+   "high_52w": 19.05,
+   "high_52w_date": "2026-01-11",
+   "low_52w": 5.125,
+   "drawdown_pct": 52.18,
+   "drawdown_vs_6m_high_pct": 44.54,
+   "market_cap": 2222724481,
+   "revenue_fy": [
+    671582000,
+    874022000,
+    1096583000,
+    1345577000
+   ],
+   "revenue_yoy_pct": [
+    30.14,
+    25.46,
+    22.71
+   ],
+   "ebitda_fy": 194803000,
+   "ebitda_fy_hist": [
+    -159906000,
+    -8992000,
+    91613000,
+    194803000
+   ],
+   "fy_end": "2026-06-30",
+   "next_earnings": "2027-02-24",
+   "perf": {
+    "W": -0.16438356164384185,
+    "1M": 5.317919075144498,
+    "3M": -29.37984496124032,
+    "6M": -19.022222222222226,
+    "Y": -44.110429447852766
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 16.3
+    },
+    {
+     "t": "6M",
+     "p": 11.25
+    },
+    {
+     "t": "3M",
+     "p": 12.9
+    },
+    {
+     "t": "1M",
+     "p": 8.65
+    },
+    {
+     "t": "1W",
+     "p": 9.125
+    },
+    {
+     "t": "Now",
+     "p": 9.11
+    }
+   ],
+   "fragile": false,
+   "status": "Pass",
+   "fails": [],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-ZIP/",
+   "is_new": false
+  },
+  {
+   "ticker": "APE",
+   "symbol": "ASX:APE",
+   "name": "Eagers Automotive Limited",
+   "sector": "Retail Trade",
+   "industry": "Specialty Stores",
+   "price": 14.16,
+   "change_pct": 2.460202604920404,
+   "high_52w": 29.26,
+   "high_52w_date": "2026-01-22",
+   "low_52w": 13.715,
+   "drawdown_pct": 51.61,
+   "drawdown_vs_6m_high_pct": 44.21,
+   "market_cap": 3909916963,
+   "revenue_fy": [
+    8541502000,
+    9851681000,
+    11193742000,
+    13045190000
+   ],
+   "revenue_yoy_pct": [
+    15.34,
+    13.62,
+    16.54
+   ],
+   "ebitda_fy": 767019000,
+   "ebitda_fy_hist": [
+    601045000,
+    681850000,
+    688098000,
+    767019000
+   ],
+   "fy_end": "2025-12-31",
+   "next_earnings": "2027-02-24",
+   "perf": {
+    "W": -3.344709897610923,
+    "1M": -26.134585289514874,
+    "3M": -35.694822888283376,
+    "6M": -30.108588351431393,
+    "Y": -53.52806038726616
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 30.47
+    },
+    {
+     "t": "6M",
+     "p": 20.26
+    },
+    {
+     "t": "3M",
+     "p": 22.02
+    },
+    {
+     "t": "1M",
+     "p": 19.17
+    },
+    {
+     "t": "1W",
+     "p": 14.65
+    },
+    {
+     "t": "Now",
+     "p": 14.16
+    }
+   ],
+   "fragile": false,
+   "status": "Pass",
+   "fails": [],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-APE/",
+   "is_new": false
+  }
+ ],
+ "borderline": [
+  {
+   "ticker": "SLX",
+   "symbol": "ASX:SLX",
+   "name": "Silex Systems Limited",
+   "sector": "Electronic Technology",
+   "industry": "Semiconductors",
+   "price": 2.61,
+   "change_pct": 5.2419354838709635,
+   "high_52w": 10.09,
+   "high_52w_date": "2026-01-04",
+   "low_52w": 2.375,
+   "drawdown_pct": 74.13,
+   "drawdown_vs_6m_high_pct": 61.95,
+   "market_cap": 691394685,
+   "revenue_fy": [
+    6838804,
+    6868445,
+    7267654,
+    13708525
+   ],
+   "revenue_yoy_pct": [
+    0.43,
+    5.81,
+    88.62
+   ],
+   "ebitda_fy": -3985500,
+   "ebitda_fy_hist": [
+    -5524940,
+    -8919500,
+    -11870880,
+    -3985500
+   ],
+   "fy_end": "2026-06-30",
+   "next_earnings": "2027-02-24",
+   "perf": {
+    "W": 0.7722007722007729,
+    "1M": -26.89075630252101,
+    "3M": -55.68760611205433,
+    "6M": -57.971014492753625,
+    "Y": -68.36363636363636
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 8.25
+    },
+    {
+     "t": "6M",
+     "p": 6.21
+    },
+    {
+     "t": "3M",
+     "p": 5.89
+    },
+    {
+     "t": "1M",
+     "p": 3.57
+    },
+    {
+     "t": "1W",
+     "p": 2.59
+    },
+    {
+     "t": "Now",
+     "p": 2.61
+    }
+   ],
+   "fragile": false,
+   "status": "Borderline",
+   "fails": [
+    {
+     "rule": "ebitda",
+     "detail": "latest-FY EBITDA A$-4m, needs > A$0m"
+    }
+   ],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-SLX/"
+  },
+  {
+   "ticker": "4DX",
+   "symbol": "ASX:4DX",
+   "name": "4DMedical Ltd.",
+   "sector": "Technology Services",
+   "industry": "Information Technology Services",
+   "price": 2.32,
+   "change_pct": 11.004784688995215,
+   "high_52w": 7.55,
+   "high_52w_date": "2026-03-26",
+   "low_52w": 1.645,
+   "drawdown_pct": 69.27,
+   "drawdown_vs_6m_high_pct": 54.33,
+   "market_cap": 1261191594,
+   "revenue_fy": [
+    718581,
+    3754256,
+    5853401,
+    7061546
+   ],
+   "revenue_yoy_pct": [
+    422.45,
+    55.91,
+    20.64
+   ],
+   "ebitda_fy": -52001350,
+   "ebitda_fy_hist": [
+    -42004560,
+    -44158450,
+    -42173560,
+    -52001350
+   ],
+   "fy_end": "2026-06-30",
+   "next_earnings": "2027-02-26",
+   "perf": {
+    "W": 3.111111111111104,
+    "1M": -38.13333333333334,
+    "3M": -37.297297297297305,
+    "6M": -31.764705882352942,
+    "Y": 45.91194968553457
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 1.59
+    },
+    {
+     "t": "6M",
+     "p": 3.4
+    },
+    {
+     "t": "3M",
+     "p": 3.7
+    },
+    {
+     "t": "1M",
+     "p": 3.75
+    },
+    {
+     "t": "1W",
+     "p": 2.25
+    },
+    {
+     "t": "Now",
+     "p": 2.32
+    }
+   ],
+   "fragile": false,
+   "status": "Borderline",
+   "fails": [
+    {
+     "rule": "ebitda",
+     "detail": "latest-FY EBITDA A$-52m, needs > A$0m"
+    }
+   ],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-4DX/"
+  },
+  {
+   "ticker": "FML",
+   "symbol": "ASX:FML",
+   "name": "Focus Minerals Ltd",
+   "sector": "Non-Energy Minerals",
+   "industry": "Precious Metals",
+   "price": 1.69,
+   "change_pct": 2.7355623100303905,
+   "high_52w": 4.45,
+   "high_52w_date": "2026-01-28",
+   "low_52w": 1.485,
+   "drawdown_pct": 62.02,
+   "drawdown_vs_6m_high_pct": 28.99,
+   "market_cap": 471388982,
+   "revenue_fy": [
+    16545000.000000002,
+    33080000,
+    115141000,
+    301263000
+   ],
+   "revenue_yoy_pct": [
+    99.94,
+    248.07,
+    161.65
+   ],
+   "ebitda_fy": 146243000,
+   "ebitda_fy_hist": [
+    -1941000,
+    4375000,
+    38820000,
+    146243000
+   ],
+   "fy_end": "2025-12-31",
+   "next_earnings": null,
+   "perf": {
+    "W": 7.165504121750158,
+    "1M": -4.519774011299439,
+    "3M": -21.395348837209305,
+    "6M": -12.88659793814433,
+    "Y": -44.95114006514658
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 3.07
+    },
+    {
+     "t": "6M",
+     "p": 1.94
+    },
+    {
+     "t": "3M",
+     "p": 2.15
+    },
+    {
+     "t": "1M",
+     "p": 1.77
+    },
+    {
+     "t": "1W",
+     "p": 1.577
+    },
+    {
+     "t": "Now",
+     "p": 1.69
+    }
+   ],
+   "fragile": false,
+   "status": "Borderline",
+   "fails": [
+    {
+     "rule": "mcap",
+     "detail": "A$471m, below A$500m floor"
+    }
+   ],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-FML/"
+  },
+  {
+   "ticker": "AEL",
+   "symbol": "ASX:AEL",
+   "name": "Amplitude Energy Limited",
+   "sector": "Energy Minerals",
+   "industry": "Oil & Gas Production",
+   "price": 1.615,
+   "change_pct": 0.3105590062111735,
+   "high_52w": 3.3,
+   "high_52w_date": "2026-02-01",
+   "low_52w": 1.24,
+   "drawdown_pct": 51.06,
+   "drawdown_vs_6m_high_pct": 17.81,
+   "market_cap": 482808139,
+   "revenue_fy": [
+    196945000,
+    219047000,
+    268060999.99999997,
+    285830000
+   ],
+   "revenue_yoy_pct": [
+    11.22,
+    22.38,
+    6.63
+   ],
+   "ebitda_fy": 93259000,
+   "ebitda_fy_hist": [
+    103181000,
+    97111000,
+    173545000,
+    93259000
+   ],
+   "fy_end": "2026-06-30",
+   "next_earnings": "2027-03-01",
+   "perf": {
+    "W": 3.194888178913741,
+    "1M": -16.32124352331606,
+    "3M": -2.1212121212121167,
+    "6M": -5.555555555555554,
+    "Y": -44.310344827586206
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 2.9
+    },
+    {
+     "t": "6M",
+     "p": 1.71
+    },
+    {
+     "t": "3M",
+     "p": 1.65
+    },
+    {
+     "t": "1M",
+     "p": 1.93
+    },
+    {
+     "t": "1W",
+     "p": 1.565
+    },
+    {
+     "t": "Now",
+     "p": 1.615
+    }
+   ],
+   "fragile": false,
+   "status": "Borderline",
+   "fails": [
+    {
+     "rule": "mcap",
+     "detail": "A$483m, below A$500m floor"
+    }
+   ],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-AEL/"
+  },
+  {
+   "ticker": "360",
+   "symbol": "ASX:360",
+   "name": "Life360, Inc. Shs Chess Depository Interests Repr 3 Sh",
+   "sector": "Technology Services",
+   "industry": "Packaged Software",
+   "price": 20.06,
+   "change_pct": 4.479166666666664,
+   "high_52w": 40.05,
+   "high_52w_date": "2025-11-30",
+   "low_52w": 16.9,
+   "drawdown_pct": 49.91,
+   "drawdown_vs_6m_high_pct": 33.73,
+   "market_cap": 4799635877.367596,
+   "revenue_fy": [
+    329334649.89987,
+    458773211.26140904,
+    563196888.5954131,
+    759104675.514506
+   ],
+   "revenue_yoy_pct": [
+    39.3,
+    22.76,
+    34.78
+   ],
+   "ebitda_fy": 52418260,
+   "ebitda_fy_hist": [
+    -123322520,
+    -24068730,
+    3465740,
+    52418260
+   ],
+   "fy_end": "2025-12-31",
+   "next_earnings": "2027-02-24",
+   "perf": {
+    "W": -5.37735849056604,
+    "1M": -0.7912957467853617,
+    "3M": -2.810077519379854,
+    "6M": 3.0832476875642234,
+    "Y": -50.881488736532816
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 40.84
+    },
+    {
+     "t": "6M",
+     "p": 19.46
+    },
+    {
+     "t": "3M",
+     "p": 20.64
+    },
+    {
+     "t": "1M",
+     "p": 20.22
+    },
+    {
+     "t": "1W",
+     "p": 21.2
+    },
+    {
+     "t": "Now",
+     "p": 20.06
+    }
+   ],
+   "fragile": true,
+   "status": "Borderline",
+   "fails": [
+    {
+     "rule": "drawdown",
+     "detail": "49.9% below high, needs 50% (0.1 pts short)"
+    }
+   ],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-360/"
+  },
+  {
+   "ticker": "CAT",
+   "symbol": "ASX:CAT",
+   "name": "Catapult Sports Ltd.",
+   "sector": "Electronic Technology",
+   "industry": "Electronic Equipment/Instruments",
+   "price": 2.76,
+   "change_pct": 2.2222222222222077,
+   "high_52w": 5.46,
+   "high_52w_date": "2025-11-30",
+   "low_52w": 2.56,
+   "drawdown_pct": 49.45,
+   "drawdown_vs_6m_high_pct": 31.09,
+   "market_cap": 834859164,
+   "revenue_fy": [
+    123380949.169184,
+    152059668.658023,
+    178700807.876793,
+    212993971.755483
+   ],
+   "revenue_yoy_pct": [
+    23.24,
+    17.52,
+    19.19
+   ],
+   "ebitda_fy": 23525400,
+   "ebitda_fy_hist": [
+    -17543310,
+    13698500,
+    28717640,
+    23525400
+   ],
+   "fy_end": "2026-03-31",
+   "next_earnings": "2027-05-26",
+   "perf": {
+    "W": 1.4705882352941024,
+    "1M": -12.658227848101276,
+    "3M": -17.85714285714286,
+    "6M": -20.00000000000001,
+    "Y": -47.42857142857143
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 5.25
+    },
+    {
+     "t": "6M",
+     "p": 3.45
+    },
+    {
+     "t": "3M",
+     "p": 3.36
+    },
+    {
+     "t": "1M",
+     "p": 3.16
+    },
+    {
+     "t": "1W",
+     "p": 2.72
+    },
+    {
+     "t": "Now",
+     "p": 2.76
+    }
+   ],
+   "fragile": true,
+   "status": "Borderline",
+   "fails": [
+    {
+     "rule": "drawdown",
+     "detail": "49.5% below high, needs 50% (0.5 pts short)"
+    }
+   ],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-CAT/"
+  },
+  {
+   "ticker": "PNR",
+   "symbol": "ASX:PNR",
+   "name": "Pantoro Gold Limited",
+   "sector": "Non-Energy Minerals",
+   "industry": "Precious Metals",
+   "price": 3.06,
+   "change_pct": 0.9900990099009984,
+   "high_52w": 5.98,
+   "high_52w_date": "2026-03-01",
+   "low_52w": 1.715,
+   "drawdown_pct": 48.83,
+   "drawdown_vs_6m_high_pct": 9.2,
+   "market_cap": 1170763120,
+   "revenue_fy": [
+    98544119,
+    229431930,
+    357302451,
+    480744029
+   ],
+   "revenue_yoy_pct": [
+    132.82,
+    55.73,
+    34.55
+   ],
+   "ebitda_fy": 266924800,
+   "ebitda_fy_hist": [
+    -28759280,
+    22805520,
+    184463800,
+    266924800
+   ],
+   "fy_end": "2026-06-30",
+   "next_earnings": "2027-03-15",
+   "perf": {
+    "W": 2.684563758389264,
+    "1M": 7.368421052631578,
+    "3M": 10.071942446043176,
+    "6M": 1.3245033112582794,
+    "Y": -40.69767441860465
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 5.16
+    },
+    {
+     "t": "6M",
+     "p": 3.02
+    },
+    {
+     "t": "3M",
+     "p": 2.78
+    },
+    {
+     "t": "1M",
+     "p": 2.85
+    },
+    {
+     "t": "1W",
+     "p": 2.98
+    },
+    {
+     "t": "Now",
+     "p": 3.06
+    }
+   ],
+   "fragile": false,
+   "status": "Borderline",
+   "fails": [
+    {
+     "rule": "drawdown",
+     "detail": "48.8% below high, needs 50% (1.2 pts short)"
+    }
+   ],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-PNR/"
+  },
+  {
+   "ticker": "EQR",
+   "symbol": "ASX:EQR",
+   "name": "EQ Resources Limited",
+   "sector": "Non-Energy Minerals",
+   "industry": "Precious Metals",
+   "price": 0.28,
+   "change_pct": 12.00000000000001,
+   "high_52w": 0.545,
+   "high_52w_date": "2026-09-20",
+   "low_52w": 0.052,
+   "drawdown_pct": 48.62,
+   "drawdown_vs_6m_high_pct": 48.62,
+   "market_cap": 1299907837,
+   "revenue_fy": [
+    5039906,
+    26480740,
+    66050000,
+    165439000
+   ],
+   "revenue_yoy_pct": [
+    425.42,
+    149.43,
+    150.48
+   ],
+   "ebitda_fy": 36055000,
+   "ebitda_fy_hist": [
+    -8230829.999999999,
+    -21682740,
+    -14683000,
+    36055000
+   ],
+   "fy_end": "2026-06-30",
+   "next_earnings": "2027-03-12",
+   "perf": {
+    "W": 14.285714285714299,
+    "1M": -8.196721311475399,
+    "3M": -30.864197530864196,
+    "6M": 12.00000000000001,
+    "Y": 418.5185185185186
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 0.054
+    },
+    {
+     "t": "6M",
+     "p": 0.25
+    },
+    {
+     "t": "3M",
+     "p": 0.405
+    },
+    {
+     "t": "1M",
+     "p": 0.305
+    },
+    {
+     "t": "1W",
+     "p": 0.245
+    },
+    {
+     "t": "Now",
+     "p": 0.28
+    }
+   ],
+   "fragile": false,
+   "status": "Borderline",
+   "fails": [
+    {
+     "rule": "drawdown",
+     "detail": "48.6% below high, needs 50% (1.4 pts short)"
+    }
+   ],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-EQR/"
+  },
+  {
+   "ticker": "RPL",
+   "symbol": "ASX:RPL",
+   "name": "Regal Partners Limited",
+   "sector": "Finance",
+   "industry": "Investment Managers",
+   "price": 1.91,
+   "change_pct": 1.3262599469495973,
+   "high_52w": 3.7,
+   "high_52w_date": "2026-01-11",
+   "low_52w": 1.79,
+   "drawdown_pct": 48.38,
+   "drawdown_vs_6m_high_pct": 40.87,
+   "market_cap": 784486339,
+   "revenue_fy": [
+    84177000,
+    104451000,
+    253196000,
+    369026000
+   ],
+   "revenue_yoy_pct": [
+    24.08,
+    142.41,
+    45.75
+   ],
+   "ebitda_fy": 199014000,
+   "ebitda_fy_hist": [
+    25024000,
+    25640000,
+    119833000,
+    199014000
+   ],
+   "fy_end": "2025-12-31",
+   "next_earnings": "2027-02-25",
+   "perf": {
+    "W": 2.13903743315507,
+    "1M": -9.047619047619056,
+    "3M": -29.77941176470589,
+    "6M": -26.538461538461544,
+    "Y": -36.96369636963696
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 3.03
+    },
+    {
+     "t": "6M",
+     "p": 2.6
+    },
+    {
+     "t": "3M",
+     "p": 2.72
+    },
+    {
+     "t": "1M",
+     "p": 2.1
+    },
+    {
+     "t": "1W",
+     "p": 1.87
+    },
+    {
+     "t": "Now",
+     "p": 1.91
+    }
+   ],
+   "fragile": false,
+   "status": "Borderline",
+   "fails": [
+    {
+     "rule": "drawdown",
+     "detail": "48.4% below high, needs 50% (1.6 pts short)"
+    }
+   ],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-RPL/"
+  },
+  {
+   "ticker": "CSC",
+   "symbol": "ASX:CSC",
+   "name": "Capstone Copper Corp. Shs Chess Depository Interests Repr 1 Sh",
+   "sector": "Non-Energy Minerals",
+   "industry": "Other Metals/Minerals",
+   "price": 9.3,
+   "change_pct": 3.104212860310434,
+   "high_52w": 17.83,
+   "high_52w_date": "2026-01-29",
+   "low_52w": 8.45,
+   "drawdown_pct": 47.84,
+   "drawdown_vs_6m_high_pct": 44.59,
+   "market_cap": 6727017168.969417,
+   "revenue_fy": [
+    1869542597.52742,
+    2027086313.9482799,
+    2424537116.3375497,
+    3659802153.51338
+   ],
+   "revenue_yoy_pct": [
+    8.43,
+    19.61,
+    50.95
+   ],
+   "ebitda_fy": 1517530170,
+   "ebitda_fy_hist": [
+    455522350,
+    321881500,
+    743993060,
+    1517530170
+   ],
+   "fy_end": "2025-12-31",
+   "next_earnings": "2027-02-25",
+   "perf": {
+    "W": 3.2186459489456265,
+    "1M": -23.393739703459637,
+    "3M": -43.11926605504588,
+    "6M": -38.0413057961359,
+    "Y": -29.43854324734445
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 13.18
+    },
+    {
+     "t": "6M",
+     "p": 15.01
+    },
+    {
+     "t": "3M",
+     "p": 16.35
+    },
+    {
+     "t": "1M",
+     "p": 12.14
+    },
+    {
+     "t": "1W",
+     "p": 9.01
+    },
+    {
+     "t": "Now",
+     "p": 9.3
+    }
+   ],
+   "fragile": false,
+   "status": "Borderline",
+   "fails": [
+    {
+     "rule": "drawdown",
+     "detail": "47.8% below high, needs 50% (2.2 pts short)"
+    }
+   ],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-CSC/"
+  },
+  {
+   "ticker": "KCN",
+   "symbol": "ASX:KCN",
+   "name": "Kingsgate Consolidated Limited",
+   "sector": "Non-Energy Minerals",
+   "industry": "Precious Metals",
+   "price": 3.89,
+   "change_pct": 2.368421052631587,
+   "high_52w": 7.34,
+   "high_52w_date": "2026-03-01",
+   "low_52w": 3.41,
+   "drawdown_pct": 47.0,
+   "drawdown_vs_6m_high_pct": 39.22,
+   "market_cap": 1012354174,
+   "revenue_fy": [
+    27337000,
+    133091000.00000001,
+    336746000,
+    596446000
+   ],
+   "revenue_yoy_pct": [
+    386.85,
+    153.02,
+    77.12
+   ],
+   "ebitda_fy": 284871000,
+   "ebitda_fy_hist": [
+    25115000,
+    -15538000,
+    95191000,
+    284871000
+   ],
+   "fy_end": "2026-06-30",
+   "next_earnings": "2027-03-18",
+   "perf": {
+    "W": 12.103746397694522,
+    "1M": -10.57471264367815,
+    "3M": -26.603773584905657,
+    "6M": -35.70247933884297,
+    "Y": -6.26506024096386
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 4.15
+    },
+    {
+     "t": "6M",
+     "p": 6.05
+    },
+    {
+     "t": "3M",
+     "p": 5.3
+    },
+    {
+     "t": "1M",
+     "p": 4.35
+    },
+    {
+     "t": "1W",
+     "p": 3.47
+    },
+    {
+     "t": "Now",
+     "p": 3.89
+    }
+   ],
+   "fragile": false,
+   "status": "Borderline",
+   "fails": [
+    {
+     "rule": "drawdown",
+     "detail": "47.0% below high, needs 50% (3.0 pts short)"
+    }
+   ],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-KCN/"
+  },
+  {
+   "ticker": "SLC",
+   "symbol": "ASX:SLC",
+   "name": "Superloop Ltd.",
+   "sector": "Industrial Services",
+   "industry": "Engineering & Construction",
+   "price": 2.08,
+   "change_pct": -2.803738317757012,
+   "high_52w": 3.87,
+   "high_52w_date": "2026-06-02",
+   "low_52w": 2.07,
+   "drawdown_pct": 46.25,
+   "drawdown_vs_6m_high_pct": 46.25,
+   "market_cap": 1106779084,
+   "revenue_fy": [
+    322174000,
+    416625000,
+    546464000,
+    664304000
+   ],
+   "revenue_yoy_pct": [
+    29.32,
+    31.16,
+    21.56
+   ],
+   "ebitda_fy": 107008000,
+   "ebitda_fy_hist": [
+    28978000,
+    45723000,
+    80041000,
+    107008000
+   ],
+   "fy_end": "2026-06-30",
+   "next_earnings": "2027-02-23",
+   "perf": {
+    "W": -12.605042016806715,
+    "1M": -22.676579925650554,
+    "3M": -28.76712328767123,
+    "6M": -41.899441340782126,
+    "Y": -22.962962962962965
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 2.7
+    },
+    {
+     "t": "6M",
+     "p": 3.58
+    },
+    {
+     "t": "3M",
+     "p": 2.92
+    },
+    {
+     "t": "1M",
+     "p": 2.69
+    },
+    {
+     "t": "1W",
+     "p": 2.38
+    },
+    {
+     "t": "Now",
+     "p": 2.08
+    }
+   ],
+   "fragile": false,
+   "status": "Borderline",
+   "fails": [
+    {
+     "rule": "drawdown",
+     "detail": "46.3% below high, needs 50% (3.7 pts short)"
+    }
+   ],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-SLC/"
+  },
+  {
+   "ticker": "RYM",
+   "symbol": "ASX:RYM",
+   "name": "Ryman Healthcare Ltd.",
+   "sector": "Health Services",
+   "industry": "Medical/Nursing Services",
+   "price": 1.42,
+   "change_pct": 0.7092198581560291,
+   "high_52w": 2.64,
+   "high_52w_date": "2026-01-12",
+   "low_52w": 1.345,
+   "drawdown_pct": 46.21,
+   "drawdown_vs_6m_high_pct": 28.28,
+   "market_cap": 1393264669.6310925,
+   "revenue_fy": [
+    524249554.22587883,
+    596264640.0858763,
+    649166204.731472,
+    664819641.1538742
+   ],
+   "revenue_yoy_pct": [
+    13.74,
+    8.87,
+    2.41
+   ],
+   "ebitda_fy": 20641018.583750095,
+   "ebitda_fy_hist": [
+    25113173.82198953,
+    -56260425.85493023,
+    -33919031.2815338,
+    20641018.583750095
+   ],
+   "fy_end": "2026-03-31",
+   "next_earnings": "2027-05-14",
+   "perf": {
+    "W": -5.333333333333338,
+    "1M": -2.4054982817869512,
+    "3M": -19.318181818181824,
+    "6M": -25.654450261780106,
+    "Y": -44.96124031007752
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 2.58
+    },
+    {
+     "t": "6M",
+     "p": 1.91
+    },
+    {
+     "t": "3M",
+     "p": 1.76
+    },
+    {
+     "t": "1M",
+     "p": 1.455
+    },
+    {
+     "t": "1W",
+     "p": 1.5
+    },
+    {
+     "t": "Now",
+     "p": 1.42
+    }
+   ],
+   "fragile": false,
+   "status": "Borderline",
+   "fails": [
+    {
+     "rule": "drawdown",
+     "detail": "46.2% below high, needs 50% (3.8 pts short)"
+    }
+   ],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-RYM/"
+  },
+  {
+   "ticker": "NGI",
+   "symbol": "ASX:NGI",
+   "name": "Navigator Global Investments Ltd",
+   "sector": "Finance",
+   "industry": "Investment Managers",
+   "price": 1.81,
+   "change_pct": 2.25988700564972,
+   "high_52w": 3.30445188,
+   "high_52w_date": "2026-01-19",
+   "low_52w": 1.73,
+   "drawdown_pct": 45.23,
+   "drawdown_vs_6m_high_pct": 32.96,
+   "market_cap": 1080050769,
+   "revenue_fy": [
+    374562670.069368,
+    533282452.63580596,
+    688456864.008452,
+    714528643.32407
+   ],
+   "revenue_yoy_pct": [
+    42.37,
+    29.1,
+    3.79
+   ],
+   "ebitda_fy": 94524550,
+   "ebitda_fy_hist": [
+    134776850,
+    155292770,
+    229014670,
+    94524550
+   ],
+   "fy_end": "2026-06-30",
+   "next_earnings": "2027-02-25",
+   "perf": {
+    "W": -3.7234042553191404,
+    "1M": -12.98076923076923,
+    "3M": -29.844961240310077,
+    "6M": -27.016129032258064,
+    "Y": -38.19353596720293
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 2.9285
+    },
+    {
+     "t": "6M",
+     "p": 2.48
+    },
+    {
+     "t": "3M",
+     "p": 2.58
+    },
+    {
+     "t": "1M",
+     "p": 2.08
+    },
+    {
+     "t": "1W",
+     "p": 1.88
+    },
+    {
+     "t": "Now",
+     "p": 1.81
+    }
+   ],
+   "fragile": false,
+   "status": "Borderline",
+   "fails": [
+    {
+     "rule": "drawdown",
+     "detail": "45.2% below high, needs 50% (4.8 pts short)"
+    }
+   ],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-NGI/"
+  },
+  {
+   "ticker": "CBO",
+   "symbol": "ASX:CBO",
+   "name": "Cobram Estate Olives Ltd.",
+   "sector": "Process Industries",
+   "industry": "Agricultural Commodities/Milling",
+   "price": 2.44,
+   "change_pct": -0.40816326530613184,
+   "high_52w": 4.44,
+   "high_52w_date": "2026-06-29",
+   "low_52w": 2.41,
+   "drawdown_pct": 45.05,
+   "drawdown_vs_6m_high_pct": 45.05,
+   "market_cap": 1177021280,
+   "revenue_fy": [
+    168954000,
+    227777000,
+    241659000,
+    268943000
+   ],
+   "revenue_yoy_pct": [
+    34.82,
+    6.09,
+    11.29
+   ],
+   "ebitda_fy": 16329999.999999998,
+   "ebitda_fy_hist": [
+    -6001000,
+    22585000,
+    24274000,
+    16329999.999999998
+   ],
+   "fy_end": "2026-06-30",
+   "next_earnings": "2027-02-19",
+   "perf": {
+    "W": -6.870229007633593,
+    "1M": -5.426356589147291,
+    "3M": -18.394648829431446,
+    "6M": -40.34229828850856,
+    "Y": -22.044728434504794
+   },
+   "ladder": [
+    {
+     "t": "1Y",
+     "p": 3.13
+    },
+    {
+     "t": "6M",
+     "p": 4.09
+    },
+    {
+     "t": "3M",
+     "p": 2.99
+    },
+    {
+     "t": "1M",
+     "p": 2.58
+    },
+    {
+     "t": "1W",
+     "p": 2.62
+    },
+    {
+     "t": "Now",
+     "p": 2.44
+    }
+   ],
+   "fragile": false,
+   "status": "Borderline",
+   "fails": [
+    {
+     "rule": "drawdown",
+     "detail": "45.0% below high, needs 50% (5.0 pts short)"
+    }
+   ],
+   "tv_url": "https://www.tradingview.com/symbols/ASX-CBO/"
+  }
+ ],
+ "changes": {
+  "since": null,
+  "added": [],
+  "removed": []
+ }
+}
