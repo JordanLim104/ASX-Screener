@@ -21,7 +21,7 @@ Names that miss exactly one rule by a small margin are listed as borderline. A p
 whose 52-week high was set in the first two weeks of the window is flagged fragile.
 
 ## Dashboard
-`docs/index.html` is a static page with four styles (Terminal, Ledger, Desk, Heat),
+`docs/index.html` is a static page with four styles (Ledger, Column, Index, Broker),
 switched from the bar at the bottom or by URL hash (`#ledger`). Set
 `DEFAULT_SKIN` and `SHOW_SWITCHER` at the top of its script once you've picked one.
 

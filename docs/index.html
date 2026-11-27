@@ -4,11 +4,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#000000">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Archivo:wdth,wght@62..125,400..900&family=Manrope:wght@400;500;600;700;800&family=Barlow+Condensed:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Archivo:wdth,wght@62..125,400..900&family=Inter+Tight:wght@300;400;500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
 <style>
 /* Four skins over one data file. Each skin owns its tokens and layout.
-   terminal = dense black/amber monitor · ledger = Swiss ruled list with giant numerals
-   desk = card carousel fintech · heat = tile board sized by market cap            */
+   ledger = Swiss ruled list, giant numerals · column = dense ruled table with drawdown bars
+   index  = quiet light-weight grotesk, grouped by sector · broker = dark retail-broker app */
 :root{
   --up:#1f9d55; --down:#d0312d; --warn:#c98a00;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -53,38 +53,7 @@ dialog.sheet::backdrop{background:rgba(0,0,0,.55)}
 .neg{color:var(--down)} .pos{color:var(--up)}
 
 /* =====================================================================
-   SKIN 1 · TERMINAL — deliberately single-theme (black monitor)
-   ===================================================================== */
-[data-skin="terminal"]{--bg:#000;--fg:#e8e6df;--muted:#8a877d;--line:#2a2a2a;--accent:#ff9f1c;--panel:#111;--amber:#ff9f1c;--up:#3ddc84;--down:#ff4d4d;--warn:#ffd23f;color-scheme:dark}
-[data-skin="terminal"] body{font-family:var(--mono);font-size:12.5px}
-.t-bar{display:flex;justify-content:space-between;align-items:baseline;gap:8px;border-bottom:1px solid var(--amber);padding-bottom:6px}
-.t-bar b{color:var(--amber);font-weight:600;letter-spacing:.04em}
-.t-bar small{color:var(--muted)}
-.t-cmd{color:var(--fg);margin:8px 0 2px}
-.t-cmd i{font-style:normal;background:var(--amber);color:#000;padding:0 4px;margin-left:6px;font-weight:600}
-.t-meta{color:var(--muted);line-height:1.6}
-.t-meta em{font-style:normal;color:var(--warn)}
-.t-hd{background:var(--amber);color:#000;font-weight:600;padding:3px 6px;margin-top:16px;display:flex;justify-content:space-between}
-.t-tbl{width:100%;border-collapse:collapse}
-.t-tbl th{color:var(--muted);font-weight:400;text-align:right;padding:5px 4px;border-bottom:1px solid var(--line);font-size:11px}
-.t-tbl td{text-align:right;padding:7px 4px;border-bottom:1px dotted #222;white-space:nowrap}
-.t-tbl th:first-child,.t-tbl td:first-child{text-align:left}
-.t-tbl tr{cursor:pointer}
-.t-tbl tr:active td{background:#1a1300}
-.t-tk{color:var(--amber);font-weight:600}
-.t-tk sup{color:var(--warn);font-size:9px;margin-left:2px}
-.t-tbl .sp{width:64px}
-.t-tbl .why{color:var(--muted);text-align:left;white-space:normal;font-size:11px}
-.t-flags{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:14px}
-.t-flags span{background:#1c1c1c;border-top:2px solid var(--amber);text-align:center;padding:6px 2px;font-size:10px;color:var(--fg)}
-.t-flags span b{display:block;color:var(--amber);font-size:14px}
-[data-skin="terminal"] dialog.sheet{border-radius:0;border-top:2px solid var(--amber);font-family:var(--mono)}
-[data-skin="terminal"] .sheet h3{color:var(--amber)}
-[data-skin="terminal"] .switch nav{background:rgba(30,30,30,.92)}
-@media (max-width:420px){.t-tbl .hide-s{display:none}}
-
-/* =====================================================================
-   SKIN 2 · LEDGER — Swiss ruled list, giant numerals. Light + dark.
+   SKIN 1 · LEDGER — Swiss ruled list, giant numerals. Light + dark.
    ===================================================================== */
 [data-skin="ledger"]{--bg:#ffffff;--fg:#0a0a0a;--muted:#707074;--line:#0a0a0a;--hair:#dcdcdf;--accent:#e4002b;--panel:#f3f3f4;--down:#e4002b;--display:"Archivo",system-ui,sans-serif}
 @media (prefers-color-scheme:dark){[data-skin="ledger"]:not([data-theme="light"]){--bg:#0d0d0e;--fg:#f4f4f4;--muted:#9a9a9f;--line:#f4f4f4;--hair:#2c2c2f;--accent:#ff3b4f;--panel:#19191b;--down:#ff3b4f;color-scheme:dark}}
@@ -119,82 +88,106 @@ dialog.sheet::backdrop{background:rgba(0,0,0,.55)}
 .l-bl i{font:500 12px var(--mono);font-style:normal}
 
 /* =====================================================================
-   SKIN 3 · DESK — card carousel, modern brokerage. Light + dark.
+   SKIN 2 · COLUMN — Ledger's Swiss rules, as a dense table with drawdown bars.
    ===================================================================== */
-[data-skin="desk"]{--bg:#f2f4f8;--fg:#0e1726;--muted:#66728a;--line:#dfe4ee;--card:#ffffff;--accent:#2f5bff;--panel:#eef1f7;--down:#e5484d;--up:#18a058;--chip:#fde8e8;--sans:"Manrope",system-ui,sans-serif}
-@media (prefers-color-scheme:dark){[data-skin="desk"]:not([data-theme="light"]){--bg:#0a0f1a;--fg:#e9eef8;--muted:#8693ab;--line:#1d2638;--card:#121a2a;--accent:#6c8cff;--panel:#172033;--down:#ff6369;--up:#3dd68c;--chip:#3a1619;color-scheme:dark}}
-[data-skin="desk"][data-theme="dark"]{--bg:#0a0f1a;--fg:#e9eef8;--muted:#8693ab;--line:#1d2638;--card:#121a2a;--accent:#6c8cff;--panel:#172033;--down:#ff6369;--up:#3dd68c;--chip:#3a1619;color-scheme:dark}
-[data-skin="desk"] body{font-family:var(--sans);font-size:14px}
-.d-top{display:flex;justify-content:space-between;align-items:center;padding:6px 0 14px}
-.d-top .brand{font-weight:800;font-size:15px;display:flex;gap:8px;align-items:center}
-.d-top .brand i{width:22px;height:22px;border-radius:7px;background:var(--accent);display:inline-grid;place-items:center;color:#fff;font-style:normal;font-size:12px}
-.d-top time{font-size:12px;color:var(--muted)}
-.d-hero{background:var(--card);border-radius:20px;padding:18px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;border:1px solid var(--line)}
-.d-hero .big{grid-column:1/-1}
-.d-hero .big b{font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1}
-.d-hero .big span{display:block;color:var(--muted);font-size:13px;margin-top:4px}
-.d-hero .k span{display:block;font-size:11px;color:var(--muted)}
-.d-hero .k b{font-size:17px;font-weight:700}
-.d-chips{display:flex;gap:6px;overflow-x:auto;padding:12px 0 2px;scrollbar-width:none}
-.d-chips span{flex:none;font-size:12px;font-weight:600;padding:7px 11px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--muted)}
-.d-h2{display:flex;justify-content:space-between;align-items:baseline;margin:22px 0 10px}
-.d-h2 h2{margin:0;font-size:18px;font-weight:800}
-.d-h2 span{font-size:12px;color:var(--muted)}
-.d-rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 8px;margin:0 -2px;scrollbar-width:none}
-.d-card{flex:0 0 78%;max-width:300px;scroll-snap-align:start;background:var(--card);border-radius:20px;padding:16px;border:1px solid var(--line);text-align:left;display:flex;flex-direction:column;gap:10px}
-.d-card .r1{display:flex;justify-content:space-between;align-items:center;gap:8px}
-.d-av{width:38px;height:38px;border-radius:12px;background:var(--panel);display:grid;place-items:center;font-weight:800;font-size:12px;color:var(--accent)}
-.d-card .tk{font-weight:800;font-size:16px}
-.d-card .nm{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:150px}
-.d-dd{font-weight:800;font-size:13px;color:var(--down);background:var(--chip);padding:5px 9px;border-radius:999px;white-space:nowrap}
-.d-card .px{font-size:26px;font-weight:800;letter-spacing:-.02em}
-.d-card .px small{font-size:12px;font-weight:600;color:var(--muted);margin-left:6px}
-.d-card .ft{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px}
-.d-card .ft span{display:block;color:var(--muted);font-size:11px}
-.d-card .ft b{font-weight:700}
-.d-list{background:var(--card);border-radius:20px;border:1px solid var(--line);overflow:hidden}
-.d-li{display:grid;grid-template-columns:38px 1fr auto;gap:12px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line);width:100%;text-align:left}
-.d-li:last-child{border-bottom:0}
-.d-li .tk{font-weight:800}
-.d-li .why{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.d-meter{width:72px;text-align:right;font-size:12px;font-weight:700}
-.d-meter i{display:block;height:5px;border-radius:3px;background:var(--panel);margin-top:5px;overflow:hidden}
-.d-meter i em{display:block;height:100%;background:var(--warn);border-radius:3px}
-[data-skin="desk"] dialog.sheet{border-radius:24px 24px 0 0;font-family:var(--sans)}
-.d-new{font-size:10px;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:.06em}
+[data-skin="column"]{--bg:#fbfbfa;--fg:#111111;--muted:#77777b;--line:#111111;--hair:#e2e2e0;--accent:#e4002b;--panel:#efefed;--down:#e4002b;--track:#ececea;--warn:#d39a00;--display:"Archivo",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){[data-skin="column"]:not([data-theme="light"]){--bg:#101011;--fg:#efefef;--muted:#96969b;--line:#efefef;--hair:#2a2a2d;--accent:#ff4057;--panel:#1b1b1d;--down:#ff4057;--track:#232326;--warn:#f0b62e;color-scheme:dark}}
+[data-skin="column"][data-theme="dark"]{--bg:#101011;--fg:#efefef;--muted:#96969b;--line:#efefef;--hair:#2a2a2d;--accent:#ff4057;--panel:#1b1b1d;--down:#ff4057;--track:#232326;--warn:#f0b62e;color-scheme:dark}
+[data-skin="column"] body{font-family:var(--display);font-size:14px}
+.c-mast{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:10px 0 6px;border-bottom:3px solid var(--line)}
+.c-mast h1{margin:0;font-size:26px;font-weight:900;font-stretch:70%;text-transform:uppercase;letter-spacing:.01em}
+.c-mast span{font:500 11px var(--mono);color:var(--muted);text-align:right}
+.c-crit{font:500 11px/1.6 var(--mono);color:var(--muted);padding:8px 0;border-bottom:1px solid var(--hair)}
+.c-crit b{color:var(--fg);font-weight:600}
+.c-stats{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.c-stats div{padding:10px 0;font:500 10.5px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.c-stats b{display:block;font:900 34px/1 var(--display);font-stretch:68%;color:var(--fg);letter-spacing:0;margin-bottom:2px}
+.c-stats div:first-child b{color:var(--down)}
+.c-sec{display:flex;justify-content:space-between;align-items:baseline;margin-top:22px;padding-bottom:4px;border-bottom:2px solid var(--line)}
+.c-sec h2{margin:0;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.c-sec span{font:500 10.5px var(--mono);color:var(--muted)}
+.c-row{display:grid;grid-template-columns:3.1em minmax(0,1fr) 30% 2.9em;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--hair);width:100%;text-align:left}
+.c-row:hover{background:var(--panel)}
+.c-row .tk{font-weight:800;font-size:15px}
+.c-row .nm{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.c-row .nm small{display:block;font:500 10px var(--mono);overflow:hidden;text-overflow:ellipsis;color:var(--muted)}
+.c-bar{position:relative;height:10px;background:var(--track)}
+.c-bar em{position:absolute;left:0;top:0;bottom:0;background:var(--down)}
+.c-bar.warn em{background:var(--warn)}
+.c-bar i{position:absolute;top:-3px;bottom:-3px;width:1.5px;background:var(--fg)}
+.c-row .v{font:600 13px var(--mono);text-align:right}
+.c-row .why{grid-column:2/-1;font:500 10.5px/1.4 var(--mono);color:var(--muted);margin-top:-4px}
+.c-key{display:flex;gap:14px;font:500 10px var(--mono);color:var(--muted);padding:8px 0 0;align-items:center}
+.c-key i{display:inline-block;width:1.5px;height:10px;background:var(--fg);vertical-align:middle;margin-right:4px}
+.c-flag{font:600 9px var(--mono);letter-spacing:.05em;color:var(--accent);margin-left:4px;vertical-align:2px}
 
 /* =====================================================================
-   SKIN 4 · HEAT — tile board, sized by market cap, shaded by drawdown.
-   Deliberately single-theme (dark board).
+   SKIN 3 · INDEX — quiet, light-weight grotesk; grouped by sector.
    ===================================================================== */
-[data-skin="heat"]{--bg:#0c0c0d;--fg:#f2f2f2;--muted:#8d8d93;--line:#26262a;--accent:#ff5a4e;--panel:#18181b;--cond:"Barlow Condensed","Arial Narrow",sans-serif;color-scheme:dark}
-[data-skin="heat"] body{font-family:var(--cond);font-size:15px}
-.h-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:10px;padding:8px 0 12px}
-.h-head h1{margin:0;font-size:34px;font-weight:800;text-transform:uppercase;letter-spacing:.01em;line-height:.95}
-.h-head p{margin:4px 0 0;color:var(--muted);font:500 11px/1.4 var(--mono)}
-.h-legend{display:flex;align-items:center;gap:6px;font:500 10px var(--mono);color:var(--muted)}
-.h-legend i{width:84px;height:8px;background:linear-gradient(90deg,#5a1a17,#ff5a4e);display:block}
-.h-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:84px;grid-auto-flow:dense;gap:4px}
-.h-tile{position:relative;padding:8px;text-align:left;color:#fff;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}
-.h-tile.w2{grid-column:span 2}
-.h-tile.h2{grid-row:span 2}
-.h-tile .tk{font-size:22px;font-weight:800;letter-spacing:.02em;line-height:1}
-.h-tile.w2 .tk{font-size:30px}
-.h-tile .dd{font-size:18px;font-weight:700;line-height:1}
-.h-tile.w2.h2 .dd{font-size:34px}
-.h-tile .mc{font:500 10px var(--mono);opacity:.75}
-.h-tile .flag{position:absolute;top:6px;right:6px;font:600 9px var(--mono);background:rgba(0,0,0,.45);padding:2px 4px}
-.h-tile .sp{position:absolute;left:0;right:0;bottom:0;opacity:.35}
-.h-sec{font-size:18px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:22px 0 8px;display:flex;justify-content:space-between;align-items:baseline}
-.h-sec span{font:500 11px var(--mono);color:var(--muted);text-transform:none;letter-spacing:0}
-.h-grid.bl{grid-auto-rows:64px}
-.h-grid.bl .h-tile{background:var(--panel);border:1px solid #3a2f12;color:var(--fg)}
-.h-grid.bl .h-tile .tk{font-size:19px}
-.h-grid.bl .h-tile .dd{font-size:13px;color:#f2c14e;font-weight:600}
-[data-skin="heat"] dialog.sheet{font-family:var(--mono);font-size:13px;border-radius:0}
-[data-skin="heat"] .sheet h3{font-family:var(--cond);font-size:30px;text-transform:uppercase}
+[data-skin="index"]{--bg:#ffffff;--fg:#16181d;--muted:#7c808a;--line:#e7e8eb;--accent:#c8102e;--panel:#f5f6f8;--down:#c8102e;--soft:#b9bcc4;--sans:"Inter Tight",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){[data-skin="index"]:not([data-theme="light"]){--bg:#121317;--fg:#eceef2;--muted:#8b909b;--line:#262830;--accent:#ff5468;--panel:#1b1d23;--down:#ff5468;--soft:#4a4e58;color-scheme:dark}}
+[data-skin="index"][data-theme="dark"]{--bg:#121317;--fg:#eceef2;--muted:#8b909b;--line:#262830;--accent:#ff5468;--panel:#1b1d23;--down:#ff5468;--soft:#4a4e58;color-scheme:dark}
+[data-skin="index"] body{font-family:var(--sans);font-size:14px;font-weight:400}
+.i-head{padding:22px 0 18px}
+.i-head .ey{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.i-head h1{margin:6px 0 0;font-size:40px;font-weight:300;letter-spacing:-.025em;line-height:1.02;text-wrap:balance}
+.i-head h1 b{font-weight:600}
+.i-head p{margin:10px 0 0;color:var(--muted);font-size:13.5px;line-height:1.5}
+.i-figs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--fg);border-bottom:1px solid var(--line)}
+.i-figs div{padding:12px 0 14px;font-size:11.5px;color:var(--muted)}
+.i-figs b{display:block;font-size:30px;font-weight:300;color:var(--fg);letter-spacing:-.02em;line-height:1.1}
+.i-grp{margin-top:26px}
+.i-grp h2{margin:0 0 2px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
+.i-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 14px;padding:14px 0;border-bottom:1px solid var(--line);width:100%;text-align:left;align-items:baseline}
+.i-row:first-of-type{border-top:1px solid var(--line)}
+.i-row .tk{font-size:17px;font-weight:600;letter-spacing:-.01em}
+.i-row .tk em{font-style:normal;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-left:8px;vertical-align:2px}
+.i-row .nm{font-size:13px;font-weight:300;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.i-row .dd{font-size:30px;font-weight:300;letter-spacing:-.03em;line-height:1;text-align:right}
+.i-row .dd small{font-size:14px;color:var(--down);margin-right:3px}
+.i-row .meta{font-size:12px;color:var(--muted);text-align:right;white-space:nowrap}
+.i-row .sp{grid-column:1/-1;margin-top:8px;color:var(--soft)}
+.i-bl{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.i-bl button{border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:13px;display:flex;gap:8px;align-items:baseline}
+.i-bl button b{font-weight:600}
+.i-bl button span{color:var(--muted);font-weight:300;font-size:12px}
+[data-skin="index"] .sheet h3{font-weight:500;letter-spacing:-.02em}
 
-@media (prefers-reduced-motion:no-preference){.d-card,.h-tile,.l-row{transition:transform .12s ease}.d-card:active,.h-tile:active{transform:scale(.98)}}
+/* =====================================================================
+   SKIN 4 · BROKER — dark retail-broker app: rounded rows, pills, big price.
+   Deliberately single-theme (dark).
+   ===================================================================== */
+[data-skin="broker"]{--bg:#0a0a0a;--fg:#ffffff;--muted:#8e8e93;--line:#1f1f22;--card:#151517;--accent:#ffffff;--panel:#1c1c1f;--up:#2fd67b;--down:#ff5a5f;--downbg:rgba(255,90,95,.14);--upbg:rgba(47,214,123,.14);--warn:#ffb340;--sans:"DM Sans",system-ui,sans-serif;color-scheme:dark}
+[data-skin="broker"] body{font-family:var(--sans);font-size:15px}
+.b-top{display:flex;justify-content:space-between;align-items:center;padding:8px 0 4px}
+.b-top h1{margin:0;font-size:30px;font-weight:700;letter-spacing:-.02em}
+.b-top time{font-size:12px;color:var(--muted);text-align:right}
+.b-sub{color:var(--muted);font-size:13px;margin:2px 0 16px}
+.b-sum{background:var(--card);border-radius:18px;padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.b-sum div span{display:block;font-size:12px;color:var(--muted);margin-bottom:2px}
+.b-sum div b{font-size:24px;font-weight:700;letter-spacing:-.01em}
+.b-sum .chg{grid-column:1/-1;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+.b-seg{display:grid;grid-template-columns:1fr 1fr;background:var(--card);border-radius:12px;padding:3px;margin:18px 0 8px}
+.b-seg button{padding:9px;border-radius:9px;font-size:14px;font-weight:600;color:var(--muted)}
+.b-seg button[aria-pressed="true"]{background:#2a2a2e;color:var(--fg)}
+.b-pills{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:4px 0 6px}
+.b-pills span{flex:none;font-size:12px;padding:6px 10px;border-radius:999px;background:var(--card);color:var(--muted)}
+.b-row{display:grid;grid-template-columns:42px minmax(0,1fr) 58px auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);width:100%;text-align:left}
+.b-av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:12px;color:#fff}
+.b-row .tk{font-weight:700;font-size:15.5px;display:flex;gap:6px;align-items:center}
+.b-row .tk i{font-style:normal;font-size:10px;font-weight:700;padding:2px 6px;border-radius:6px;background:#2a2a2e;color:var(--muted)}
+.b-row .nm{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.b-row .r{text-align:right}
+.b-row .r b{display:block;font-weight:600;font-size:15px}
+.b-pill{display:inline-block;margin-top:3px;font-size:12px;font-weight:700;padding:3px 8px;border-radius:7px;color:var(--down);background:var(--downbg)}
+.b-pill.warn{color:var(--warn);background:rgba(255,179,64,.14)}
+[data-skin="broker"] dialog.sheet{background:#121214;border-radius:22px 22px 0 0;font-family:var(--sans)}
+[data-skin="broker"] .sheet h3{font-size:16px;font-weight:600;color:var(--muted)}
+[data-skin="broker"] .sheet .btns a{background:#fff;color:#000;border:0;border-radius:14px}
+[data-skin="broker"] .sheet .btns button{border-radius:14px;background:#222;border:0}
+.b-price{font-size:38px;font-weight:700;letter-spacing:-.02em;margin-top:4px}
+.b-price+div{font-weight:600;color:var(--down);font-size:14px}
+@media (prefers-reduced-motion:no-preference){.l-row,.b-row,.c-row,.i-row{transition:background-color .15s ease}}
 </style>
 
 <div class="wrap" id="app" aria-live="polite"><p style="font-family:monospace;color:#888">Loading screen…</p></div>
@@ -203,9 +196,9 @@ dialog.sheet::backdrop{background:rgba(0,0,0,.55)}
 
 <script>
 /* ---------------- config ---------------- */
-const DEFAULT_SKIN = "terminal";     // terminal | ledger | desk | heat
+const DEFAULT_SKIN = "ledger";       // ledger | column | index | broker
 const SHOW_SWITCHER = true;          // set false once you've picked a style
-const SKINS = [["terminal","Terminal"],["ledger","Ledger"],["desk","Desk"],["heat","Heat"]];
+const SKINS = [["ledger","Ledger"],["column","Column"],["index","Index"],["broker","Broker"]];
 
 /* ---------------- helpers ---------------- */
 const $ = s => document.querySelector(s);
@@ -252,6 +245,7 @@ function openSheet(m) {
   if (m.sector==="Finance") notes.push(`<div class="note">Financial company: TradingView's standardised EBITDA can differ a lot from what the company reports. Check the results release.</div>`);
   $("#sheetBody").innerHTML = `<div class="grab"></div>
     <h3>${esc(m.ticker)} · ${esc(short(m.name))}</h3>
+    ${document.documentElement.dataset.skin==="broker"?`<div class="b-price">A$${px(m.price)}</div><div>−${pct(m.drawdown_pct,2)} from 52-week high</div>`:""}
     <div class="sub">${esc(m.industry||m.sector||"")} · ${esc(m.status)}</div>
     <div style="margin-top:14px;color:var(--down)">${spark(m,{w:600,h:90,stroke:"currentColor",fill:"currentColor",sw:2}).replace('fill="currentColor" stroke="none"','fill="currentColor" fill-opacity=".1" stroke="none"')}</div>
     <div class="kv">
@@ -285,22 +279,6 @@ const why = m => (m.fails||[]).map(f=>f.detail).join("; ");
 /* ---------------- skin renderers ---------------- */
 const R = {};
 
-R.terminal = () => {
-  const M = D.matches, B = D.borderline;
-  const med = M.length ? [...M].sort((a,b)=>a.drawdown_pct-b.drawdown_pct)[Math.floor(M.length/2)].drawdown_pct : null;
-  const row = m => `<tr data-t="${m.ticker}"><td class="t-tk">${m.ticker}${m.is_new?"<sup>NEW</sup>":""}${m.fragile?"<sup>F</sup>":""}</td><td>${px(m.price)}</td><td class="neg">-${m.drawdown_pct.toFixed(1)}</td><td class="hide-s">${cap(m.market_cap).replace("A$","")}</td><td>${money(m.ebitda_fy).replace("A$","")}</td><td class="sp" style="color:var(--down)">${spark(m,{w:64,h:18,high:false,sw:1.2})}</td></tr>`;
-  return `<div class="t-bar"><b>WMC &lt;GO&gt;</b><small>${syd(D.run_at)} SYD</small></div>
-  <div class="t-cmd">ASX WOUNDED MID-CAP SCREEN<i>EQUITY</i></div>
-  <div class="t-meta">MCAP ${cap(crit().market_cap_min).replace("A$","A$ ")}–${cap(crit().market_cap_max).replace("A$","")} · ≥${crit().drawdown_min_pct}% OFF 52W HI · REV↑ EACH OF ${crit().revenue_years}Y · EBITDA&gt;${money(crit().ebitda_threshold).replace("A$","")}<br>
-  ${D.loosened?`<em>! ${esc(loosenNote())}</em><br>`:""}CHG: ${esc(changeText())}</div>
-  <div class="t-flags"><span><b>${M.length}</b>MATCHES</span><span><b>${D.universe_count}</b>SCREENED</span><span><b>${med!=null?med.toFixed(0)+"%":"–"}</b>MED DD</span><span><b>${B.length}</b>BORDER</span></div>
-  <div class="t-hd"><span>1) MATCHES</span><span>SORT: %OFF HI ▼</span></div>
-  <table class="t-tbl"><thead><tr><th>TICKER</th><th>LAST</th><th>%OFF</th><th class="hide-s">MCAP</th><th>EBITDA</th><th>1Y</th></tr></thead><tbody>${M.map(row).join("")}</tbody></table>
-  <div class="t-hd"><span>2) BORDERLINE</span><span>ONE RULE MISSED</span></div>
-  <table class="t-tbl"><tbody>${B.map(m=>`<tr data-t="${m.ticker}"><td class="t-tk">${m.ticker}</td><td class="neg">-${(m.drawdown_pct||0).toFixed(1)}</td><td class="why">${esc(why(m))}</td></tr>`).join("")}</tbody></table>
-  ${footer()}`;
-};
-
 R.ledger = () => {
   const M = D.matches, B = D.borderline, c = crit();
   const row = m => `<button class="l-row" data-t="${m.ticker}">
@@ -319,44 +297,65 @@ R.ledger = () => {
   ${footer()}`;
 };
 
-R.desk = () => {
+R.column = () => {
   const M = D.matches, B = D.borderline, c = crit();
-  const avgDD = M.length ? M.reduce((s,m)=>s+m.drawdown_pct,0)/M.length : null;
-  const newN = M.filter(m=>m.is_new).length;
-  const card = m => `<button class="d-card" data-t="${m.ticker}">
-      <div class="r1"><div style="display:flex;gap:10px;align-items:center;min-width:0"><div class="d-av">${m.ticker}</div><div style="min-width:0"><div class="tk">${m.ticker} ${m.is_new?'<span class="d-new">new</span>':""}</div><div class="nm">${esc(short(m.name))}</div></div></div><span class="d-dd">−${m.drawdown_pct.toFixed(1)}%</span></div>
-      <div class="px">A$${px(m.price)}<small>high ${px(m.high_52w)}</small></div>
-      <div style="color:var(--down)">${spark(m,{w:260,h:56,fill:"currentColor",sw:2}).replace('fill="currentColor" stroke="none"','fill="currentColor" fill-opacity=".12" stroke="none"')}</div>
-      <div class="ft"><div><span>Market cap</span><b>${cap(m.market_cap)}</b></div><div><span>EBITDA</span><b>${money(m.ebitda_fy)}</b></div>
-      <div><span>Revenue, ${m.revenue_fy?m.revenue_fy.length:0} FY</span><div style="color:var(--accent)">${revBars(m,{w:90,h:24})}</div></div><div><span>Rev growth (latest)</span><b class="pos">${m.revenue_yoy_pct?spct(m.revenue_yoy_pct.at(-1),0):"–"}</b></div></div>
-      ${m.fragile?'<div style="font-size:11px;color:var(--warn);font-weight:700">Fragile: 52w high rolls off soon</div>':""}</button>`;
-  const li = m => { const g = Math.min(100, (m.drawdown_pct||0)/c.drawdown_min_pct*100);
-    return `<button class="d-li" data-t="${m.ticker}"><div class="d-av">${m.ticker}</div><div style="min-width:0"><div class="tk">${esc(short(m.name))}</div><div class="why">${RULE[m.fails[0].rule]}: ${esc(m.fails[0].detail)}</div></div><div class="d-meter">${pct(m.drawdown_pct,0)}<i><em style="width:${g}%"></em></i></div></button>`; };
-  return `<div class="d-top"><div class="brand"><i>↘</i>Wounded mid-caps</div><time>${syd(D.run_at)}</time></div>
-  <section class="d-hero"><div class="big"><b>${M.length} matches</b><span>${D.loosened?esc(loosenNote()):`ASX stocks passing all four rules, out of ${D.universe_count} screened`}</span></div>
-    <div class="k"><span>Avg drawdown</span><b>${pct(avgDD,0)}</b></div><div class="k"><span>New today</span><b>${newN}</b></div><div class="k"><span>Borderline</span><b>${B.length}</b></div></section>
-  <div class="d-chips"><span>${cap(c.market_cap_min)}–${cap(c.market_cap_max)}</span><span>≥${c.drawdown_min_pct}% off high</span><span>Rev up ${c.revenue_years}/${c.revenue_years} yrs</span><span>EBITDA &gt; ${money(c.ebitda_threshold)}</span></div>
-  <div class="d-h2"><h2>Matches</h2><span>swipe →</span></div>
-  <div class="d-rail">${M.map(card).join("")}</div>
-  <div class="d-h2"><h2>Watchlist</h2><span>${esc(changeText())}</span></div>
-  <div class="d-list">${B.map(li).join("")}</div>
+  const med = M.length ? [...M].sort((a,b)=>a.drawdown_pct-b.drawdown_pct)[Math.floor(M.length/2)].drawdown_pct : null;
+  const bar = (dd, warn) => `<div class="c-bar${warn?" warn":""}"><em style="width:${Math.min(100,dd||0)}%"></em><i style="left:${c.drawdown_min_pct}%"></i></div>`;
+  const row = m => `<button class="c-row" data-t="${m.ticker}"><span class="tk">${m.ticker}</span>
+      <span class="nm">${esc(short(m.name))}${m.is_new?'<span class="c-flag">NEW</span>':""}${m.fragile?'<span class="c-flag">FRAGILE</span>':""}<small>${cap(m.market_cap)} · ${money(m.ebitda_fy).replace("A$","")} EBITDA</small></span>
+      ${bar(m.drawdown_pct)}<span class="v">${m.drawdown_pct.toFixed(1)}</span></button>`;
+  const brow = m => `<button class="c-row" data-t="${m.ticker}"><span class="tk">${m.ticker}</span>
+      <span class="nm">${esc(short(m.name))}<small>${cap(m.market_cap)}</small></span>
+      ${bar(m.drawdown_pct, true)}<span class="v">${(m.drawdown_pct||0).toFixed(1)}</span>
+      <span class="why">${RULE[m.fails[0].rule]}: ${esc(m.fails[0].detail)}</span></button>`;
+  return `<header class="c-mast"><h1>Wounded mid-caps</h1><span>ASX · ${sydDate(D.run_at)}</span></header>
+  <div class="c-crit"><b>${cap(c.market_cap_min)}–${cap(c.market_cap_max)}</b> cap · <b>≥${c.drawdown_min_pct}%</b> off 52w high · revenue up <b>${c.revenue_years}/${c.revenue_years}</b> yrs · EBITDA <b>&gt;${money(c.ebitda_threshold)}</b>${D.loosened?`<br><b style="color:var(--accent)">${esc(loosenNote())}</b>`:""}</div>
+  <div class="c-stats"><div><b>${M.length}</b>matches</div><div><b>${med!=null?med.toFixed(0)+"%":"–"}</b>median drawdown</div><div><b>${D.universe_count}</b>screened</div></div>
+  <div class="c-sec"><h2>Matches</h2><span>% below 52w high</span></div>
+  ${M.map(row).join("")}
+  <div class="c-key"><span><i></i>${c.drawdown_min_pct}% threshold</span><span>${esc(changeText())}</span></div>
+  <div class="c-sec"><h2>Borderline</h2><span>missed one rule</span></div>
+  ${B.map(brow).join("")}
   ${footer()}`;
 };
 
-R.heat = () => {
-  const M = D.matches, B = D.borderline;
-  const shade = dd => { const t = Math.max(0, Math.min(1, (dd-45)/40)); const a=[90,26,23], b=[255,90,78]; return `rgb(${a.map((x,i)=>Math.round(x+(b[i]-x)*t)).join(",")})`; };
-  const size = m => m.market_cap >= 2e9 ? "w2 h2" : m.market_cap >= 1e9 ? "w2" : "";
-  const tile = m => `<button class="h-tile ${size(m)}" data-t="${m.ticker}" style="background:${shade(m.drawdown_pct)}">
-      ${m.is_new?'<span class="flag">NEW</span>':m.fragile?'<span class="flag">FRAGILE</span>':""}
-      <div class="tk">${m.ticker}</div><div><div class="dd">−${m.drawdown_pct.toFixed(0)}%</div><div class="mc">${cap(m.market_cap)}</div></div>
-      ${size(m).includes("h2")?`<div class="sp" style="color:#fff">${spark(m,{w:200,h:60,high:false,sw:2})}</div>`:""}</button>`;
-  return `<div class="h-head"><div><h1>Wounded<br>mid-caps</h1><p>ASX · ${syd(D.run_at)} · ${M.length} of ${D.universe_count}</p></div><div class="h-legend">45%<i></i>85%</div></div>
-  ${D.loosened?`<p style="color:#f2c14e;font:500 12px var(--mono)">${esc(loosenNote())}</p>`:""}
-  <div class="h-grid">${M.map(tile).join("")}</div>
-  <p style="font:500 11px/1.5 var(--mono);color:var(--muted);margin:8px 0 0">Tile size = market cap (≥A$2bn, ≥A$1bn, smaller). Colour = drawdown from 52-week high. ${esc(changeText())}</p>
-  <div class="h-sec">Borderline <span>missed one rule</span></div>
-  <div class="h-grid bl">${B.map(m=>`<button class="h-tile" data-t="${m.ticker}"><div class="tk">${m.ticker}</div><div class="dd">${RULE[m.fails[0].rule]} · ${pct(m.drawdown_pct,0)}</div></button>`).join("")}</div>
+R.index = () => {
+  const M = D.matches, B = D.borderline, c = crit();
+  const groups = {};
+  M.forEach(m => (groups[m.sector||"Other"] ||= []).push(m));
+  const order = Object.keys(groups).sort((a,b)=>groups[b].length-groups[a].length || a.localeCompare(b));
+  const avg = M.length ? M.reduce((s,m)=>s+m.drawdown_pct,0)/M.length : null;
+  const row = m => `<button class="i-row" data-t="${m.ticker}">
+      <div style="min-width:0"><div class="tk">${m.ticker}${m.is_new?"<em>New</em>":""}${m.fragile?"<em>Fragile</em>":""}</div><div class="nm">${esc(short(m.name))}</div></div>
+      <div><div class="dd"><small>▼</small>${m.drawdown_pct.toFixed(1)}%</div><div class="meta">A$${px(m.price)} · ${cap(m.market_cap)}</div></div>
+      <div class="sp">${spark(m,{w:700,h:26,sw:1.2})}</div></button>`;
+  return `<header class="i-head"><div class="ey">ASX screen · ${sydDate(D.run_at)}</div>
+    <h1><b>${M.length} wounded</b> mid-caps</h1>
+    <p>Down at least ${c.drawdown_min_pct}% from the 52-week high, revenue up in each of the last ${c.revenue_years} years, EBITDA positive, ${cap(c.market_cap_min)}–${cap(c.market_cap_max)} market cap.${D.loosened?" "+esc(loosenNote()):""}</p></header>
+  <div class="i-figs"><div><b>${D.universe_count}</b>screened</div><div><b>${pct(avg,0)}</b>avg drawdown</div><div><b>${B.length}</b>near misses</div></div>
+  ${order.map(g=>`<section class="i-grp"><h2><span>${esc(g)}</span><span>${groups[g].length}</span></h2>${groups[g].map(row).join("")}</section>`).join("")}
+  <section class="i-grp"><h2><span>Near misses</span><span>${esc(changeText())}</span></h2>
+  <div class="i-bl">${B.map(m=>`<button data-t="${m.ticker}"><b>${m.ticker}</b><span>${RULE[m.fails[0].rule]} · ${pct(m.drawdown_pct,0)}</span></button>`).join("")}</div></section>
+  ${footer()}`;
+};
+
+let brokerTab = "matches";
+const AV = ["#3d5afe","#00a389","#e2552e","#8e44ec","#d4a017","#1e88e5","#c2185b","#43a047"];
+const avColor = t => AV[[...t].reduce((s,ch)=>s+ch.charCodeAt(0),0) % AV.length];
+R.broker = () => {
+  const M = D.matches, B = D.borderline, c = crit();
+  const list = brokerTab === "matches" ? M : B;
+  const row = m => `<button class="b-row" data-t="${m.ticker}"><div class="b-av" style="background:${avColor(m.ticker)}">${m.ticker}</div>
+      <div style="min-width:0"><div class="tk">${m.ticker}${m.is_new?"<i>NEW</i>":""}${m.fragile?"<i>FRAGILE</i>":""}</div><div class="nm">${brokerTab==="matches"?esc(short(m.name)):RULE[m.fails[0].rule]+": "+esc(m.fails[0].detail)}</div></div>
+      <div style="color:var(--down)">${spark(m,{w:58,h:26,high:false,sw:1.6})}</div>
+      <div class="r"><b>$${px(m.price)}</b><span class="b-pill${brokerTab==="matches"?"":" warn"}">−${(m.drawdown_pct||0).toFixed(2)}%</span></div></button>`;
+  return `<div class="b-top"><h1>Screener</h1><time>ASX<br>${syd(D.run_at)}</time></div>
+  <div class="b-sub">Wounded mid-caps · ${D.universe_count} stocks screened</div>
+  <div class="b-sum"><div><span>Matches</span><b>${M.length}</b></div><div><span>Watchlist</span><b>${B.length}</b></div>
+    <div class="chg">${D.loosened?esc(loosenNote())+" ":""}${esc(changeText())}</div></div>
+  <div class="b-seg" role="group" aria-label="List"><button data-tab="matches" aria-pressed="${brokerTab==="matches"}">Matches</button><button data-tab="watch" aria-pressed="${brokerTab==="watch"}">Watchlist</button></div>
+  <div class="b-pills"><span>${cap(c.market_cap_min)}–${cap(c.market_cap_max)}</span><span>≥${c.drawdown_min_pct}% off high</span><span>Revenue ↑ ${c.revenue_years} yrs</span><span>EBITDA &gt; ${money(c.ebitda_threshold)}</span></div>
+  ${list.map(row).join("")}
   ${footer()}`;
 };
 
@@ -369,6 +368,7 @@ function render() {
   document.querySelector('meta[name="theme-color"]').content = getComputedStyle(document.documentElement).getPropertyValue("--bg").trim() || "#000";
   $("#app").innerHTML = R[s]();
   $("#app").querySelectorAll("[data-t]").forEach(el => el.addEventListener("click", () => openSheet(BY[el.dataset.t])));
+  $("#app").querySelectorAll("[data-tab]").forEach(el => el.addEventListener("click", () => { brokerTab = el.dataset.tab; render(); }));
   if (SHOW_SWITCHER) {
     $("#switch").hidden = false;
     $("#switch nav").innerHTML = SKINS.map(([k,l]) => `<a href="#${k}" aria-current="${k===s}">${l}</a>`).join("");
