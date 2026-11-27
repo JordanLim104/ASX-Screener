@@ -26,12 +26,14 @@
   --bg:#121317; --fg:#eceef2; --muted:#8b909b; --line:#262830; --panel:#1b1d23; --soft:#4a4e58;
   --down:#ff5468; --up:#3ccf8e; --warn:#e5a93a; color-scheme:dark}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:14px;font-variant-numeric:tabular-nums;-webkit-text-size-adjust:100%}
+/* html gets the page colour too, so iOS paints the status-bar and home-indicator strips dark in dark mode */
+html{background:var(--bg)}
+body{margin:0;min-height:100vh;min-height:100dvh;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:14px;font-variant-numeric:tabular-nums;-webkit-text-size-adjust:100%}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 svg{display:block;max-width:100%}
-.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:8px 48px}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:8px calc(48px + env(safe-area-inset-bottom,0px))}
 
 .head{padding:22px 0 18px}
 .ey{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}

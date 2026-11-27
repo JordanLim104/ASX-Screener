@@ -1,7 +1,7 @@
 /* Service worker: makes the dashboard installable and usable offline.
    App files: cache first, refreshed in the background.
    Screen data and price history: network first, cached copy when offline. */
-const VERSION = "v1";
+const VERSION = "v2";
 const SHELL = ["./", "index.html", "logos.js", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png"];
 
 self.addEventListener("install", e => {
